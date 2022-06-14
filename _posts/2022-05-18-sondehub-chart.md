@@ -871,92 +871,92 @@ The following Swagger UI component can be used to access the SondeHub Listener S
       }
    }
    .swagger-ui .info .title, .swagger-ui a.nostyle, .swagger-ui .parameter__name, .swagger-ui .parameter__type, .swagger-ui .parameter__deprecated, .swagger-ui .parameter__in, .swagger-ui table thead tr th, .swagger-ui .response-col_status, .swagger-ui table thead tr td, .swagger-ui .opblock .opblock-section-header h4, .swagger-ui label, .swagger-ui .tab li, .swagger-ui .opblock .opblock-section-header label, .swagger-ui .btn {
-      color: #CCCCCC;
+      color: #CCCCCC!important;
    }
    body, .swagger-ui .info .title, .swagger-ui .scheme-container, .swagger-ui select {
-      background-color: #222;
-      color: #CCC;
+      background-color: #222!important;
+      color: #CCC!important;
    }
    .swagger-ui .opblock .opblock-section-header {
-      background-color: transparent;
+      background-color: transparent!important;
    }
    .swagger-ui textarea, .swagger-ui input[type=text] {
-      background-color: #41444e;
-      color: #CCC;
+      background-color: #41444e!important;
+      color: #CCC!important;
    }
    .swagger-ui .topbar {
-      background-color: #000;
+      background-color: #000!important;
    }
    .swagger-ui .info .base-url {
-      color: #CCC;
+      color: #CCC!important;
    }
    .swagger-ui .scheme-container .schemes > label {
-      color: #CCC;
+      color: #CCC!important;
    }
    .swagger-ui section.models h4 {
-      color: #CCC;
+      color: #CCC!important;
    }
    .swagger-ui .model-title {
-      color: #CCC;
+      color: #CCC!important;
    }
    .swagger-ui .model {
-      color: #CCC;
+      color: #CCC!important;
    }
    .swagger-ui .opblock-tag {
-      color: #CCC;
+      color: #CCC!important;
    }
    .swagger-ui a.nostyle, .swagger-ui a.nostyle:visited {
-      color: #CCC;
+      color: #CCC!important;
    }
    .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p {
-      color: #CCC;
+      color: #CCC!important;
    }
    .swagger-ui .responses-inner h4, .swagger-ui .responses-inner h5 {
-      color: #CCC;
+      color: #CCC!important;
    }
    .arrow {
-      fill: #CCC;
+      fill: #CCC!important;
    }
    #large-arrow-down {
-      fill: #CCC;
+      fill: #CCC!important;
    }
    .model-toggle collapsed {
-      fill: #CCC;
+      fill: #CCC!important;
    }
    .swagger-ui {
-      color: #CCC;
+      color: #CCC!important;
    }
    .swagger-ui .prop-type {
-      color: #aeaef2;
+      color: #aeaef2!important;
    }
    .swagger-ui .opblock-tag {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3)!important;
    }
    .swagger-ui .model-toggle::after {
-      display: block;
-      width: 20px;
-      height: 20px;
-      content: "";
-      background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23FFFFFF' viewBox='0 0 24 24'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E") 50% no-repeat;
-      background-size: auto;
-      background-size: 100%;
+      display: block!important;
+      width: 20px!important;
+      height: 20px!important;
+      content: ""!important;
+      background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23FFFFFF' viewBox='0 0 24 24'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E") 50% no-repeat!important;
+      background-size: auto!important;
+      background-size: 100%!important;
    }
    .swagger-ui select {
-      font-size: 14px;
-      font-weight: 700;
-      padding: 5px 40px 5px 10px;
-      border: 2px solid #41444e;
-      border-radius: 4px;
-      background-color: rgb(247, 247, 247);
-      background-size: auto;
-      background-size: 20px;
-      -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .25);
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .25);
-      font-family: sans-serif;
-      color: #3b4151;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
+      font-size: 14px!important;
+      font-weight: 700!important;
+      padding: 5px 40px 5px 10px!important;
+      border: 2px solid #41444e!important;
+      border-radius: 4px!important;
+      background-color: rgb(247, 247, 247)!important;
+      background-size: auto!important;
+      background-size: 20px!important;
+      -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .25)!important;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .25)!important;
+      font-family: sans-serif!important;
+      color: #3b4151!important;
+      -webkit-appearance: none!important;
+      -moz-appearance: none!important;
+      appearance: none!important;
    }
 </style>
 
