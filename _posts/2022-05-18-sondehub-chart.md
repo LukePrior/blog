@@ -870,6 +870,94 @@ The following Swagger UI component can be used to access the SondeHub Listener S
          min-width: 40%!important;
       }
    }
+   .swagger-ui .info .title, .swagger-ui a.nostyle, .swagger-ui .parameter__name, .swagger-ui .parameter__type, .swagger-ui .parameter__deprecated, .swagger-ui .parameter__in, .swagger-ui table thead tr th, .swagger-ui .response-col_status, .swagger-ui table thead tr td, .swagger-ui .opblock .opblock-section-header h4, .swagger-ui label, .swagger-ui .tab li, .swagger-ui .opblock .opblock-section-header label, .swagger-ui .btn {
+      color: #CCCCCC;
+   }
+   body, .swagger-ui .info .title, .swagger-ui .scheme-container, .swagger-ui select {
+      background-color: #222;
+      color: #CCC;
+   }
+   .swagger-ui .opblock .opblock-section-header {
+      background-color: transparent;
+   }
+   .swagger-ui textarea, .swagger-ui input[type=text] {
+      background-color: #41444e;
+      color: #CCC;
+   }
+   .swagger-ui .topbar {
+      background-color: #000;
+   }
+   .swagger-ui .info .base-url {
+      color: #CCC;
+   }
+   .swagger-ui .scheme-container .schemes > label {
+      color: #CCC;
+   }
+   .swagger-ui section.models h4 {
+      color: #CCC;
+   }
+   .swagger-ui .model-title {
+      color: #CCC;
+   }
+   .swagger-ui .model {
+      color: #CCC;
+   }
+   .swagger-ui .opblock-tag {
+      color: #CCC;
+   }
+   .swagger-ui a.nostyle, .swagger-ui a.nostyle:visited {
+      color: #CCC;
+   }
+   .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p {
+      color: #CCC;
+   }
+   .swagger-ui .responses-inner h4, .swagger-ui .responses-inner h5 {
+      color: #CCC;
+   }
+   .arrow {
+      fill: #CCC;
+   }
+   #large-arrow-down {
+      fill: #CCC;
+   }
+   .model-toggle collapsed {
+      fill: #CCC;
+   }
+   .swagger-ui {
+      color: #CCC;
+   }
+   .swagger-ui .prop-type {
+      color: #aeaef2;
+   }
+   .swagger-ui .opblock-tag {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+   }
+   .swagger-ui .model-toggle::after {
+      display: block;
+      width: 20px;
+      height: 20px;
+      content: "";
+      background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23FFFFFF' viewBox='0 0 24 24'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E") 50% no-repeat;
+      background-size: auto;
+      background-size: 100%;
+   }
+   .swagger-ui select {
+      font-size: 14px;
+      font-weight: 700;
+      padding: 5px 40px 5px 10px;
+      border: 2px solid #41444e;
+      border-radius: 4px;
+      background-color: rgb(247, 247, 247);
+      background-size: auto;
+      background-size: 20px;
+      -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .25);
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .25);
+      font-family: sans-serif;
+      color: #3b4151;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+   }
 </style>
 
 <script>
