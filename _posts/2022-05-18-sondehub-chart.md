@@ -7,7 +7,7 @@ categories: [SondeHub]
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui.css">
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui-bundle.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui-bundle.js"></script>
 
 This blog post contains instructions on how to use Chart.js to create a custom donut chart specifically designed for showing receiver data from SondeHub.
 
@@ -404,7 +404,7 @@ plugins: {
                      var value = chart.getDatasetMeta(1).data[i].$context.parsed;
                      sum += value;
                      if (sum > start && sum <= end) {
-                     chart.getDatasetMeta(1).data[i].hidden = hidden;
+                        chart.getDatasetMeta(1).data[i].hidden = hidden;
                      }
                   });
                   chart.update();
