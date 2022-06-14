@@ -511,10 +511,10 @@ This function will toggle the nested data visiblity when the following button is
                   chart.data.datasets[0].data.forEach((v, i) => {
                      var value = chart.getDatasetMeta(0).data[i].$context.parsed;
                      if (i == legendItem.index) {
-                        start = sum
-                     end = sum + value
+                        start = sum;
+                        end = sum + value;
                      }
-                     sum += value
+                     sum += value;
                   });
                   sum = 0;
                   chart.data.datasets[1].data.forEach((v, i) => {
@@ -679,7 +679,8 @@ document.getElementById('nested').addEventListener('click', () => {
             'rgb(255, 205, 86)'
          ]
       }]
-   ]
+   ];
+
    const data6 = {
       labels: [
          'Red',
@@ -732,10 +733,10 @@ document.getElementById('nested').addEventListener('click', () => {
                   chart.data.datasets[0].data.forEach((v, i) => {
                      var value = chart.getDatasetMeta(0).data[i].$context.parsed;
                      if (i == legendItem.index) {
-                        start = sum
-                     end = sum + value
+                        start = sum;
+                        end = sum + value;
                      }
-                     sum += value
+                     sum += value;
                   });
                   sum = 0;
                   chart.data.datasets[1].data.forEach((v, i) => {
@@ -870,7 +871,7 @@ The following Swagger UI component can be used to access the SondeHub Listener S
             },
          }
       }
-   }
+   };
 
    const spec = {
       'swagger': '2.0',
