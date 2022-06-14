@@ -15,47 +15,47 @@ Chart.js is a simple JavaScript charting library for creating responsive visuali
 
 Chart.js can easily be added on an existing website by including the latest version of the library from a CDN or locally.
 
-```markup
-   &lt;script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js">&lt;/script>
+```html
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
 ```
 
 <h3>Donut Chart</h3>
 
 To render a chart a canvas element needs to be added to the website</p>
 
-```markup
-   &lt;canvas id="myChart" width="400" height="400">&lt;/canvas>
+```html
+<canvas id="myChart" width="400" height="400"></canvas>
 ```
 
 The graph requires a data object which contains the dataset and formatting options for the graph.</p>
 
 ```javascript
-   const data = {
-      labels: [
-         'Red',
-         'Blue',
-         'Yellow'
-      ],
-      datasets: [{
-         data: [300, 50, 100],
-         backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-         ]
-      }]
-   };
+const data = {
+   labels: [
+      'Red',
+      'Blue',
+      'Yellow'
+   ],
+   datasets: [{
+      data: [300, 50, 100],
+      backgroundColor: [
+         'rgb(255, 99, 132)',
+         'rgb(54, 162, 235)',
+         'rgb(255, 205, 86)'
+      ]
+   }]
+};
 ```
 
 The graph can now be created and rendered by passing through the canvas element and data object.
 
 ```javascript
-   const ctx = document.getElementById('myChart').getContext('2d');
+const ctx = document.getElementById('myChart').getContext('2d');
 
-   const myChart = new Chart(ctx, {
-      type: 'doughnut',
-      data: data
-   });
+const myChart = new Chart(ctx, {
+   type: 'doughnut',
+   data: data
+});
 ```
 
 <h3>Result</h3>
@@ -94,30 +94,30 @@ The default tooltip only shows the label and value for each entry.
 This can be overriden by creating a custom tooltip which can show the percentage for each entry.
 
 ```javascript
-   const myChart = new Chart(ctx, {
-      type: 'doughnut',
-      data: data,
-      options: {
-      plugins: {
-         tooltip: {
-            enabled: true,
-            callbacks: {
-               label: (ttItem) => {
-                  let sum = 0;
-      
-                  let dataArr = ttItem.dataset.data;
-                  dataArr.map(data => {
-                     sum += Number(data);
-                  });
-      
-                  let percentage = (ttItem.parsed * 100 / sum).toFixed(2) + '%';
-                  return `${ttItem.parsed}: ${percentage}`;
-               }
+const myChart = new Chart(ctx, {
+   type: 'doughnut',
+   data: data,
+   options: {
+   plugins: {
+      tooltip: {
+         enabled: true,
+         callbacks: {
+            label: (ttItem) => {
+               let sum = 0;
+   
+               let dataArr = ttItem.dataset.data;
+               dataArr.map(data => {
+                  sum += Number(data);
+               });
+   
+               let percentage = (ttItem.parsed * 100 / sum).toFixed(2) + '%';
+               return `${ttItem.parsed}: ${percentage}`;
             }
          }
       }
-      }
-   });
+   }
+   }
+});
 ```
 
 <h3>Result</h3>
@@ -174,28 +174,28 @@ This can be overriden by creating a custom tooltip which can show the percentage
 Chart.js includes limited nested data support with donut charts by passing through multiple datasets.
 
 ```javascript
-   const data = {
-      labels: [
-         'Red',
-         'Blue',
-         'Yellow'
-      ],
-      datasets: [{
-         data: [300, 50, 100],
-         backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-         ]
-      }, {
-         data: [200, 75, 175],
-         backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-         ]
-      }]
-   };
+const data = {
+   labels: [
+      'Red',
+      'Blue',
+      'Yellow'
+   ],
+   datasets: [{
+      data: [300, 50, 100],
+      backgroundColor: [
+         'rgb(255, 99, 132)',
+         'rgb(54, 162, 235)',
+         'rgb(255, 205, 86)'
+      ]
+   }, {
+      data: [200, 75, 175],
+      backgroundColor: [
+         'rgb(255, 99, 132)',
+         'rgb(54, 162, 235)',
+         'rgb(255, 205, 86)'
+      ]
+   }]
+};
 ```
 
 <h3>Result</h3>
@@ -257,66 +257,66 @@ Chart.js includes limited nested data support with donut charts by passing throu
 This works well when the inner dataset is the same length as the outer dataset however to have sub-categories in the inner-dataset a custom legend handler is required.
 
 ```javascript
-   datasets: [{
-      data: [300, 50, 100],
-      backgroundColor: [
-         'rgb(255, 99, 132)',
-         'rgb(54, 162, 235)',
-         'rgb(255, 205, 86)'
-      ]
-   }, {
-      data: [150, 150, 50, 75, 25],
-      backgroundColor: [
-         'rgb(255, 99, 132)',
-         'rgb(255, 99, 132)',
-         'rgb(54, 162, 235)',
-         'rgb(255, 205, 86)',
-         'rgb(255, 205, 86)'
-      ]
-   }]
+datasets: [{
+   data: [300, 50, 100],
+   backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+   ]
+}, {
+   data: [150, 150, 50, 75, 25],
+   backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)',
+      'rgb(255, 205, 86)'
+   ]
+}]
 ```
 
 The sub-entries can be grouped with their parents if their values are perfectly nested using the following custom legend handler.
 
 ```javascript
-   plugins: {
-      legend: {
-         labels: {
-            generateLabels: chart => chart.data.labels.map((l, i) => ({
-               text: l,
-               index: i,
-               fillStyle: chart.data.datasets[0].backgroundColor[i],
-               strokeStyle: chart.data.datasets[0].backgroundColor[i],
-               hidden: chart.getDatasetMeta(0).data[i].hidden
-            })),
-         },
-         onClick: (event, legendItem, legend) => {
-            var start = 0;
-            var end = 0;
-            var sum = 0;
-            let chart = legend.chart;
-            let hidden = !chart.getDatasetMeta(0).data[legendItem.index].hidden;
-            chart.getDatasetMeta(0).data[legendItem.index].hidden = hidden;
-            chart.data.datasets[0].data.forEach((v, i) => {
-               var value = chart.getDatasetMeta(0).data[i].$context.parsed;
-               if (i == legendItem.index) {
-                  start = sum
-                  end = sum + value
-               }
-               sum += value
-            });
-            sum = 0;
-            chart.data.datasets[1].data.forEach((v, i) => {
-               var value = chart.getDatasetMeta(1).data[i].$context.parsed;
-               sum += value;
-               if (sum > start && sum <= end) {
-                  chart.getDatasetMeta(1).data[i].hidden = hidden;
-               }
-            });
-            chart.update();
-         }
+plugins: {
+   legend: {
+      labels: {
+         generateLabels: chart => chart.data.labels.map((l, i) => ({
+            text: l,
+            index: i,
+            fillStyle: chart.data.datasets[0].backgroundColor[i],
+            strokeStyle: chart.data.datasets[0].backgroundColor[i],
+            hidden: chart.getDatasetMeta(0).data[i].hidden
+         })),
+      },
+      onClick: (event, legendItem, legend) => {
+         var start = 0;
+         var end = 0;
+         var sum = 0;
+         let chart = legend.chart;
+         let hidden = !chart.getDatasetMeta(0).data[legendItem.index].hidden;
+         chart.getDatasetMeta(0).data[legendItem.index].hidden = hidden;
+         chart.data.datasets[0].data.forEach((v, i) => {
+            var value = chart.getDatasetMeta(0).data[i].$context.parsed;
+            if (i == legendItem.index) {
+               start = sum
+               end = sum + value
+            }
+            sum += value
+         });
+         sum = 0;
+         chart.data.datasets[1].data.forEach((v, i) => {
+            var value = chart.getDatasetMeta(1).data[i].$context.parsed;
+            sum += value;
+            if (sum > start && sum <= end) {
+               chart.getDatasetMeta(1).data[i].hidden = hidden;
+            }
+         });
+         chart.update();
       }
    }
+}
 ```
 
 <h3>Result</h3>
@@ -418,20 +418,20 @@ The sub-entries can be grouped with their parents if their values are perfectly 
 The nested data can also be toggled on and off by creating a simple function.
 
 ```javascript
-   document.getElementById('nested').addEventListener('click', () => {
-      if (data.datasets[1].hasOwnProperty("hidden") && data.datasets[1].hidden == true) {
-         data.datasets[1].hidden = false;
-      } else {
-         data.datasets[1].hidden = true;
-      }
-      myChart.update();
-   });
+document.getElementById('nested').addEventListener('click', () => {
+   if (data.datasets[1].hasOwnProperty("hidden") && data.datasets[1].hidden == true) {
+      data.datasets[1].hidden = false;
+   } else {
+      data.datasets[1].hidden = true;
+   }
+   myChart.update();
+});
 ```
 
 This function will toggle the nested data visiblity when the following button is pressed.
 
-```markup
-   &lt;button id="nested" class="button">Toggle Nested&lt;/button>
+```html
+<button id="nested" class="button">Toggle Nested</button>
 ```
 
 <h3>Result</h3>
@@ -546,90 +546,90 @@ To show multiple datasets on the graph switching functionality has to be impleme
 The first step is to move the datasets to a new object.
 
 ```javascript
-   const datasets = [
-      [{
-      data: [300, 50, 100],
-      backgroundColor: [
-         'rgb(255, 99, 132)',
-         'rgb(54, 162, 235)',
-         'rgb(255, 205, 86)'
-      ]
-      }, {
-      data: [150, 150, 50, 75, 25],
-      backgroundColor: [
-         'rgb(255, 99, 132)',
-         'rgb(255, 99, 132)',
-         'rgb(54, 162, 235)',
-         'rgb(255, 205, 86)',
-         'rgb(255, 205, 86)'
-      ]
-      }],
-      [{
-      data: [150, 100, 200],
-      backgroundColor: [
-         'rgb(255, 99, 132)',
-         'rgb(54, 162, 235)',
-         'rgb(255, 205, 86)'
-      ]
-      }, {
-      data: [150, 25, 75, 100, 50, 50],
-      backgroundColor: [
-         'rgb(255, 99, 132)',
-         'rgb(54, 162, 235)',
-         'rgb(54, 162, 235)',
-         'rgb(255, 205, 86)',
-         'rgb(255, 205, 86)',
-         'rgb(255, 205, 86)'
-      ]
-      }]
+const datasets = [
+   [{
+   data: [300, 50, 100],
+   backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
    ]
+   }, {
+   data: [150, 150, 50, 75, 25],
+   backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)',
+      'rgb(255, 205, 86)'
+   ]
+   }],
+   [{
+   data: [150, 100, 200],
+   backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+   ]
+   }, {
+   data: [150, 25, 75, 100, 50, 50],
+   backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)',
+      'rgb(255, 205, 86)',
+      'rgb(255, 205, 86)'
+   ]
+   }]
+]
 ```
 
 The data object then needs to point to the first entry in datasets.
 
 ```javascript
-   const data = {
-      labels: [
-        'Red',
-        'Blue',
-        'Yellow'
-      ],
-      datasets: datasets[0]
-   };
+const data = {
+   labels: [
+      'Red',
+      'Blue',
+      'Yellow'
+   ],
+   datasets: datasets[0]
+};
 ```
 
 To switch between these datasets a new function is required.
 
 ```javascript
-   document.getElementById('dataset').addEventListener('click', () => {
-      if (datasets.indexOf(data.datasets) == -1 || datasets.indexOf(data.datasets) == 1) {
-         data.datasets = datasets[0]
-      } else {
-         data.datasets = datasets[1]
-      }
-      myChart.update();
-   });
+document.getElementById('dataset').addEventListener('click', () => {
+   if (datasets.indexOf(data.datasets) == -1 || datasets.indexOf(data.datasets) == 1) {
+      data.datasets = datasets[0]
+   } else {
+      data.datasets = datasets[1]
+   }
+   myChart.update();
+});
 ```
 
 This function will switch the visible dataset when the following button is pressed.
 
-```markup
-   &lt;button id="dataset" class="button">Switch Dataset&lt;/button>
+```html
+<button id="dataset" class="button">Switch Dataset</button>
 ```
 
 The toggle nested function will need to be updated so that both datasets share the same view.
 
 ```javascript
-   document.getElementById('nested').addEventListener('click', () => {
-      if (data.datasets[1].hasOwnProperty("hidden") && data.datasets[1].hidden == true) {
-         datasets[0][1].hidden = false;
-         datasets[1][1].hidden = false;
-      } else {
-         datasets[0][1].hidden = true;
-         datasets[1][1].hidden = true;
-      }
-      myChart.update();
-   });
+document.getElementById('nested').addEventListener('click', () => {
+   if (data.datasets[1].hasOwnProperty("hidden") && data.datasets[1].hidden == true) {
+      datasets[0][1].hidden = false;
+      datasets[1][1].hidden = false;
+   } else {
+      datasets[0][1].hidden = true;
+      datasets[1][1].hidden = true;
+   }
+   myChart.update();
+});
 ```
 
 <h3>Result</h3>
@@ -779,8 +779,8 @@ The API can be integrated with the chart to ensure that the latest information i
 
 The specific Python code and Elasticsearch Query for generating the API response can be found <a href="https://github.com/projecthorus/sondehub-infra/blob/a70f7aac4c3b4745a1894d9c7a261830ea982fa3/lambda/query/__init__.py#L394">here</a>.
 
-```markup
-   https://api.v2.sondehub.org/listeners/stats
+```
+https://api.v2.sondehub.org/listeners/stats
 ```
 
 ```json
