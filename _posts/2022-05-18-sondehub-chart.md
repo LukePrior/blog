@@ -302,10 +302,10 @@ plugins: {
          chart.data.datasets[0].data.forEach((v, i) => {
             var value = chart.getDatasetMeta(0).data[i].$context.parsed;
             if (i == legendItem.index) {
-               start = sum
-               end = sum + value
+               start = sum;
+               end = sum + value;
             }
-            sum += value
+            sum += value;
          });
          sum = 0;
          chart.data.datasets[1].data.forEach((v, i) => {
