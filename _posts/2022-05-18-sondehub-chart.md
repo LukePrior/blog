@@ -7,29 +7,29 @@ categories: [SondeHub]
 
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 
-<p>This blog post contains instructions on how to use Chart.js to create a custom donut chart specifically designed for showing receiver data from SondeHub.</p>
+This blog post contains instructions on how to use Chart.js to create a custom donut chart specifically designed for showing receiver data from SondeHub.
 
 <h2>Chart.js</h2>
 
-<p>Chart.js is a simple JavaScript charting library for creating responsive visualisations of various types and styles.</p>
+Chart.js is a simple JavaScript charting library for creating responsive visualisations of various types and styles.
 
-<p>Chart.js can easily be added on an existing website by including the latest version of the library from a CDN or locally.</p>
+Chart.js can easily be added on an existing website by including the latest version of the library from a CDN or locally.
 
-<pre><code class="language-markup">
+```markup
    &lt;script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js">&lt;/script>
-</code></pre>
+```
 
-<br><h3>Donut Chart</h3>
+<h3>Donut Chart</h3>
 
-<p>To render a chart a canvas element needs to be added to the website</p>
+To render a chart a canvas element needs to be added to the website</p>
 
-<pre><code class="language-markup">
+```markup
    &lt;canvas id="myChart" width="400" height="400">&lt;/canvas>
-</code></pre>
+```
 
-<p>The graph requires a data object which contains the dataset and formatting options for the graph.</p>
+The graph requires a data object which contains the dataset and formatting options for the graph.</p>
 
-<pre><code class="language-javascript">
+```javascript
    const data = {
       labels: [
          'Red',
@@ -45,20 +45,20 @@ categories: [SondeHub]
          ]
       }]
    };
-</code></pre>
+```
 
-<p>The graph can now be created and rendered by passing through the canvas element and data object.</p>
+The graph can now be created and rendered by passing through the canvas element and data object.
 
-<pre><code class="language-javascript">
+```javascript
    const ctx = document.getElementById('myChart').getContext('2d');
 
    const myChart = new Chart(ctx, {
       type: 'doughnut',
       data: data
    });
-</code></pre>
+```
 
-<br><h3>Result</h3>
+<h3>Result</h3>
 
 <canvas id="chart1" width="400" height="400"></canvas>
 
@@ -87,13 +87,13 @@ categories: [SondeHub]
    });
 </script>
 
-<br><br><h3>Custom Item Tooltips</h3>
+<h3>Custom Item Tooltips</h3>
 
-<p>The default tooltip only shows the label and value for each entry.</p>
+The default tooltip only shows the label and value for each entry.
 
-<p>This can be overriden by creating a custom tooltip which can show the percentage for each entry.</p>
+This can be overriden by creating a custom tooltip which can show the percentage for each entry.
 
-<pre><code class="language-javascript">
+```javascript
    const myChart = new Chart(ctx, {
       type: 'doughnut',
       data: data,
@@ -118,9 +118,9 @@ categories: [SondeHub]
       }
       }
    });
-</code></pre>
+```
 
-<br><h3>Result</h3>
+<h3>Result</h3>
 
 <canvas id="chart2" width="400" height="400"></canvas>
 
@@ -169,11 +169,11 @@ categories: [SondeHub]
    });
 </script>
 
-<br><br><h3>Nested Donut Chart</h3>
+<h3>Nested Donut Chart</h3>
 
-<p>Chart.js includes limited nested data support with donut charts by passing through multiple datasets.</p>
+Chart.js includes limited nested data support with donut charts by passing through multiple datasets.
 
-<pre><code class="language-javascript">
+```javascript
    const data = {
       labels: [
          'Red',
@@ -196,9 +196,9 @@ categories: [SondeHub]
          ]
       }]
    };
-</code></pre>
+```
 
-<br><h3>Result</h3>
+<h3>Result</h3>
 
 <canvas id="chart3" width="400" height="400"></canvas>
 
@@ -254,9 +254,9 @@ categories: [SondeHub]
    });
 </script>
 
-<p>This works well when the inner dataset is the same length as the outer dataset however to have sub-categories in the inner-dataset a custom legend handler is required.</p>
+This works well when the inner dataset is the same length as the outer dataset however to have sub-categories in the inner-dataset a custom legend handler is required.
 
-<pre><code class="language-javascript">
+```javascript
    datasets: [{
       data: [300, 50, 100],
       backgroundColor: [
@@ -274,11 +274,11 @@ categories: [SondeHub]
          'rgb(255, 205, 86)'
       ]
    }]
-</code></pre>
+```
 
-<p>The sub-entries can be grouped with their parents if their values are perfectly nested using the following custom legend handler.</p>
+The sub-entries can be grouped with their parents if their values are perfectly nested using the following custom legend handler.
 
-<pre><code class="language-javascript">
+```javascript
    plugins: {
       legend: {
          labels: {
@@ -317,9 +317,9 @@ categories: [SondeHub]
          }
       }
    }
-</code></pre>
+```
 
-<br><h3>Result</h3>
+<h3>Result</h3>
 
 <canvas id="chart4" width="400" height="400"></canvas>
 
@@ -413,11 +413,11 @@ categories: [SondeHub]
    });
 </script>
 
-<br><br><h3>Toggle Nested Data</h3>
+<h3>Toggle Nested Data</h3>
 
-<p>The nested data can also be toggled on and off by creating a simple function.</p>
+The nested data can also be toggled on and off by creating a simple function.
 
-<pre><code class="language-javascript">
+```javascript
    document.getElementById('nested').addEventListener('click', () => {
       if (data.datasets[1].hasOwnProperty("hidden") && data.datasets[1].hidden == true) {
          data.datasets[1].hidden = false;
@@ -426,19 +426,17 @@ categories: [SondeHub]
       }
       myChart.update();
    });
-</code></pre>
+```
 
-<p>This function will toggle the nested data visiblity when the following button is pressed.</p>
+This function will toggle the nested data visiblity when the following button is pressed.
 
-<pre><code class="language-markup">
+```markup
    &lt;button id="nested" class="button">Toggle Nested&lt;/button>
-</code></pre>
+```
 
-<br><h3>Result</h3>
+<h3>Result</h3>
 
 <canvas id="chart5" width="400" height="400"></canvas>
-
-<br>
 
 <button id="nested5" class="button">Toggle Nested</button>
 
@@ -541,13 +539,13 @@ categories: [SondeHub]
    });
 </script>
 
-<br><br><h3>Switch datasets</h3>
+<h3>Switch datasets</h3>
 
-<p>To show multiple datasets on the graph switching functionality has to be implemented.</p>
+To show multiple datasets on the graph switching functionality has to be implemented.
 
-<p>The first step is to move the datasets to a new object.</p>
+The first step is to move the datasets to a new object.
 
-<pre><code class="language-javascript">
+```javascript
    const datasets = [
       [{
       data: [300, 50, 100],
@@ -585,11 +583,11 @@ categories: [SondeHub]
       ]
       }]
    ]
-</code></pre>
+```
 
-<p>The data object then needs to point to the first entry in datasets.</p>
+The data object then needs to point to the first entry in datasets.
 
-<pre><code class="language-javascript">
+```javascript
    const data = {
       labels: [
         'Red',
@@ -598,11 +596,11 @@ categories: [SondeHub]
       ],
       datasets: datasets[0]
    };
-</code></pre>
+```
 
-<p>To switch between these datasets a new function is required.</p>
+To switch between these datasets a new function is required.
 
-<pre><code class="language-javascript">
+```javascript
    document.getElementById('dataset').addEventListener('click', () => {
       if (datasets.indexOf(data.datasets) == -1 || datasets.indexOf(data.datasets) == 1) {
          data.datasets = datasets[0]
@@ -611,17 +609,17 @@ categories: [SondeHub]
       }
       myChart.update();
    });
-</code></pre>
+```
 
-<p>This function will switch the visible dataset when the following button is pressed.</p>
+This function will switch the visible dataset when the following button is pressed.
 
-<pre><code class="language-markup">
+```markup
    &lt;button id="dataset" class="button">Switch Dataset&lt;/button>
-</code></pre>
+```
 
-<p>The toggle nested function will need to be updated so that both datasets share the same view.</p>
+The toggle nested function will need to be updated so that both datasets share the same view.
 
-<pre><code class="language-javascript">
+```javascript
    document.getElementById('nested').addEventListener('click', () => {
       if (data.datasets[1].hasOwnProperty("hidden") && data.datasets[1].hidden == true) {
          datasets[0][1].hidden = false;
@@ -632,13 +630,11 @@ categories: [SondeHub]
       }
       myChart.update();
    });
-</code></pre>
+```
 
-<br><br><h3>Result</h3>
+<h3>Result</h3>
 
 <canvas id="chart6" width="400" height="400"></canvas>
-
-<br>
 
 <button id="nested6" class="button">Toggle Nested</button>
 
@@ -775,19 +771,19 @@ categories: [SondeHub]
    });
 </script>
 
-<br><br><h2>SondeHub Listener Stats API</h2>
+<h2>SondeHub Listener Stats API</h2>
 
-<p>The SondeHub Listener Stats API returns information about the number of receiver stations that have uploaded telemetry to the SondeHub radiosonde tracking database.</p>
+The SondeHub Listener Stats API returns information about the number of receiver stations that have uploaded telemetry to the SondeHub radiosonde tracking database.
 
-<p>The API can be integrated with the chart to ensure that the latest information is always shown.</p>
+The API can be integrated with the chart to ensure that the latest information is always shown.
 
-<p>The specific Python code and Elasticsearch Query for generating the API response can be found <a href="https://github.com/projecthorus/sondehub-infra/blob/a70f7aac4c3b4745a1894d9c7a261830ea982fa3/lambda/query/__init__.py#L394">here</a>.</p>
+The specific Python code and Elasticsearch Query for generating the API response can be found <a href="https://github.com/projecthorus/sondehub-infra/blob/a70f7aac4c3b4745a1894d9c7a261830ea982fa3/lambda/query/__init__.py#L394">here</a>.
 
-<pre><code class="language-markup">
+```markup
    https://api.v2.sondehub.org/listeners/stats
-</code></pre>
+```
 
-<pre><code class="language-json">
+```json
 {
    "radiosonde_auto_rx": {
       "telemetry_count": 46867907,
@@ -848,11 +844,11 @@ categories: [SondeHub]
       "telemetry_count": 58737217
    }
 }
-</code></pre>
+```
 
-<br><h3>Swagger UI API</h3>
+<h3>Swagger UI API</h3>
 
-<p>The following Swagger UI component can be used to access the SondeHub Listener Stats API and get real results.</p>
+The following Swagger UI component can be used to access the SondeHub Listener Stats API and get real results.
 
 <div id="OpenAPI"></div>
 
@@ -886,10 +882,10 @@ categories: [SondeHub]
    })
 </script>
 
-<br><h2>Working Example</h2>
+<h2>Working Example</h2>
 
-<p>The following JSFiddle contains a fully working demo incorportating everything discussed in this post.</p>
+The following JSFiddle contains a fully working demo incorportating everything discussed in this post.
 
-<p>You can also find the complete source code on the <a href="https://github.com/projecthorus/sondehub-listener-stats">sondehub-listener-stats</a> GitHub page.</p>
+You can also find the complete source code on the <a href="https://github.com/projecthorus/sondehub-listener-stats">sondehub-listener-stats</a> GitHub page.
 
 <iframe width="100%" height="800px" src="//jsfiddle.net/cfwrzvta/embedded/result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
