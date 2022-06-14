@@ -855,6 +855,23 @@ The following Swagger UI component can be used to access the SondeHub Listener S
 
 <div id="OpenAPI"></div>
 
+<style>
+   .swagger-ui .wrapper {
+      padding: 0px!important;
+   }
+   .swagger-ui .wrapper .col-12 {
+      padding: 0px!important;
+   }
+   .swagger-ui .opblock .opblock-summary-path {
+      max-width: 100%!important;
+   }
+   @media (max-width: 768px) {
+      .swagger-ui .opblock-body select {
+         min-width: 40%!important;
+      }
+   }
+</style>
+
 <script>
    const paths = {
       "/listeners/stats": {
