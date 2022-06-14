@@ -85,7 +85,7 @@ avatar:
 toc: true
 
 comments:
-  active: 'giscuss'      # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
+  active: 'giscus'      # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
   # Giscus options › https://giscus.app
   giscus:
     repo: 'LukePrior/blog'
