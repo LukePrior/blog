@@ -908,4 +908,4 @@ The following JSFiddle contains a fully working demo incorportating everything d
 
 You can also find the complete source code on the <a href="https://github.com/projecthorus/sondehub-listener-stats">sondehub-listener-stats</a> GitHub page.
 
-<iframe width="100%" height="800px" src="//jsfiddle.net/cfwrzvta/embedded/result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+<iframe width="100%" height="800px" src="//jsfiddle.net/hz0rmbuy/embedded/result/" allowfullscreen="allowfullscreen" allowtransparency="true" allowpaymentrequest frameborder="0"></iframe>
