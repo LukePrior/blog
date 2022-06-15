@@ -981,7 +981,6 @@ You can also find the complete source code on the <a href="https://github.com/pr
       id: 'doughnut-centertext',
       beforeDraw: function(chart) {
          if (chart.config.options.elements.center) {
-            // Get ctx from string
             var ctx = chart.ctx;
             
             var innerRadius = chart._metasets[chart._metasets.length - 2].controller.innerRadius;
@@ -989,7 +988,6 @@ You can also find the complete source code on the <a href="https://github.com/pr
                innerRadius = chart._metasets[chart._metasets.length - 1].controller.innerRadius;
             }
 
-            // Get options from the center object in options
             var centerConfig = chart.config.options.elements.center;
             var fontStyle = centerConfig.fontStyle || 'Arial';
             var txt = centerConfig.text;
@@ -997,20 +995,15 @@ You can also find the complete source code on the <a href="https://github.com/pr
             var maxFontSize = centerConfig.maxFontSize || 75;
             var sidePadding = centerConfig.sidePadding || 20;
             var sidePaddingCalculated = (sidePadding / 100) * (innerRadius * 2)
-            // Start with a base font of 30px
             ctx.font = "30px " + fontStyle;
 
-            // Get the width of the string and also the width of the element minus 10 to give it 5px side padding
             var stringWidth = ctx.measureText(txt).width;
             var elementWidth = (innerRadius * 2) - sidePaddingCalculated;
 
-
-            // Find out how much the font can grow in width.
             var widthRatio = elementWidth / stringWidth;
             var newFontSize = Math.floor(30 * widthRatio);
             var elementHeight = (innerRadius * 2);
 
-            // Pick a new font size so it will not be larger than the height of label.
             var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize);
             var minFontSize = centerConfig.minFontSize;
             var lineHeight = centerConfig.lineHeight || 25;
@@ -1025,7 +1018,6 @@ You can also find the complete source code on the <a href="https://github.com/pr
                wrapText = true;
             }
 
-            // Set font settings to draw it correctly.
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
@@ -1042,7 +1034,6 @@ You can also find the complete source code on the <a href="https://github.com/pr
             var line = '';
             var lines = [];
 
-            // Break words up into multiple lines if necessary
             for (var n = 0; n < words.length; n++) {
                var testLine = line + words[n] + ' ';
                var metrics = ctx.measureText(testLine);
@@ -1055,14 +1046,13 @@ You can also find the complete source code on the <a href="https://github.com/pr
                }
             }
 
-            // Move the center up depending on line height and number of lines
             centerY -= (lines.length / 2) * lineHeight;
 
             for (var n = 0; n < lines.length; n++) {
                ctx.fillText(lines[n], centerX, centerY);
                centerY += lineHeight;
             }
-            //Draw text in center
+
             ctx.fillText(line, centerX, centerY);
          }
       }
