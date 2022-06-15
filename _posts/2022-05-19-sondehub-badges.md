@@ -172,7 +172,7 @@ https://img.shields.io/badge/dynamic/json?label=Total&query=totals.unique_callsi
 https://img.shields.io/badge/dynamic/json?label=radiosonde_auto_rx&query=radiosonde_auto_rx.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=radiosonde_auto_rx&query=radiosonde_auto_rx.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge">
+<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=radiosonde_auto_rx&query=radiosonde_auto_rx.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for%2Dthe%2Dbadge">
 
 ```
 https://img.shields.io/badge/dynamic/json?label=rdzTTGOsonde&query=rdzTTGOsonde.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
