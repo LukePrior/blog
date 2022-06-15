@@ -1238,7 +1238,7 @@ The following Swagger UI component can be used to access the SondeHub Listener S
    .swagger-ui a.nostyle, .swagger-ui a.nostyle:visited {
       color: var(--heading-color)!important;
    }
-   .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p, .swagger-ui table thead tr td, .swagger-ui table thead tr th, .swagger-ui .opblock .opblock-summary-description, .swagger-ui .response-col_status {
+   .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p, .swagger-ui table thead tr td, .swagger-ui table thead tr th, .swagger-ui .opblock .opblock-summary-description, .swagger-ui .response-col_status, .swagger-ui .markdown p {
       color: var(--text-color)!important;
    }
 </style>
