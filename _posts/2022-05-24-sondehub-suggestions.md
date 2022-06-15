@@ -109,7 +109,7 @@ The following Swagger UI component can be used to access the SondeHub Sites API 
             },
          }
       }
-   }
+   };
 
    const spec = {
       'swagger': '2.0',
@@ -196,7 +196,7 @@ entry.749833526=94672
 The complete URL for the launch site at Adelaide Airport contains most of the available fields.
 
 ```
-   https://docs.google.com/forms/d/e/1FAIpQLSfIbBSQMZOXpNE4VpK4BqUbKDPCWCDgU9QxYgmhh-JD-JGSsQ/viewform?usp=pp_url&entry.796606853=Modify+Existing+Site&entry.749833526=94672&entry.675505431=Adelaide+Airport+(Australia)&entry.1613779787=-34.9525,138.5203&entry.753148337=6&entry.509146334=4.3&entry.1897602989=27000&entry.267462486=6.4
+https://docs.google.com/forms/d/e/1FAIpQLSfIbBSQMZOXpNE4VpK4BqUbKDPCWCDgU9QxYgmhh-JD-JGSsQ/viewform?usp=pp_url&entry.796606853=Modify+Existing+Site&entry.749833526=94672&entry.675505431=Adelaide+Airport+(Australia)&entry.1613779787=-34.9525,138.5203&entry.753148337=6&entry.509146334=4.3&entry.1897602989=27000&entry.267462486=6.4
 ```
 
 This pre-fill functionality isn't easily implemented for the sondes type and launch times fields so currently these must be manually entered each time.
@@ -329,7 +329,7 @@ GitHub has <a href="https://github.blog/changelog/2022-03-17-mermaid-topojson-ge
 To show the launch site on the map a geoJSON file must be constructed using the provided coordinates and altitude.
 
 ```json
-````geojson
+```geojson
 {
    "type":"Feature",
    "geometry":{
@@ -347,7 +347,7 @@ To show the launch site on the map a geoJSON file must be constructed using the 
       "Station Name":"Ezeiza Aerodrome (Argentina)"
    }
 }
-````
+```
 ```
 
 
