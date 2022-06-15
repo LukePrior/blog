@@ -903,7 +903,7 @@ options: {
 <button id="dataset7" class="button">Switch Dataset</button>
 
 <script>
-   const countPlugin = {
+   const countPlugin2 = {
       id: 'doughnut-centertext',
       beforeDraw: function(chart) {
          if (chart.config.options.elements.center) {
@@ -1036,7 +1036,7 @@ options: {
    const myChart7 = new Chart(ctx7, {
       type: 'doughnut',
       data: data7,
-      plugins: [countPlugin],
+      plugins: [countPlugin2],
       options: {
          elements: {
             center: {
