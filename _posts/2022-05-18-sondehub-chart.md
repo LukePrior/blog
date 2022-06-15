@@ -23,13 +23,13 @@ Chart.js can easily be added on an existing website by including the latest vers
 
 <h3>Donut Chart</h3>
 
-To render a chart a canvas element needs to be added to the website</p>
+To render a chart a canvas element needs to be added to the website
 
 ```html
 <canvas id="myChart" width="400" height="400"></canvas>
 ```
 
-The graph requires a data object which contains the dataset and formatting options for the graph.</p>
+The graph requires a data object which contains the dataset and formatting options for the graph.
 
 ```javascript
 const data = {
@@ -60,7 +60,7 @@ const myChart = new Chart(ctx, {
 });
 ```
 
-<h3>Result</h3>
+<h4>Result</h4>
 
 <canvas id="chart1" width="400" height="400"></canvas>
 
