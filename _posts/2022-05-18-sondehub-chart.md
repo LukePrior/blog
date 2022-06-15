@@ -122,7 +122,7 @@ const myChart = new Chart(ctx, {
 });
 ```
 
-<h3>Result</h3>
+<h4>Result</h4>
 
 <canvas id="chart2" width="400" height="400"></canvas>
 
@@ -200,7 +200,7 @@ const data = {
 };
 ```
 
-<h3>Result</h3>
+<h4>Result</h4>
 
 <canvas id="chart3" width="400" height="400"></canvas>
 
@@ -321,7 +321,7 @@ plugins: {
 }
 ```
 
-<h3>Result</h3>
+<h4>Result</h4>
 
 <canvas id="chart4" width="400" height="400"></canvas>
 
@@ -436,7 +436,7 @@ This function will toggle the nested data visiblity when the following button is
 <button id="nested" class="button">Toggle Nested</button>
 ```
 
-<h3>Result</h3>
+<h4>Result</h4>
 
 <canvas id="chart5" width="400" height="400"></canvas>
 
@@ -634,7 +634,7 @@ document.getElementById('nested').addEventListener('click', () => {
 });
 ```
 
-<h3>Result</h3>
+<h4>Result</h4>
 
 <canvas id="chart6" width="400" height="400"></canvas>
 
@@ -904,7 +904,7 @@ The following Swagger UI component can be used to access the SondeHub Listener S
 
 <h2>Working Example</h2>
 
-The following JSFiddle contains a fully working demo incorportating everything discussed in this post.
+The following <a href="https://jsfiddle.net/hz0rmbuy">JSFiddle</a> contains a fully working demo incorportating everything discussed in this post.
 
 You can also find the complete source code on the <a href="https://github.com/projecthorus/sondehub-listener-stats">sondehub-listener-stats</a> GitHub page.
 
