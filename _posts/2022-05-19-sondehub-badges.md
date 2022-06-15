@@ -5,13 +5,16 @@ date: 2022-05-19 00:00:00 -0400
 categories: [SondeHub]
 ---
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui.css">
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui-bundle.js"></script>
+
 <style>
    .badge_img {
-      display: block;
-      margin-right: auto;
-      margin-left: auto;
-      max-width: calc(66.6vw - 30px);
-      transform: scale(1.5);
+      display: block!important;
+      margin-right: auto!important;
+      margin-left: auto!important;
+      max-width: calc(66.6vw - 30px)!important;
+      transform: scale(1.5)!important;
    }
 </style>
 
