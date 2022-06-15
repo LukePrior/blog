@@ -162,6 +162,7 @@ The checks for certain fields such as ID, altitude, and flight parameters were a
 The station name field required a custom regex to ensure that the correct naming structure was adhered with the country placed in brackets at the end.
 
 <img src="{{"/assets/img/name_regex.svg" | relative_url }}" style="display:block;margin:auto;max-width:100%;"/>
+![Name Regex](/assets/img/name_regex.svg)
 
 The station coordinates field required a significantly more complex regex sequence that I borrowed from Stack Overflow which ensures the value is generally valid.
 
