@@ -6,6 +6,7 @@ categories: [SondeHub]
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui.css">
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui-bundle.js"></script>
 
@@ -911,11 +912,6 @@ You can also find the complete source code on the <a href="https://github.com/pr
 <div id="container">
    <canvas id="chartJSContainer" style="display: none;"></canvas>
    <div id="loadingGif" style="display: block;">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255, 0); display: block; shape-rendering: auto;" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-         <circle cx="50" cy="50" r="32" stroke-width="8" stroke="#00a3d3" stroke-dasharray="50.26548245743669 50.26548245743669" fill="none" stroke-linecap="round">
-         <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
-         </circle>
-      </svg>
    </div>
    <div>
       <button id="update" class="button">MODE</button>
@@ -924,7 +920,266 @@ You can also find the complete source code on the <a href="https://github.com/pr
 </div>
 
 <script>
+   var count = [];
+   var countNested = [];
+   var countUnique = [];
+   var countNestedUnique = [];
+   var empty = [];
+   var countSelected = true;
+   var nestedSelected = false;
+   var stationCount = '';
 
+   var programs = [];
+   var versions = [];
+   var versionPrograms = [];
+   var colours = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999'];
+
+   var visibility = {};
+
+   function resizeArray(array, size) {
+      var dataNew = [];
+      var sum = array.reduce((a, b) => a + b);
+
+      array.forEach(function(item, index) {
+         var rounded = Math.round(item / sum * size);
+         dataNew.push(rounded);
+      });
+
+      var difference = dataNew.reduce((a, b) => a + b) - size;
+      dataNew[0] = dataNew[0] - difference;
+
+      return dataNew;
+   }
+
+   Chart.register({
+      id: 'custom_canvas_background_color',
+      beforeDraw: (chart) => {
+         const ctx = chart.canvas.getContext('2d');
+         ctx.save();
+         ctx.globalCompositeOperation = 'destination-over';
+         ctx.fillStyle = 'transparent';
+         ctx.fillRect(0, 0, chart.width, chart.height);
+         ctx.restore();
+      }
+   });
+
+   Chart.register({
+      id: 'doughnut-centertext',
+      beforeDraw: function(chart) {
+         if (chart.config.options.elements.center) {
+            // Get ctx from string
+            var ctx = chart.ctx;
+            
+            var innerRadius = chart._metasets[chart._metasets.length - 2].controller.innerRadius;
+            if (chart._metasets[chart._metasets.length - 1].controller.innerRadius > 0) {
+               innerRadius = chart._metasets[chart._metasets.length - 1].controller.innerRadius;
+            }
+
+            // Get options from the center object in options
+            var centerConfig = chart.config.options.elements.center;
+            var fontStyle = centerConfig.fontStyle || 'Arial';
+            var txt = centerConfig.text;
+            var color = centerConfig.color || '#000';
+            var maxFontSize = centerConfig.maxFontSize || 75;
+            var sidePadding = centerConfig.sidePadding || 20;
+            var sidePaddingCalculated = (sidePadding / 100) * (innerRadius * 2)
+            // Start with a base font of 30px
+            ctx.font = "30px " + fontStyle;
+
+            // Get the width of the string and also the width of the element minus 10 to give it 5px side padding
+            var stringWidth = ctx.measureText(txt).width;
+            var elementWidth = (innerRadius * 2) - sidePaddingCalculated;
+
+
+            // Find out how much the font can grow in width.
+            var widthRatio = elementWidth / stringWidth;
+            var newFontSize = Math.floor(30 * widthRatio);
+            var elementHeight = (innerRadius * 2);
+
+            // Pick a new font size so it will not be larger than the height of label.
+            var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize);
+            var minFontSize = centerConfig.minFontSize;
+            var lineHeight = centerConfig.lineHeight || 25;
+            var wrapText = false;
+
+            if (minFontSize === undefined) {
+               minFontSize = 30;
+            }
+
+            if (minFontSize && fontSizeToUse < minFontSize) {
+               fontSizeToUse = minFontSize;
+               wrapText = true;
+            }
+
+            // Set font settings to draw it correctly.
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+            var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+            ctx.font = fontSizeToUse + "px " + fontStyle;
+            ctx.fillStyle = color;
+
+            if (!wrapText) {
+               ctx.fillText(txt, centerX, centerY);
+               return;
+            }
+
+            var words = txt.split(' ');
+            var line = '';
+            var lines = [];
+
+            // Break words up into multiple lines if necessary
+            for (var n = 0; n < words.length; n++) {
+               var testLine = line + words[n] + ' ';
+               var metrics = ctx.measureText(testLine);
+               var testWidth = metrics.width;
+               if (testWidth > elementWidth && n > 0) {
+                  lines.push(line);
+                  line = words[n] + ' ';
+               } else {
+                  line = testLine;
+               }
+            }
+
+            // Move the center up depending on line height and number of lines
+            centerY -= (lines.length / 2) * lineHeight;
+
+            for (var n = 0; n < lines.length; n++) {
+               ctx.fillText(lines[n], centerX, centerY);
+               centerY += lineHeight;
+            }
+            //Draw text in center
+            ctx.fillText(line, centerX, centerY);
+         }
+      }
+   });
+
+   var data = {
+      labels: programs,
+      datasets: [{
+            name: "Program",
+            data: count,
+            backgroundColor: colours,
+            label: programs
+         },
+         {
+            name: "Version",
+            data: countNested,
+            backgroundColor: colours,
+            label: versions,
+            program: versionPrograms,
+            hidden: true
+         }
+      ]
+   }
+
+   var options = {
+      type: 'doughnut',
+      data: data,
+      options: {
+         elements: {
+            center: {
+            text: stationCount,
+            color: '#00a3d3',
+            fontStyle: 'Arial',
+            sidePadding: 30,
+            minFontSize: false
+            }
+         },
+         responsive: true,
+         plugins: {
+            legend: {
+            labels: {
+               generateLabels: chart => chart.data.labels.map((l, i) => ({
+                  text: l,
+                  index: i,
+                  fillStyle: chart.data.datasets[0].backgroundColor[i],
+                  strokeStyle: chart.data.datasets[0].backgroundColor[i],
+                  hidden: chart.getDatasetMeta(0).data[i].hidden
+               })),
+            },
+            onClick: (event, legendItem, legend) => {
+               let version = legendItem.text;
+               if (version == null) version = false;
+               visibility[version] = !legendItem.hidden;
+               let chart = legend.chart;
+               let hidden = !chart.getDatasetMeta(0).data[legendItem.index].hidden;
+               chart.getDatasetMeta(0).data[legendItem.index].hidden = hidden;
+               let pointer = 0;
+               chart.data.datasets[1].data.forEach((v, i) => {
+                  var show = (visibility[versionPrograms[i]]);
+                  chart.getDatasetMeta(1).data[i].hidden = show;
+               });
+               chart.update();
+            }
+            },
+            tooltip: {
+            enabled: true,
+            callbacks: {
+               footer: (ttItem) => {
+                  let sum = 0;
+                  let dataArr = ttItem[0].dataset.data;
+                  dataArr.map(data => {
+                     sum += Number(data);
+                  });
+
+                  let percentage = (ttItem[0].parsed * 100 / sum).toFixed(2) + '%';
+                  if (countSelected) {
+                     return `Percentage of stations: ${percentage}`;
+                  } else {
+                     return `Percentage of data: ${percentage}`;
+                  }
+               },
+               title: (ttItem) => {
+                  return ttItem[0].dataset.label[ttItem[0].dataIndex];
+               },
+               label: (ttItem) => {
+                  var suffix = "";
+                  if (countSelected) {
+                     suffix = " stations";
+                  } else {
+                     suffix = " packets";
+                  }
+                  return ttItem.formattedValue + suffix;
+               }
+            }
+            }
+         }
+      }
+   };
+
+   const ctx = document.getElementById('chartJSContainer').getContext('2d');
+   const chart = new Chart(ctx, options);
+
+   function loadChart() {
+      document.getElementById('loadingGif').style.display = "none";
+      document.getElementById('chartJSContainer').style.display = "block";
+      chart.update();
+   }
+
+   document.getElementById('update').addEventListener('click', () => {
+      if (countSelected) {
+         data.datasets[0].data = countUnique;
+         data.datasets[1].data = countNestedUnique;
+         countSelected = false;
+      } else {
+         data.datasets[0].data = count;
+         data.datasets[1].data = countNested;
+         countSelected = true;
+      }
+      chart.update();
+   });
+
+   document.getElementById('hide').addEventListener('click', () => {
+      if (nestedSelected) {
+         data.datasets[1].hidden = true;
+         nestedSelected = false;
+      } else {
+         data.datasets[1].hidden = false;
+         nestedSelected = true;
+      }
+      chart.update();
+   });
 </script>
 
 <iframe width="100%" height="800px" src="//jsfiddle.net/hz0rmbuy/embedded/result/" allowfullscreen="allowfullscreen" allowtransparency="true" allowpaymentrequest frameborder="0"></iframe>
