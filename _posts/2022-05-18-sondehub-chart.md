@@ -935,20 +935,20 @@ You can also find the complete source code on the <a href="https://github.com/pr
 
    var visibility = {};
 
-   function getJSONP(url, success) {
-      var ud = '_' + +new Date,
-         script = document.createElement('script'),
-         head = document.getElementsByTagName('head')[0] 
-                  || document.documentElement;
-
-      window[ud] = function(data) {
-         head.removeChild(script);
-         success && success(data);
+   var getJSON = function(url, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.responseType = 'json';
+      xhr.onload = function() {
+         var status = xhr.status;
+         if (status === 200) {
+            callback(null, xhr.response);
+         } else {
+            callback(status, xhr.response);
+         }
       };
-
-      script.src = url.replace('callback=?', 'callback=' + ud);
-      head.appendChild(script);
-   }
+      xhr.send();
+   };
 
    function resizeArray(array, size) {
       var dataNew = [];
@@ -963,7 +963,7 @@ You can also find the complete source code on the <a href="https://github.com/pr
       dataNew[0] = dataNew[0] - difference;
 
       return dataNew;
-   }
+   };
 
    Chart.register({
       id: 'custom_canvas_background_color',
@@ -1068,7 +1068,7 @@ You can also find the complete source code on the <a href="https://github.com/pr
       }
    });
 
-   getJSONP('https://api.v2.sondehub.org/listener/stats', function(localData){
+   getJSON('https://api.v2.sondehub.org/listener/stats', function(err, localData){
       stationCount = localData.totals.unique_callsigns + " Stations";
       for (const [key, value] of Object.entries(localData)) {
          if (key != "totals") {
@@ -1110,7 +1110,7 @@ You can also find the complete source code on the <a href="https://github.com/pr
             hidden: true
          }
       ]
-   }
+   };
 
    var options = {
       type: 'doughnut',
@@ -1194,7 +1194,7 @@ You can also find the complete source code on the <a href="https://github.com/pr
       document.getElementById('loadingGif').style.display = "none";
       document.getElementById('chartJSContainer').style.display = "block";
       chart.update();
-   }
+   };
 
    document.getElementById('update').addEventListener('click', () => {
       if (countSelected) {
