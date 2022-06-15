@@ -161,11 +161,11 @@ The checks for certain fields such as ID, altitude, and flight parameters were a
 
 The station name field required a custom regex to ensure that the correct naming structure was adhered with the country placed in brackets at the end.
 
-<img src="{{"/assets/name_regex.svg" | relative_url }}" style="display:block;margin:auto;max-width:100%;"/>
+<img src="{{"/assets/img/name_regex.svg" | relative_url }}" style="display:block;margin:auto;max-width:100%;"/>
 
 The station coordinates field required a significantly more complex regex sequence that I borrowed from Stack Overflow which ensures the value is generally valid.
 
-<img src="{{"/assets/coordinates_regex.svg" | relative_url }}" style="display:block;margin:auto;max-width:100%;"/>
+<img src="{{"/assets/img/coordinates_regex.svg" | relative_url }}" style="display:block;margin:auto;max-width:100%;"/>
 
 <h3>Field Autofill</h3>
 
@@ -355,7 +355,7 @@ The properties define the size and type of icon displayed on the map to indicate
 
 The code used to generate this simply inserts the position along with station name and ID into the string.
 
-<img src="{{"/assets/sites-map.png" | relative_url }}" style="display:block;margin:auto;max-width:100%;"/>
+<img src="{{"/assets/img/sites-map.png" | relative_url }}" style="display:block;margin:auto;max-width:100%;"/>
 
 <h3>Hidden Modals</h3>
 
