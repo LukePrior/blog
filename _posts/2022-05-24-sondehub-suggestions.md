@@ -328,7 +328,7 @@ GitHub has <a href="https://github.blog/changelog/2022-03-17-mermaid-topojson-ge
 
 To show the launch site on the map a geoJSON file must be constructed using the provided coordinates and altitude.
 
-```json
+````json
 ```geojson
 {
    "type":"Feature",
@@ -348,7 +348,7 @@ To show the launch site on the map a geoJSON file must be constructed using the 
    }
 }
 ```
-```
+````
 
 
 The properties define the size and type of icon displayed on the map to indicates it's position along with some additional information such as station name and ID that is visible in a modal on icon selection.
