@@ -10,10 +10,6 @@
   url:  'https://www.linkedin.com/in/luke-prior-03/'
   noblank: true
 -
-  type: email
-  icon: 'fas fa-envelope'
-  noblank: true
--
   type: rss
   icon: 'fas fa-rss'
   noblank: true
