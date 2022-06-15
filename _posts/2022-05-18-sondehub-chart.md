@@ -6,7 +6,6 @@ categories: [SondeHub]
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui.css">
-<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui-bundle.js"></script>
 
@@ -910,8 +909,8 @@ The following <a href="https://jsfiddle.net/hz0rmbuy">JSFiddle</a> contains a fu
 You can also find the complete source code on the <a href="https://github.com/projecthorus/sondehub-listener-stats">sondehub-listener-stats</a> GitHub page.
 
 <div id="container">
-   <canvas id="chartJSContainer" style="display: none;"></canvas>
-   <div id="loadingGif" style="display: block;">
+   <canvas id="chartJSContainer" style="display: none;" width="400" height="400"></canvas>
+   <div id="loadingGif" style="display: block;" width="400" height="400">
    </div>
    <div>
       <button id="update" class="button">MODE</button>
@@ -935,6 +934,21 @@ You can also find the complete source code on the <a href="https://github.com/pr
    var colours = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999'];
 
    var visibility = {};
+
+   function getJSONP(url, success) {
+      var ud = '_' + +new Date,
+         script = document.createElement('script'),
+         head = document.getElementsByTagName('head')[0] 
+                  || document.documentElement;
+
+      window[ud] = function(data) {
+         head.removeChild(script);
+         success && success(data);
+      };
+
+      script.src = url.replace('callback=?', 'callback=' + ud);
+      head.appendChild(script);
+   }
 
    function resizeArray(array, size) {
       var dataNew = [];
@@ -1053,6 +1067,31 @@ You can also find the complete source code on the <a href="https://github.com/pr
          }
       }
    });
+
+   getJSONP('https://api.v2.sondehub.org/listener/stats', function(localData){
+      stationCount = localData.totals.unique_callsigns + " Stations";
+      for (const [key, value] of Object.entries(localData)) {
+         if (key != "totals") {
+            programs.push(key);
+            count.push(value['unique_callsigns']);
+            countUnique.push(value['telemetry_count']);
+            var tempCount = [];
+            var tempCountUnique = [];
+            visibility[key] = false;
+            for (const [key1, value1] of Object.entries(localData[key]['versions'])) {
+               tempCount.push(value1['unique_callsigns']);
+               tempCountUnique.push(value1['telemetry_count']);
+               versions.push(key + " " + key1);
+               versionPrograms.push(key);
+            }
+            countNested = countNested.concat(resizeArray(tempCount, value['unique_callsigns']));
+            countNestedUnique = countNestedUnique.concat(resizeArray(tempCountUnique, value['telemetry_count']));
+         }
+      }
+      data.datasets[1].data = countNested;
+      options.options.elements.center.text = stationCount;
+      loadChart();
+   });  
 
    var data = {
       labels: programs,
