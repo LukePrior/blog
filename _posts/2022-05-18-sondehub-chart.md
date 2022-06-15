@@ -62,6 +62,8 @@ const myChart = new Chart(ctx, {
 
 <h4>Result</h4>
 
+The complete code for this example can be found <a href="https://jsfiddle.net/vzg1eh8o/" target="_blank">here</a>.
+
 <canvas id="chart1" width="400" height="400"></canvas>
 
 <script>
@@ -123,6 +125,8 @@ const myChart = new Chart(ctx, {
 ```
 
 <h4>Result</h4>
+
+The complete code for this example can be found <a href="https://jsfiddle.net/awfkm86x/" target="_blank">here</a>.
 
 <canvas id="chart2" width="400" height="400"></canvas>
 
@@ -201,6 +205,8 @@ const data = {
 ```
 
 <h4>Result</h4>
+
+The complete code for this example can be found <a href="https://jsfiddle.net/wLe7ngk3/" target="_blank">here</a>.
 
 <canvas id="chart3" width="400" height="400"></canvas>
 
@@ -323,6 +329,8 @@ plugins: {
 
 <h4>Result</h4>
 
+The complete code for this example can be found <a href="https://jsfiddle.net/qkxyjfuL/" target="_blank">here</a>.
+
 <canvas id="chart4" width="400" height="400"></canvas>
 
 <script>
@@ -437,6 +445,8 @@ This function will toggle the nested data visiblity when the following button is
 ```
 
 <h4>Result</h4>
+
+The complete code for this example can be found <a href="https://jsfiddle.net/23k567q1/" target="_blank">here</a>.
 
 <canvas id="chart5" width="400" height="400"></canvas>
 
@@ -636,6 +646,8 @@ document.getElementById('nested').addEventListener('click', () => {
 
 <h4>Result</h4>
 
+The complete code for this example can be found <a href="https://jsfiddle.net/1crxpez4/" target="_blank">here</a>.
+
 <canvas id="chart6" width="400" height="400"></canvas>
 
 <button id="nested6" class="button">Toggle Nested</button>
@@ -780,7 +792,7 @@ To display additional text within the donut chart a Chart.js plugin must be crea
 
 This plugin can be assigned to any graph and can be customised to display specific text with automatic resising to remain within the available space.
 
-The specific plugin used is a slight modification to the <a href="https://stackoverflow.com/a/43026361/9389353">answer</a> posted by Shawn Corrigan.
+The specific plugin used is a slight modification to the <a href="https://stackoverflow.com/a/43026361/9389353" target="_blank">answer</a> posted by Shawn Corrigan.
 
 The plugin script will calculate the available width and adjust the font-size and line-breaks so that the text fills the available space.
 
@@ -895,6 +907,8 @@ options: {
 ```
 
 <h4>Result</h4>
+
+The complete code for this example can be found <a href="https://jsfiddle.net/xdam3tj9/" target="_blank">here</a>.
 
 <canvas id="chart7" width="400" height="400"></canvas>
 
@@ -1131,7 +1145,7 @@ The SondeHub Listener Stats API returns information about the number of receiver
 
 The API can be integrated with the chart to ensure that the latest information is always shown.
 
-The specific Python code and Elasticsearch Query for generating the API response can be found <a href="https://github.com/projecthorus/sondehub-infra/blob/a70f7aac4c3b4745a1894d9c7a261830ea982fa3/lambda/query/__init__.py#L394">here</a>.
+The specific Python code and Elasticsearch Query for generating the API response can be found <a href="https://github.com/projecthorus/sondehub-infra/blob/a70f7aac4c3b4745a1894d9c7a261830ea982fa3/lambda/query/__init__.py#L394" target="_blank">here</a>.
 
 ```
 https://api.v2.sondehub.org/listeners/stats
@@ -1255,9 +1269,9 @@ The following Swagger UI component can be used to access the SondeHub Listener S
 
 <h2>Working Example</h2>
 
-The following <a href="https://jsfiddle.net/vu9nxy2d">JSFiddle</a> contains a fully working demo incorportating everything discussed in this post.
+The following <a href="https://jsfiddle.net/vu9nxy2d" target="_blank">JSFiddle</a> contains a fully working demo incorportating everything discussed in this post.
 
-You can also find the complete source code on the <a href="https://github.com/projecthorus/sondehub-listener-stats">sondehub-listener-stats</a> GitHub page.
+You can also find the complete source code on the <a href="https://github.com/projecthorus/sondehub-listener-stats" target="_blank">sondehub-listener-stats</a> GitHub page.
 
 <div id="container">
    <canvas id="chartJSContainer" style="display: none;" width="400" height="400"></canvas>
