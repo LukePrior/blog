@@ -966,18 +966,6 @@ You can also find the complete source code on the <a href="https://github.com/pr
    };
 
    Chart.register({
-      id: 'custom_canvas_background_color',
-      beforeDraw: (chart) => {
-         const ctx = chart.canvas.getContext('2d');
-         ctx.save();
-         ctx.globalCompositeOperation = 'destination-over';
-         ctx.fillStyle = 'transparent';
-         ctx.fillRect(0, 0, chart.width, chart.height);
-         ctx.restore();
-      }
-   });
-
-   Chart.register({
       id: 'doughnut-centertext',
       beforeDraw: function(chart) {
          if (chart.config.options.elements.center) {
