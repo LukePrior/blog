@@ -143,7 +143,7 @@ The following Swagger UI component can be used to access the SondeHub Listener S
             },
          }
       }
-   }
+   };
 
    const spec1 = {
       'swagger': '2.0',
@@ -263,7 +263,7 @@ The following Swagger UI component can be used to access the SondeHub Listener S
             },
          }
       }
-   }
+   };
 
    const spec2 = {
       'swagger': '2.0',
