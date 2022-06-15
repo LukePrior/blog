@@ -911,33 +911,19 @@ You can also find the complete source code on the <a href="https://github.com/pr
 <div id="container">
    <canvas id="chartJSContainer" style="display: none;" width="400" height="400"></canvas>
    <div id="loadingGif" style="display: block;" width="400" height="400">
+
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255, 0); display: block; shape-rendering: auto;" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+         <circle cx="50" cy="50" r="32" stroke-width="8" stroke="#00a3d3" stroke-dasharray="50.26548245743669 50.26548245743669" fill="none" stroke-linecap="round">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
+         </circle>
+      </svg>
+
    </div>
    <div>
-      <button id="update" class="final-button">MODE</button>
-      <button id="hide" class="final-button">VERSIONS</button>
+      <button id="update" class="button">MODE</button>
+      <button id="hide" class="button">VERSIONS</button>
    </div>
 </div>
-
-<style>
-   .final-button {
-      background-color: white;
-      color: black;
-      padding: 6px 8px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 10px;
-      margin: 3px 2px;
-      transition-duration: 0.4s;
-      cursor: pointer;
-      border: 2px solid #555555;
-   }
-
-   .final-button:hover {
-      background-color: #555555;
-      color: white;
-   }
-</style>
 
 <script>
    var count = [];
