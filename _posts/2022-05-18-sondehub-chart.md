@@ -774,6 +774,357 @@ document.getElementById('nested').addEventListener('click', () => {
    });
 </script>
 
+<h3>Inner text</h3>
+
+To display additional text within the donut chart a Chart.js plugin must be created.
+
+This plugin can be assigned to any graph and can be customised to display specific text with automatic resising to remain within the available space.
+
+The specific plugin used is a slight modification to the <a href="https://stackoverflow.com/a/43026361/9389353">answer</a> posted by Shawn Corrigan.
+
+The plugin script will calculate the available width and adjust the font-size and line-breaks so that the text fills the available space.
+
+```javascript
+const countPlugin = {
+  id: 'doughnut-centertext',
+  beforeDraw: function(chart) {
+    if (chart.config.options.elements.center) {
+      // Get ctx from string
+      var ctx = chart.ctx;
+
+      var innerRadius = chart._metasets[chart._metasets.length - 2].controller.innerRadius;
+      if (chart._metasets[chart._metasets.length - 1].controller.innerRadius > 0) {
+        innerRadius = chart._metasets[chart._metasets.length - 1].controller.innerRadius;
+      }
+
+      // Get options from the center object in options
+      var centerConfig = chart.config.options.elements.center;
+      var fontStyle = centerConfig.fontStyle || 'Arial';
+      var txt = centerConfig.text;
+      var color = centerConfig.color || '#000';
+      var maxFontSize = centerConfig.maxFontSize || 75;
+      var sidePadding = centerConfig.sidePadding || 20;
+      var sidePaddingCalculated = (sidePadding / 100) * (innerRadius * 2)
+      // Start with a base font of 30px
+      ctx.font = "30px " + fontStyle;
+
+      // Get the width of the string and also the width of the element minus 10 to give it 5px side padding
+      var stringWidth = ctx.measureText(txt).width;
+      var elementWidth = (innerRadius * 2) - sidePaddingCalculated;
+
+
+      // Find out how much the font can grow in width.
+      var widthRatio = elementWidth / stringWidth;
+      var newFontSize = Math.floor(30 * widthRatio);
+      var elementHeight = (innerRadius * 2);
+
+      // Pick a new font size so it will not be larger than the height of label.
+      var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize);
+      var minFontSize = centerConfig.minFontSize;
+      var lineHeight = centerConfig.lineHeight || 25;
+      var wrapText = false;
+
+      if (minFontSize === undefined) {
+        minFontSize = 30;
+      }
+
+      if (minFontSize && fontSizeToUse < minFontSize) {
+        fontSizeToUse = minFontSize;
+        wrapText = true;
+      }
+
+      // Set font settings to draw it correctly.
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+      var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+      ctx.font = fontSizeToUse + "px " + fontStyle;
+      ctx.fillStyle = color;
+
+      if (!wrapText) {
+        ctx.fillText(txt, centerX, centerY);
+        return;
+      }
+
+      var words = txt.split(' ');
+      var line = '';
+      var lines = [];
+
+      // Break words up into multiple lines if necessary
+      for (var n = 0; n < words.length; n++) {
+        var testLine = line + words[n] + ' ';
+        var metrics = ctx.measureText(testLine);
+        var testWidth = metrics.width;
+        if (testWidth > elementWidth && n > 0) {
+          lines.push(line);
+          line = words[n] + ' ';
+        } else {
+          line = testLine;
+        }
+      }
+
+      // Move the center up depending on line height and number of lines
+      centerY -= (lines.length / 2) * lineHeight;
+
+      for (var n = 0; n < lines.length; n++) {
+        ctx.fillText(lines[n], centerX, centerY);
+        centerY += lineHeight;
+      }
+      //Draw text in center
+      ctx.fillText(line, centerX, centerY);
+    }
+  }
+};
+```
+
+The chart options also need to be updated to include the displayed text and styling options.
+
+```javascript
+plugins: [countPlugin],
+options: {
+   elements: {
+      center: {
+         text: "Inner Text",
+         color: '#00a3d3',
+         fontStyle: 'Arial',
+         sidePadding: 30,
+         minFontSize: false
+      }
+   }
+}
+```
+
+<h4>Result</h4>
+
+<canvas id="chart7" width="400" height="400"></canvas>
+
+<button id="nested7" class="button">Toggle Nested</button>
+
+<button id="dataset7" class="button">Switch Dataset</button>
+
+<script>
+   const countPlugin = {
+      id: 'doughnut-centertext',
+      beforeDraw: function(chart) {
+         if (chart.config.options.elements.center) {
+            var ctx = chart.ctx;
+
+            var innerRadius = chart._metasets[chart._metasets.length - 2].controller.innerRadius;
+            if (chart._metasets[chart._metasets.length - 1].controller.innerRadius > 0) {
+               innerRadius = chart._metasets[chart._metasets.length - 1].controller.innerRadius;
+            }
+
+            var centerConfig = chart.config.options.elements.center;
+            var fontStyle = centerConfig.fontStyle || 'Arial';
+            var txt = centerConfig.text;
+            var color = centerConfig.color || '#000';
+            var maxFontSize = centerConfig.maxFontSize || 75;
+            var sidePadding = centerConfig.sidePadding || 20;
+            var sidePaddingCalculated = (sidePadding / 100) * (innerRadius * 2);
+            ctx.font = "30px " + fontStyle;
+
+            var stringWidth = ctx.measureText(txt).width;
+            var elementWidth = (innerRadius * 2) - sidePaddingCalculated;
+
+            var widthRatio = elementWidth / stringWidth;
+            var newFontSize = Math.floor(30 * widthRatio);
+            var elementHeight = (innerRadius * 2);
+
+            var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize);
+            var minFontSize = centerConfig.minFontSize;
+            var lineHeight = centerConfig.lineHeight || 25;
+            var wrapText = false;
+
+            if (minFontSize === undefined) {
+               minFontSize = 30;
+            }
+
+            if (minFontSize && fontSizeToUse < minFontSize) {
+               fontSizeToUse = minFontSize;
+               wrapText = true;
+            }
+
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+            var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+            ctx.font = fontSizeToUse + "px " + fontStyle;
+            ctx.fillStyle = color;
+
+            if (!wrapText) {
+               ctx.fillText(txt, centerX, centerY);
+               return;
+            }
+
+            var words = txt.split(' ');
+            var line = '';
+            var lines = [];
+
+            for (var n = 0; n < words.length; n++) {
+               var testLine = line + words[n] + ' ';
+               var metrics = ctx.measureText(testLine);
+               var testWidth = metrics.width;
+               if (testWidth > elementWidth && n > 0) {
+                  lines.push(line);
+                  line = words[n] + ' ';
+               } else {
+                  line = testLine;
+               }
+            }
+
+            centerY -= (lines.length / 2) * lineHeight;
+
+            for (var n = 0; n < lines.length; n++) {
+               ctx.fillText(lines[n], centerX, centerY);
+               centerY += lineHeight;
+            }
+
+            ctx.fillText(line, centerX, centerY);
+         }
+      }
+   };
+
+   const datasets7 = [
+      [{
+         data: [300, 50, 100],
+         backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+         ]
+      }, {
+         data: [150, 150, 50, 75, 25],
+         backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)',
+            'rgb(255, 205, 86)'
+         ]
+      }],
+      [{
+         data: [50, 100, 200],
+         backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+         ]
+      }, {
+         data: [50, 25, 75, 100, 50, 50],
+         backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)',
+            'rgb(255, 205, 86)',
+            'rgb(255, 205, 86)'
+         ]
+      }]
+   ];
+
+   const data7 = {
+      labels: [
+         'Red',
+         'Blue',
+         'Yellow'
+      ],
+      datasets: datasets7[0]
+   };
+
+   const ctx7 = document.getElementById('chart7').getContext('2d');
+
+   const myChart7 = new Chart(ctx7, {
+      type: 'doughnut',
+      data: data7,
+      plugins: [countPlugin],
+      options: {
+         elements: {
+            center: {
+            text: "Inner Text",
+            color: '#00a3d3',
+            fontStyle: 'Arial',
+            sidePadding: 30,
+            minFontSize: false
+            }
+         },
+         plugins: {
+            tooltip: {
+            enabled: true,
+            callbacks: {
+               label: (ttItem) => {
+                  let sum = 0;
+
+                  let dataArr = ttItem.dataset.data;
+                  dataArr.map(data => {
+                     sum += Number(data);
+                  });
+
+                  let percentage = (ttItem.parsed * 100 / sum).toFixed(2) + '%';
+                  return `${ttItem.parsed}: ${percentage}`;
+               }
+            }
+            },
+            legend: {
+            labels: {
+               generateLabels: chart => chart.data.labels.map((l, i) => ({
+                  text: l,
+                  index: i,
+                  fillStyle: chart.data.datasets[0].backgroundColor[i],
+                  strokeStyle: chart.data.datasets[0].backgroundColor[i],
+                  hidden: chart.getDatasetMeta(0).data[i].hidden
+               })),
+            },
+            onClick: (event, legendItem, legend) => {
+               var start = 0;
+               var end = 0;
+               var sum = 0;
+               let chart = legend.chart;
+               let hidden = !chart.getDatasetMeta(0).data[legendItem.index].hidden;
+               chart.getDatasetMeta(0).data[legendItem.index].hidden = hidden;
+               chart.data.datasets[0].data.forEach((v, i) => {
+                  var value = chart.getDatasetMeta(0).data[i].$context.parsed;
+                  if (i == legendItem.index) {
+                     start = sum;
+                     end = sum + value;
+                  }
+                  sum += value;
+               });
+               sum = 0;
+               chart.data.datasets[1].data.forEach((v, i) => {
+                  var value = chart.getDatasetMeta(1).data[i].$context.parsed;
+                  sum += value;
+                  if (sum > start && sum <= end) {
+                     chart.getDatasetMeta(1).data[i].hidden = hidden;
+                  }
+               });
+               chart.update();
+            }
+            }
+         }
+      }
+   });
+
+   document.getElementById('nested7').addEventListener('click', () => {
+      if (data7.datasets[1].hasOwnProperty("hidden") && data7.datasets[1].hidden == true) {
+         datasets7[0][1].hidden = false;
+         datasets7[1][1].hidden = false;
+      } else {
+         datasets7[0][1].hidden = true;
+         datasets7[1][1].hidden = true;
+      }
+      myChart7.update();
+   });
+
+   document.getElementById('dataset7').addEventListener('click', () => {
+      if (datasets7.indexOf(data7.datasets) == -1 || datasets7.indexOf(data7.datasets) == 1) {
+         data7.datasets = datasets7[0]
+      } else {
+         data7.datasets = datasets7[1]
+      }
+      myChart7.update();
+   });
+</script>
+
 <h2>SondeHub Listener Stats API</h2>
 
 The SondeHub Listener Stats API returns information about the number of receiver stations that have uploaded telemetry to the SondeHub radiosonde tracking database.
