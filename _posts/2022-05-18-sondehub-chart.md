@@ -1235,6 +1235,9 @@ The following Swagger UI component can be used to access the SondeHub Listener S
          min-width: 40%!important;
       }
    }
+   .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p {
+      color: var(--heading-color)!important;
+   }
 </style>
 
 <script>
@@ -1264,7 +1267,7 @@ The following Swagger UI component can be used to access the SondeHub Listener S
    SwaggerUIBundle({
       spec: spec,
       domNode: document.querySelector('#OpenAPI')
-   })
+   })   
 </script>
 
 <h2>Working Example</h2>
