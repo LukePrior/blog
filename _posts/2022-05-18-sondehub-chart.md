@@ -913,10 +913,31 @@ You can also find the complete source code on the <a href="https://github.com/pr
    <div id="loadingGif" style="display: block;" width="400" height="400">
    </div>
    <div>
-      <button id="update" class="button">MODE</button>
-      <button id="hide" class="button">VERSIONS</button>
+      <button id="update" class="final-button">MODE</button>
+      <button id="hide" class="final-button">VERSIONS</button>
    </div>
 </div>
+
+<style>
+   .button {
+      background-color: white;
+      color: black;
+      padding: 6px 8px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 10px;
+      margin: 3px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border: 2px solid #555555;
+   }
+
+   .button:hover {
+      background-color: #555555;
+      color: white;
+   }
+</style>
 
 <script>
    var count = [];
