@@ -908,4 +908,23 @@ The following <a href="https://jsfiddle.net/hz0rmbuy">JSFiddle</a> contains a fu
 
 You can also find the complete source code on the <a href="https://github.com/projecthorus/sondehub-listener-stats">sondehub-listener-stats</a> GitHub page.
 
+<div id="container">
+   <canvas id="chartJSContainer" style="display: none;"></canvas>
+   <div id="loadingGif" style="display: block;">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255, 0); display: block; shape-rendering: auto;" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+         <circle cx="50" cy="50" r="32" stroke-width="8" stroke="#00a3d3" stroke-dasharray="50.26548245743669 50.26548245743669" fill="none" stroke-linecap="round">
+         <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
+         </circle>
+      </svg>
+   </div>
+   <div>
+      <button id="update" class="button">MODE</button>
+      <button id="hide" class="button">VERSIONS</button>
+   </div>
+</div>
+
+<script>
+
+</script>
+
 <iframe width="100%" height="800px" src="//jsfiddle.net/hz0rmbuy/embedded/result/" allowfullscreen="allowfullscreen" allowtransparency="true" allowpaymentrequest frameborder="0"></iframe>
