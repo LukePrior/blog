@@ -994,7 +994,7 @@ You can also find the complete source code on the <a href="https://github.com/pr
             var color = centerConfig.color || '#000';
             var maxFontSize = centerConfig.maxFontSize || 75;
             var sidePadding = centerConfig.sidePadding || 20;
-            var sidePaddingCalculated = (sidePadding / 100) * (innerRadius * 2)
+            var sidePaddingCalculated = (sidePadding / 100) * (innerRadius * 2);
             ctx.font = "30px " + fontStyle;
 
             var stringWidth = ctx.measureText(txt).width;
