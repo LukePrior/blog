@@ -262,15 +262,15 @@ if (e.values[7].length > 0) {
 The script attempts to download the existing records for the site if they exist to determine the differences between the current and proposed fields.
 
 ```javascript
-   var url = "https://api.v2.sondehub.org/sites?station=" + station_id;
+var url = "https://api.v2.sondehub.org/sites?station=" + station_id;
 
-   var options = {
-      "method": "GET",
-      "contentType": "application/json"
-   };
+var options = {
+   "method": "GET",
+   "contentType": "application/json"
+};
 
-   var response = UrlFetchApp.fetch(url, options);
-   existing = JSON.parse(response.getContentText());
+var response = UrlFetchApp.fetch(url, options);
+existing = JSON.parse(response.getContentText());
 ```
 
 To compare the new entry it must be stored in the same format as served by the API.
@@ -285,105 +285,99 @@ The reason that such a function is required is due to arrays from the API being 
 
 The function returns a new object which lists all the additions, modifications, and removals to individual properties from the existing entry
 
-<pre><code class="language-json">
-   {
-      "27459": {
-        "ascent_rate": {
-          "type": "created",
-          "data": 4.5
-        },
-        "burst_altitude": {
-          "type": "created",
-          "data": 27000
-        },
-        "descent_rate": {
-          "type": "created",
-          "data": 25
-        }
+```json
+{
+   "27459": {
+      "ascent_rate": {
+         "type": "created",
+         "data": 4.5
+      },
+      "burst_altitude": {
+         "type": "created",
+         "data": 27000
+      },
+      "descent_rate": {
+         "type": "created",
+         "data": 25
       }
    }
-</code></pre>
+}
+```
 
 <h2>GitHub Issues</h2>
 
-<p>To post the suggested changes as a GitHub comment the data must be formatted as a single Markdown string.</p>
+To post the suggested changes as a GitHub comment the data must be formatted as a single Markdown string.
 
 <h3>Generate Markdown</h3>
 
-<p>The comment uses various GitHub Markdown features such as expanding modals and embeded maps.</p>
+The comment uses various GitHub Markdown features such as expanding modals and embeded maps.
 
-<p>The first section of the comment contains the raw unprocessed suggestions which allows for manual inspection and review.</p>
+The first section of the comment contains the raw unprocessed suggestions which allows for manual inspection and review.
 
-<p>The field names are bolded using <code class="language-markup">**</code> while new lines are created with <code class="language-markup">\n</code>.</p>
+The field names are bolded using `**` while new lines are created with `\n`.</p>
 
-<pre><code class="language-javascript">
-   "**Time Submitted:** " + e.values[0] + "\n"
-</code></pre>
+```javascript
+"**Time Submitted:** " + e.values[0] + "\n"
+```
 
 <h3>Generate Map</h3>
 
-<p>The next section is an expandable map showing the proposed or existing solution of the launch site on an interactive map.</p>
+The next section is an expandable map showing the proposed or existing solution of the launch site on an interactive map.
 
-<p>GitHub has <a href="https://github.blog/changelog/2022-03-17-mermaid-topojson-geojson-and-ascii-stl-diagrams-are-now-supported-in-markdown-and-as-files/">recently</a> added support for displaying geoJSON data on an interactive map in comments and files.</p>
+GitHub has <a href="https://github.blog/changelog/2022-03-17-mermaid-topojson-geojson-and-ascii-stl-diagrams-are-now-supported-in-markdown-and-as-files/" target="_blank">recently</a> added support for displaying geoJSON data on an interactive map in comments and files.
 
-<p>To show the launch site on the map a geoJSON file must be constructed using the provided coordinates and altitude.</p>
+To show the launch site on the map a geoJSON file must be constructed using the provided coordinates and altitude.
 
-<pre><code class="language-json">
-```geojson
-   {
-      "type":"Feature",
-      "geometry":{
-         "type":"Point",
-         "coordinates":[
-            -58.5333,
-            -34.8167,
-            20
-         ]
-      },
-      "properties":{
-         "marker-size":"large",
-         "marker-symbol":"observation-tower",
-         "Station ID":"87576",
-         "Station Name":"Ezeiza Aerodrome (Argentina)"
-      }
+```json
+{
+   "type":"Feature",
+   "geometry":{
+      "type":"Point",
+      "coordinates":[
+         -58.5333,
+         -34.8167,
+         20
+      ]
+   },
+   "properties":{
+      "marker-size":"large",
+      "marker-symbol":"observation-tower",
+      "Station ID":"87576",
+      "Station Name":"Ezeiza Aerodrome (Argentina)"
    }
+}
 ```
-</code></pre>
 
-<p>The properties define the size and type of icon displayed on the map to indicates it's position along with some additional information such as station name and ID that is visible in a modal on icon selection.</p>
+The properties define the size and type of icon displayed on the map to indicates it's position along with some additional information such as station name and ID that is visible in a modal on icon selection.
 
-<p>The code used to generate this simply inserts the position along with station name and ID into the string.</p>
+The code used to generate this simply inserts the position along with station name and ID into the string.
 
 <img src="{{"/assets/sites-map.png" | relative_url }}" style="display:block;margin:auto;max-width:100%;"/>
 
-<br>
-
 <h3>Hidden Modals</h3>
 
-<p>To reduce the overall size of the comment most of the data is hidden behind expandable modals which are created using the HTML details and summary tags.</p>
+To reduce the overall size of the comment most of the data is hidden behind expandable modals which are created using the HTML details and summary tags.
 
-<pre><code class="language-markup">
-   &lt;details>&lt;summary>View map&lt;/summary>
-      &lt;p>Hidden Text!&lt;/p>
-   &lt;/details>
-</code></pre>
+```html
+<details><summary>View map</summary>
+   <p>Hidden Text!</p>
+</details>
+```
 
 <h3>Raw JSON</h3>
 
-<p>The existing, suggested, and difference JSON files are also included in the comment under seperate modals for reference.</p>
+The existing, suggested, and difference JSON files are also included in the comment under seperate modals for reference.
 
-<p>These are generated using <code class="language-javascript">JSON.stringify()</code> and the same modals as above.</p>
+These are generated using `JSON.stringify()` and the same modals as above.
 
 <h3>Publishing to GitHub</h3>
 
-<p>The GitHub API is used to create a new comment on the issue on the SondeHub Tracker with all the information.</p>
+The GitHub API is used to create a new comment on the issue on the SondeHub Tracker with all the information.
 
-<p>The comments are published via my own personal account using an authorisation token.</p>
-
-<br>
+The comments are published via my own personal account using an authorisation token.
 
 <h2>Updating the Database</h2>
 
-<p>The Elasticsearch database containg the launch sites list is still manually updated to ensure no erros are introduced.</p>
+The Elasticsearch database containg the launch sites list is still manually updated to ensure no erros are introduced.
 
-<p>The automatic formatting of submissions into the correct JSON format simplifies this process considerably allowing for faster updates.</p>
+The automatic formatting of submissions into the correct JSON format simplifies this process considerably allowing for faster updates.
