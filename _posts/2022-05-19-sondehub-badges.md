@@ -166,7 +166,7 @@ The SondeHub Listener Stats API URL is provided along with a query to get the fi
 https://img.shields.io/badge/dynamic/json?label=Total&query=totals.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Total&query=totals.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge">
+<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Total&query=totals.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style%3Dfor-the-badge">
 
 ```
 https://img.shields.io/badge/dynamic/json?label=radiosonde_auto_rx&query=radiosonde_auto_rx.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
