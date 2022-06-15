@@ -35,7 +35,7 @@ Several preconfigured badges exist for common services and statistics such as co
 The following badge shows the last time this blog was updated.
 
 ```
-   https://img.shields.io/github/last-commit/LukePrior/blog
+https://img.shields.io/github/last-commit/LukePrior/blog
 ```
 
 <img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog">
@@ -47,7 +47,7 @@ The badges all share the same styling options allowing for a consistent design a
 Their are five available styles for each badge along with extra options to control specific colours and text.
 
 ```
-   https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge
+https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge
 ```
 
 <img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge">
@@ -59,7 +59,7 @@ Shields.io can also generate a custom badge from any publically accessible json,
 The dynamic badge type accepts a data source and query along with options for text formatting.
 
 ```
-   https://img.shields.io/badge/dynamic/json?url=<URL>&label=<LABEL>&query=<$.DATA.SUBDATA>&color=<COLOR>&prefix=<PREFIX>&suffix=<SUFFIX>
+https://img.shields.io/badge/dynamic/json?url=<URL>&label=<LABEL>&query=<$.DATA.SUBDATA>&color=<COLOR>&prefix=<PREFIX>&suffix=<SUFFIX>
 ```
 
 This functionality was used to generate the badges in the SondeHub Wiki.
@@ -69,30 +69,30 @@ This functionality was used to generate the badges in the SondeHub Wiki.
 The SondeHub Listener Stats API returns information about the number of receiver stations that have uploaded telemetry to the SondeHub radiosonde tracking database.
 
 ```
-   https://api.v2.sondehub.org/listeners/stats
+https://api.v2.sondehub.org/listeners/stats
 ```
 
 ```json
-   {
-      "radiosonde_auto_rx": {
-         "telemetry_count": 46867907,
-         "unique_callsigns": 620,
-         "versions": {
-            "1.5.10": {
-               "telemetry_count": 31942436,
-               "unique_callsigns": 390
-            }
+{
+   "radiosonde_auto_rx": {
+      "telemetry_count": 46867907,
+      "unique_callsigns": 620,
+      "versions": {
+         "1.5.10": {
+            "telemetry_count": 31942436,
+            "unique_callsigns": 390
          }
-      },
-      "rdzTTGOsonde": {
-         "telemetry_count": 11768771,
-         "unique_callsigns": 221
-      },
-      "totals": {
-         "unique_callsigns": 847,
-         "telemetry_count": 58737217
       }
+   },
+   "rdzTTGOsonde": {
+      "telemetry_count": 11768771,
+      "unique_callsigns": 221
+   },
+   "totals": {
+      "unique_callsigns": 847,
+      "telemetry_count": 58737217
    }
+}
 ```
 
 The specific Python code and Elasticsearch Query for generating the API response can be found <a href="https://github.com/projecthorus/sondehub-infra/blob/a70f7aac4c3b4745a1894d9c7a261830ea982fa3/lambda/query/__init__.py#L394" target="_blank">here</a>.
@@ -162,25 +162,25 @@ This data is used to generate badges for the total number of stations along with
 The SondeHub Listener Stats API URL is provided along with a query to get the figure desired for each badge along with a suffix and prefix.
 
 ```
-   https://img.shields.io/badge/dynamic/json?label=Total&query=totals.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
+https://img.shields.io/badge/dynamic/json?label=Total&query=totals.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
 ```
 
 <img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Total&query=totals.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge">
 
 ```
-   https://img.shields.io/badge/dynamic/json?label=radiosonde_auto_rx&query=radiosonde_auto_rx.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
+https://img.shields.io/badge/dynamic/json?label=radiosonde_auto_rx&query=radiosonde_auto_rx.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
 ```
 
 <img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=radiosonde_auto_rx&query=radiosonde_auto_rx.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge">
 
 ```
-   https://img.shields.io/badge/dynamic/json?label=rdzTTGOsonde&query=rdzTTGOsonde.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
+https://img.shields.io/badge/dynamic/json?label=rdzTTGOsonde&query=rdzTTGOsonde.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
 ```
 
 <img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=rdzTTGOsonde&query=rdzTTGOsonde.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge">
 
 ```
-   https://img.shields.io/badge/dynamic/json?label=SondeMonitor&query=SondeMonitor.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
+https://img.shields.io/badge/dynamic/json?label=SondeMonitor&query=SondeMonitor.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
 ```
 
 <img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=SondeMonitor&query=SondeMonitor.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge">
@@ -190,7 +190,7 @@ The SondeHub Listener Stats API URL is provided along with a query to get the fi
 The SondeHub Recovery Stats API returns information about the number of radiosondes that have been marked as retrieved in the SondeHub database.
 
 ```
-   https://api.v2.sondehub.org/recovered/stats
+https://api.v2.sondehub.org/recovered/stats
 ```
 
 ```json
@@ -282,25 +282,25 @@ This data is used to generate badges for the total number of sondes reported and
 The SondeHub Recovery Stats API URL is provided along with a query to get the figure desired for each badge along with a suffix and prefix.
 
 ```
-   https://img.shields.io/badge/dynamic/json?label=Reported&query=total&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
+https://img.shields.io/badge/dynamic/json?label=Reported&query=total&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
 ```
 
 <img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Reported&query=total&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge">
 
 ```
-   https://img.shields.io/badge/dynamic/json?label=Recovered&query=recovered&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
+https://img.shields.io/badge/dynamic/json?label=Recovered&query=recovered&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
 ```
 
 <img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Recovered&query=recovered&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge">
 
 ```
-   https://img.shields.io/badge/dynamic/json?label=Lost&query=failed&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
+https://img.shields.io/badge/dynamic/json?label=Lost&query=failed&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
 ```
 
 <img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Lost&query=failed&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge">
 
 ```
-   https://img.shields.io/badge/dynamic/json?label=Chasers&query=chaser_count&suffix=%20Chasers&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
+https://img.shields.io/badge/dynamic/json?label=Chasers&query=chaser_count&suffix=%20Chasers&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
 ```
 
 <img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Chasers&query=chaser_count&suffix=%20Chasers&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge">
@@ -309,12 +309,12 @@ The SondeHub Recovery Stats API URL is provided along with a query to get the fi
 
 These badges can easily be added to any GitHub README, Wiki page, or comment using markdwon.
 
-```markup
-   ![This is an example badge][https://img.shields.io/github/last-commit/LukePrior/blog]
+```markdown
+![This is an example badge][https://img.shields.io/github/last-commit/LukePrior/blog]
 ```
 
 <p>The badges can also be set as hyperlinks with the following markdown.</p>
 
-```markup
-   [![This is an example badge][https://img.shields.io/github/last-commit/LukePrior/blog]](https://github.com/LukePrior/blog)
+```markdown
+[![This is an example badge][https://img.shields.io/github/last-commit/LukePrior/blog]](https://github.com/LukePrior/blog)
 ```
