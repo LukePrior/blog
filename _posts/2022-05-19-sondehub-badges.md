@@ -10,6 +10,7 @@ categories: [SondeHub]
 
 <style>
    .badge_img {
+      position: static!important;
       display: block!important;
       margin-right: auto!important;
       margin-left: auto!important;
