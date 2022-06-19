@@ -162,6 +162,70 @@ recoveryCheckParams = "?serial={}".format(serial)
 
 The status of the latest report is checked and if a valid recovery already exists the import process for that specific radiosonde is skipped.
 
+<div id="OpenAPI2"></div>
+
+<script>
+   const paths1 = {
+      "/recovered": {
+         "get": {
+            "tags": [
+               "SondeHub Recovered"
+            ],
+            "summary": "SondeHub Recovered",
+            "description": "Use this to get the recovery data.",
+            "parameters": [
+                {
+                  "in": "query",
+                  "name": "serial",
+                  "type": "number",
+                  "description": "radiosonde serial number (or multiple serial numbers separated by a comma) to filter on. If none provided all serials will be presented."
+               },
+               {
+                  "in": "query",
+                  "name": "lat",
+                  "type": "number",
+                  "description": "Latitude - if specified, lon and distance are required. Eg: -34.9285"
+               },
+               {
+                  "in": "query",
+                  "name": "lon",
+                  "type": "number",
+                  "description": "Longitude - if specified, lat and distance are required Eg: 138.6007"
+               },
+               {
+                  "in": "query",
+                  "name": "distance",
+                  "type": "number",
+                  "description": "Distance in meters - if specified, lat and lon are required"
+               },
+               {
+                  "in": "query",
+                  "name": "last",
+                  "type": "number",
+                  "description": "How far back to search in seconds. Defaults to 24hrs"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Returns a list of recovery objects"
+               }
+            },
+         }
+      }
+   };
+
+   const spec1 = {
+      'swagger': '2.0',
+      'paths': paths1,
+      'host': 'api.v2.sondehub.org'
+   };
+
+   SwaggerUIBundle({
+      spec: spec1,
+      domNode: document.querySelector('#OpenAPI2')
+   })
+</script>
+
 <h2>Creating Report</h2>
 
 The recovery report can be created once a valid serial has been found and the SondeHub database has been checked for existing valid reports.
