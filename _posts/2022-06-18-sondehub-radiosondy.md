@@ -74,6 +74,43 @@ The private Radiosondy.info recovery API is used to programatically get the reco
 
 The API requires an API token and a time period in hours to return recovery reports for.
 
+```
+https://radiosondy.info/api/v1/sonde-logs?token={token}&period=48
+```
+
+```json
+{
+   "results": [
+      {
+         "radiosonde": {
+               "number": "ME1622EBB",
+               "type": "M10",
+               "aux": "NO",
+               "qrg": "403.400",
+               "start_place": "Murcia (ES)"
+         },
+         "log_info": {
+               "status": "FOUND",
+               "finder": "azofaifo",
+               "added_by": "azofaifo",
+               "log_added": "2022-06-18 10:18:02",
+               "comment": "In the corner of a house, in a small town 2 minutes from where I live.",
+               "found_coordinates": {
+                  "latitude": "38.0989",
+                  "longitude": "-1.2775"
+               }
+         },
+         "start_time": "2022-06-17 23:18:52",
+         "nearest_city": "Ceuti (ES)"
+      }
+   ]
+}
+```
+
+<h3>Swagger UI API</h3>
+
+The following Swagger UI component can be used to access the Radiosondy.info Recovery API and get real results.
+
 <div id="OpenAPI0"></div>
 
 <script>
@@ -143,6 +180,57 @@ if value["type"] in sondeType:
 ```
 
 These parameters allow the radiosonde serial to be matched with a high degree of certainty.
+
+```
+https://api.v2.sondehub.org/sondes?lat=-34.94449&lon=138.91148&distance=2000
+```
+
+```json
+{
+   "106-2-13771":{
+      "2022-06-18T01:22:08.000Z":{
+         "software_name":"radiosonde_auto_rx",
+         "software_version":"1.5.10",
+         "uploader_callsign":"EA5BZ",
+         "uploader_position":"38.2768,-0.6711",
+         "uploader_antenna":"1/4 wave monopole",
+         "time_received":"2022-06-18T01:22:08.746528Z",
+         "datetime":"2022-06-18T01:22:08.000000Z",
+         "manufacturer":"Meteomodem",
+         "type":"M10",
+         "serial":"106-2-13771",
+         "frame":1339550546,
+         "lat":38.09909,
+         "lon":-1.27771,
+         "alt":526.16,
+         "temp":27.4,
+         "humidity":27.4,
+         "vel_v":-10.31,
+         "vel_h":1.04389,
+         "heading":113.12652,
+         "sats":11,
+         "batt":4.97,
+         "frequency":403.404,
+         "snr":4.8,
+         "user-agent":"Amazon CloudFront",
+         "position":"38.09909,-1.27771",
+         "upload_time_delta":-1.168,
+         "uploader_alt":120.0,
+         "uploaders":[
+            {
+               "uploader_callsign":"EA5BZ",
+               "frequency":403.404,
+               "snr":4.8
+            }
+         ]
+      }
+   }
+}
+```
+
+<h3>Swagger UI API</h3>
+
+The following Swagger UI component can be used to access the SondeHub Sondes API and get real results.
 
 <div id="OpenAPI1"></div>
 
@@ -217,6 +305,32 @@ recoveryCheckParams = "?serial={}".format(serial)
 ```
 
 The status of the latest report is checked and if a valid recovery already exists the import process for that specific radiosonde is skipped.
+
+```
+https://api.v2.sondehub.org/recovered?serial=106-2-13771
+```
+
+```json
+[
+   {
+      "datetime":"2022-06-18T10:18:02",
+      "serial":"106-2-13771",
+      "lat":38.0989,
+      "lon":-1.2775,
+      "recovered":true,
+      "recovered_by":"azofaifo",
+      "description":"In the corner of a house, in a small town 2 minutes from where I live. [via Radiosondy.info]",
+      "position":[
+         -1.2775,
+         38.0989
+      ]
+   }
+]
+```
+
+<h3>Swagger UI API</h3>
+
+The following Swagger UI component can be used to access the SondeHub Recovery API and get real results.
 
 <div id="OpenAPI2"></div>
 
