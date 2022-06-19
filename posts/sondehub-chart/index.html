@@ -1,0 +1,721 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="prefer-datetime-locale" content="en-au"><meta name="generator" content="Jekyll v4.2.2" /><meta property="og:title" content="SondeHub Stations Chart" /><meta property="og:locale" content="en" /><meta name="description" content="A minimal, responsive, and powerful Jekyll theme for presenting professional writing." /><meta property="og:description" content="A minimal, responsive, and powerful Jekyll theme for presenting professional writing." /><link rel="canonical" href="https://lukeprior.github.io/blog/posts/sondehub-chart/" /><meta property="og:url" content="https://lukeprior.github.io/blog/posts/sondehub-chart/" /><meta property="og:site_name" content="Luke Prior Blog" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2022-05-18T14:00:00+10:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="SondeHub Stations Chart" /><meta name="twitter:site" content="@twitter_username" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-19T19:15:06+10:00","datePublished":"2022-05-18T14:00:00+10:00","description":"A minimal, responsive, and powerful Jekyll theme for presenting professional writing.","headline":"SondeHub Stations Chart","mainEntityOfPage":{"@type":"WebPage","@id":"https://lukeprior.github.io/blog/posts/sondehub-chart/"},"url":"https://lukeprior.github.io/blog/posts/sondehub-chart/"}</script><title>SondeHub Stations Chart | Luke Prior Blog</title><link rel="apple-touch-icon" sizes="180x180" href="/blog/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/blog/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/blog/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/blog/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/blog/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="Luke Prior Blog"><meta name="application-name" content="Luke Prior Blog"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/blog/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/blog/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get MODE_ATTR() { return "data-mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } static get ID() { return "mode-toggle"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } let self = this; /* always follow the system prefers */ this.sysDarkPrefers.addEventListener("change", () => { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.notify(); }); } /* constructor() */ get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode === ModeToggle.DARK_MODE; } get isLightMode() { return this.mode === ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } setDark() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_ATTR); sessionStorage.removeItem(ModeToggle.MODE_KEY); } /* Notify another plugins that the theme mode has changed */ notify() { window.postMessage({ direction: ModeToggle.ID, message: this.modeStatus }, "*"); } } /* ModeToggle */ const toggle = new ModeToggle(); function flipMode() { if (toggle.hasMode) { if (toggle.isSysDarkPrefer) { if (toggle.isLightMode) { toggle.clearMode(); } else { toggle.setLight(); } } else { if (toggle.isDarkMode) { toggle.clearMode(); } else { toggle.setDark(); } } } else { if (toggle.isSysDarkPrefer) { toggle.setLight(); } else { toggle.setDark(); } } toggle.notify(); } /* flipMode() */ </script><body data-spy="scroll" data-target="#toc" data-topbar-visible="true"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/blog/" class="mx-auto"> </a></div><div class="site-title mt-3"> <a href="/blog/">Luke Prior Blog</a></div><div class="site-subtitle font-italic">The personal blog of Luke Prior</div></div><ul class="w-100"><li class="nav-item"> <a href="/blog/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/blog/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/blog/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/blog/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/blog/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <button class="mode-toggle btn" aria-label="Switch Mode"> <i class="fas fa-adjust"></i> </button> <span class="icon-border"></span> <a href="https://github.com/LukePrior" aria-label="github" > <i class="fab fa-github"></i> </a> <a href="https://www.linkedin.com/in/luke-prior-03/" aria-label="linkedin" > <i class="fab fa-linkedin"></i> </a> <a href="/blog/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper"><div id="topbar" class="container d-flex align-items-center justify-content-between h-100 pl-3 pr-3 pl-md-4 pr-md-4"> <span id="breadcrumb"> <span> <a href="/blog/"> Home </a> </span> <span>SondeHub Stations Chart</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper" class="d-flex justify-content-center"><div id="main" class="container pl-xl-4 pr-xl-4"><div class="row"><div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4"><div class="post pl-1 pr-1 pl-md-2 pr-md-2"><h1 data-toc-skip>SondeHub Stations Chart</h1><div class="post-meta text-muted"> <span> Posted <em class="" data-ts="1652846400" data-df="ll" data-toggle="tooltip" data-placement="bottom"> May 18, 2022 </em> </span> <span> Updated <em class="" data-ts="1655630106" data-df="ll" data-toggle="tooltip" data-placement="bottom"> Jun 19, 2022 </em> </span><div class="d-flex justify-content-between"> <span> By <em> <a href="https://github.com/LukePrior">Luke Prior</a> </em> </span><div> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="2006 words"> <em>11 min</em> read</span></div></div></div><div class="post-content"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui.css" /> <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script> <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui-bundle.js"></script><p>This blog post contains instructions on how to use Chart.js to create a custom donut chart specifically designed for showing receiver data from SondeHub.</p><h2>Chart.js</h2><p>Chart.js is a simple JavaScript charting library for creating responsive visualisations of various types and styles.</p><p>Chart.js can easily be added on an existing website by including the latest version of the library from a CDN or locally.</p><div class="language-html highlighter-rouge"><div class="code-header"> <span data-label-text="HTML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">language=</span><span class="s">"javascript"</span> <span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></table></code></div></div><h3>Donut Chart</h3><p>To render a chart a canvas element needs to be added to the website</p><div class="language-html highlighter-rouge"><div class="code-header"> <span data-label-text="HTML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"myChart"</span> <span class="na">width=</span><span class="s">"400"</span> <span class="na">height=</span><span class="s">"400"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+</pre></table></code></div></div><p>The graph requires a data object which contains the dataset and formatting options for the graph.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="na">labels</span><span class="p">:</span> <span class="p">[</span>
+      <span class="dl">'</span><span class="s1">Red</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">Blue</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">Yellow</span><span class="dl">'</span>
+   <span class="p">],</span>
+   <span class="na">datasets</span><span class="p">:</span> <span class="p">[{</span>
+      <span class="na">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+      <span class="na">backgroundColor</span><span class="p">:</span> <span class="p">[</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(54, 162, 235)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span>
+      <span class="p">]</span>
+   <span class="p">}]</span>
+<span class="p">};</span>
+</pre></table></code></div></div><p>The graph can now be created and rendered by passing through the canvas element and data object.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">myChart</span><span class="dl">'</span><span class="p">).</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">myChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="p">{</span>
+   <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">doughnut</span><span class="dl">'</span><span class="p">,</span>
+   <span class="na">data</span><span class="p">:</span> <span class="nx">data</span>
+<span class="p">});</span>
+</pre></table></code></div></div><h4>Result</h4><p>The complete code for this example can be found <a href="https://jsfiddle.net/vzg1eh8o/" target="_blank">here</a>.</p><canvas id="chart1" width="400" height="400"></canvas> <script> const data1 = { labels: [ 'Red', 'Blue', 'Yellow' ], datasets: [{ data: [300, 50, 100], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ] }] }; const ctx1 = document.getElementById('chart1').getContext('2d'); const myChart1 = new Chart(ctx1, { type: 'doughnut', data: data1 }); </script><h3>Custom Item Tooltips</h3><p>The default tooltip only shows the label and value for each entry.</p><p>This can be overriden by creating a custom tooltip which can show the percentage for each entry.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">myChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="p">{</span>
+   <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">doughnut</span><span class="dl">'</span><span class="p">,</span>
+   <span class="na">data</span><span class="p">:</span> <span class="nx">data</span><span class="p">,</span>
+   <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+   <span class="na">plugins</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">tooltip</span><span class="p">:</span> <span class="p">{</span>
+         <span class="na">enabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+         <span class="na">callbacks</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">label</span><span class="p">:</span> <span class="p">(</span><span class="nx">ttItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+               <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+   
+               <span class="kd">let</span> <span class="nx">dataArr</span> <span class="o">=</span> <span class="nx">ttItem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+               <span class="nx">dataArr</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                  <span class="nx">sum</span> <span class="o">+=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+               <span class="p">});</span>
+   
+               <span class="kd">let</span> <span class="nx">percentage</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ttItem</span><span class="p">.</span><span class="nx">parsed</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="nx">sum</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">%</span><span class="dl">'</span><span class="p">;</span>
+               <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">ttItem</span><span class="p">.</span><span class="nx">parsed</span><span class="p">}</span><span class="s2">: </span><span class="p">${</span><span class="nx">percentage</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+            <span class="p">}</span>
+         <span class="p">}</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">});</span>
+</pre></table></code></div></div><h4>Result</h4><p>The complete code for this example can be found <a href="https://jsfiddle.net/awfkm86x/" target="_blank">here</a>.</p><canvas id="chart2" width="400" height="400"></canvas> <script> const data2 = { labels: [ 'Red', 'Blue', 'Yellow' ], datasets: [{ data: [300, 50, 100], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ] }] }; const ctx2 = document.getElementById('chart2').getContext('2d'); const myChart2 = new Chart(ctx2, { type: 'doughnut', data: data2, options: { plugins: { tooltip: { enabled: true, callbacks: { label: (ttItem) => { let sum = 0; let dataArr = ttItem.dataset.data; dataArr.map(data => { sum += Number(data); }); let percentage = (ttItem.parsed * 100 / sum).toFixed(2) + '%'; return `${ttItem.parsed}: ${percentage}`; } } } } } }); </script><h3>Nested Donut Chart</h3><p>Chart.js includes limited nested data support with donut charts by passing through multiple datasets.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="na">labels</span><span class="p">:</span> <span class="p">[</span>
+      <span class="dl">'</span><span class="s1">Red</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">Blue</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">Yellow</span><span class="dl">'</span>
+   <span class="p">],</span>
+   <span class="na">datasets</span><span class="p">:</span> <span class="p">[{</span>
+      <span class="na">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+      <span class="na">backgroundColor</span><span class="p">:</span> <span class="p">[</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(54, 162, 235)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span>
+      <span class="p">]</span>
+   <span class="p">},</span> <span class="p">{</span>
+      <span class="na">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">175</span><span class="p">],</span>
+      <span class="na">backgroundColor</span><span class="p">:</span> <span class="p">[</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(54, 162, 235)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span>
+      <span class="p">]</span>
+   <span class="p">}]</span>
+<span class="p">};</span>
+</pre></table></code></div></div><h4>Result</h4><p>The complete code for this example can be found <a href="https://jsfiddle.net/wLe7ngk3/" target="_blank">here</a>.</p><canvas id="chart3" width="400" height="400"></canvas> <script> const data3 = { labels: [ 'Red', 'Blue', 'Yellow' ], datasets: [{ data: [300, 50, 100], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ] }, { data: [200, 75, 175], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ] }] }; const ctx3 = document.getElementById('chart3').getContext('2d'); const myChart3 = new Chart(ctx3, { type: 'doughnut', data: data3, options: { plugins: { tooltip: { enabled: true, callbacks: { label: (ttItem) => { let sum = 0; let dataArr = ttItem.dataset.data; dataArr.map(data => { sum += Number(data); }); let percentage = (ttItem.parsed * 100 / sum).toFixed(2) + '%'; return `${ttItem.parsed}: ${percentage}`; } } } } } }); </script><p>This works well when the inner dataset is the same length as the outer dataset however to have sub-categories in the inner-dataset a custom legend handler is required.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="nx">datasets</span><span class="p">:</span> <span class="p">[{</span>
+   <span class="na">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+   <span class="na">backgroundColor</span><span class="p">:</span> <span class="p">[</span>
+      <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">rgb(54, 162, 235)</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span>
+   <span class="p">]</span>
+<span class="p">},</span> <span class="p">{</span>
+   <span class="na">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+   <span class="na">backgroundColor</span><span class="p">:</span> <span class="p">[</span>
+      <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">rgb(54, 162, 235)</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span>
+   <span class="p">]</span>
+<span class="p">}]</span>
+</pre></table></code></div></div><p>The sub-entries can be grouped with their parents if their values are perfectly nested using the following custom legend handler.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre><td class="rouge-code"><pre><span class="nx">plugins</span><span class="p">:</span> <span class="p">{</span>
+   <span class="nl">legend</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">labels</span><span class="p">:</span> <span class="p">{</span>
+         <span class="na">generateLabels</span><span class="p">:</span> <span class="nx">chart</span> <span class="o">=&gt;</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">labels</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">l</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+            <span class="na">text</span><span class="p">:</span> <span class="nx">l</span><span class="p">,</span>
+            <span class="na">index</span><span class="p">:</span> <span class="nx">i</span><span class="p">,</span>
+            <span class="na">fillStyle</span><span class="p">:</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">backgroundColor</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span>
+            <span class="na">strokeStyle</span><span class="p">:</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">backgroundColor</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span>
+            <span class="na">hidden</span><span class="p">:</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">getDatasetMeta</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">hidden</span>
+         <span class="p">})),</span>
+      <span class="p">},</span>
+      <span class="na">onClick</span><span class="p">:</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">legendItem</span><span class="p">,</span> <span class="nx">legend</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+         <span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+         <span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+         <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+         <span class="kd">let</span> <span class="nx">chart</span> <span class="o">=</span> <span class="nx">legend</span><span class="p">.</span><span class="nx">chart</span><span class="p">;</span>
+         <span class="kd">let</span> <span class="nx">hidden</span> <span class="o">=</span> <span class="o">!</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getDatasetMeta</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">data</span><span class="p">[</span><span class="nx">legendItem</span><span class="p">.</span><span class="nx">index</span><span class="p">].</span><span class="nx">hidden</span><span class="p">;</span>
+         <span class="nx">chart</span><span class="p">.</span><span class="nx">getDatasetMeta</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">data</span><span class="p">[</span><span class="nx">legendItem</span><span class="p">.</span><span class="nx">index</span><span class="p">].</span><span class="nx">hidden</span> <span class="o">=</span> <span class="nx">hidden</span><span class="p">;</span>
+         <span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">v</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">getDatasetMeta</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">$context</span><span class="p">.</span><span class="nx">parsed</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="nx">legendItem</span><span class="p">.</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+               <span class="nx">start</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">;</span>
+               <span class="nx">end</span> <span class="o">=</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">value</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">value</span><span class="p">;</span>
+         <span class="p">});</span>
+         <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+         <span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">v</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">getDatasetMeta</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">$context</span><span class="p">.</span><span class="nx">parsed</span><span class="p">;</span>
+            <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">value</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">&gt;</span> <span class="nx">start</span> <span class="o">&amp;&amp;</span> <span class="nx">sum</span> <span class="o">&lt;=</span> <span class="nx">end</span><span class="p">)</span> <span class="p">{</span>
+               <span class="nx">chart</span><span class="p">.</span><span class="nx">getDatasetMeta</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">hidden</span> <span class="o">=</span> <span class="nx">hidden</span><span class="p">;</span>
+            <span class="p">}</span>
+         <span class="p">});</span>
+         <span class="nx">chart</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><h4>Result</h4><p>The complete code for this example can be found <a href="https://jsfiddle.net/qkxyjfuL/" target="_blank">here</a>.</p><canvas id="chart4" width="400" height="400"></canvas> <script> const data4 = { labels: [ 'Red', 'Blue', 'Yellow' ], datasets: [{ data: [300, 50, 100], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ] }, { data: [150, 150, 50, 75, 25], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(255, 205, 86)' ] }] }; const ctx4 = document.getElementById('chart4').getContext('2d'); const myChart4 = new Chart(ctx4, { type: 'doughnut', data: data4, options: { plugins: { tooltip: { enabled: true, callbacks: { label: (ttItem) => { let sum = 0; let dataArr = ttItem.dataset.data; dataArr.map(data => { sum += Number(data); }); let percentage = (ttItem.parsed * 100 / sum).toFixed(2) + '%'; return `${ttItem.parsed}: ${percentage}`; } } }, legend: { labels: { generateLabels: chart => chart.data.labels.map((l, i) => ({ text: l, index: i, fillStyle: chart.data.datasets[0].backgroundColor[i], strokeStyle: chart.data.datasets[0].backgroundColor[i], hidden: chart.getDatasetMeta(0).data[i].hidden })), }, onClick: (event, legendItem, legend) => { var start = 0; var end = 0; var sum = 0; let chart = legend.chart; let hidden = !chart.getDatasetMeta(0).data[legendItem.index].hidden; chart.getDatasetMeta(0).data[legendItem.index].hidden = hidden; chart.data.datasets[0].data.forEach((v, i) => { var value = chart.getDatasetMeta(0).data[i].$context.parsed; if (i == legendItem.index) { start = sum; end = sum + value; } sum += value; }); sum = 0; chart.data.datasets[1].data.forEach((v, i) => { var value = chart.getDatasetMeta(1).data[i].$context.parsed; sum += value; if (sum > start && sum <= end) { chart.getDatasetMeta(1).data[i].hidden = hidden; } }); chart.update(); } } } } }); </script><h3>Toggle Nested Data</h3><p>The nested data can also be toggled on and off by creating a simple function.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">nested</span><span class="dl">'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="dl">"</span><span class="s2">hidden</span><span class="dl">"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">hidden</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">hidden</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">hidden</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="nx">myChart</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></table></code></div></div><p>This function will toggle the nested data visiblity when the following button is pressed.</p><div class="language-html highlighter-rouge"><div class="code-header"> <span data-label-text="HTML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"nested"</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Toggle Nested<span class="nt">&lt;/button&gt;</span>
+</pre></table></code></div></div><h4>Result</h4><p>The complete code for this example can be found <a href="https://jsfiddle.net/23k567q1/" target="_blank">here</a>.</p><canvas id="chart5" width="400" height="400"></canvas><p><button id="nested5" class="button">Toggle Nested</button></p><script> const data5 = { labels: [ 'Red', 'Blue', 'Yellow' ], datasets: [{ data: [300, 50, 100], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ] }, { data: [150, 150, 50, 75, 25], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(255, 205, 86)' ] }] }; const ctx5 = document.getElementById('chart5').getContext('2d'); const myChart5 = new Chart(ctx5, { type: 'doughnut', data: data5, options: { plugins: { tooltip: { enabled: true, callbacks: { label: (ttItem) => { let sum = 0; let dataArr = ttItem.dataset.data; dataArr.map(data => { sum += Number(data); }); let percentage = (ttItem.parsed * 100 / sum).toFixed(2) + '%'; return `${ttItem.parsed}: ${percentage}`; } } }, legend: { labels: { generateLabels: chart => chart.data.labels.map((l, i) => ({ text: l, index: i, fillStyle: chart.data.datasets[0].backgroundColor[i], strokeStyle: chart.data.datasets[0].backgroundColor[i], hidden: chart.getDatasetMeta(0).data[i].hidden })), }, onClick: (event, legendItem, legend) => { var start = 0; var end = 0; var sum = 0; let chart = legend.chart; let hidden = !chart.getDatasetMeta(0).data[legendItem.index].hidden; chart.getDatasetMeta(0).data[legendItem.index].hidden = hidden; chart.data.datasets[0].data.forEach((v, i) => { var value = chart.getDatasetMeta(0).data[i].$context.parsed; if (i == legendItem.index) { start = sum; end = sum + value; } sum += value; }); sum = 0; chart.data.datasets[1].data.forEach((v, i) => { var value = chart.getDatasetMeta(1).data[i].$context.parsed; sum += value; if (sum > start && sum <= end) { chart.getDatasetMeta(1).data[i].hidden = hidden; } }); chart.update(); } } } } }); document.getElementById('nested5').addEventListener('click', () => { if (data5.datasets[1].hasOwnProperty("hidden") && data5.datasets[1].hidden == true) { data5.datasets[1].hidden = false; } else { data5.datasets[1].hidden = true; } myChart5.update(); }); </script><h3>Switch datasets</h3><p>To show multiple datasets on the graph switching functionality has to be implemented.</p><p>The first step is to move the datasets to a new object.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">datasets</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">[{</span>
+      <span class="na">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+      <span class="na">backgroundColor</span><span class="p">:</span> <span class="p">[</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(54, 162, 235)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span>
+      <span class="p">]</span>
+   <span class="p">},</span> <span class="p">{</span>
+      <span class="na">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+      <span class="na">backgroundColor</span><span class="p">:</span> <span class="p">[</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(54, 162, 235)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span>
+      <span class="p">]</span>
+   <span class="p">}],</span>
+   <span class="p">[{</span>
+      <span class="na">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+      <span class="na">backgroundColor</span><span class="p">:</span> <span class="p">[</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(54, 162, 235)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span>
+      <span class="p">]</span>
+   <span class="p">},</span> <span class="p">{</span>
+      <span class="na">data</span><span class="p">:</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span>
+      <span class="na">backgroundColor</span><span class="p">:</span> <span class="p">[</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 99, 132)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(54, 162, 235)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(54, 162, 235)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span><span class="p">,</span>
+         <span class="dl">'</span><span class="s1">rgb(255, 205, 86)</span><span class="dl">'</span>
+      <span class="p">]</span>
+   <span class="p">}]</span>
+<span class="p">]</span>
+</pre></table></code></div></div><p>The data object then needs to point to the first entry in datasets.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="na">labels</span><span class="p">:</span> <span class="p">[</span>
+      <span class="dl">'</span><span class="s1">Red</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">Blue</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">Yellow</span><span class="dl">'</span>
+   <span class="p">],</span>
+   <span class="na">datasets</span><span class="p">:</span> <span class="nx">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">};</span>
+</pre></table></code></div></div><p>To switch between these datasets a new function is required.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">dataset</span><span class="dl">'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nx">datasets</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="nx">datasets</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span> <span class="o">=</span> <span class="nx">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span> <span class="o">=</span> <span class="nx">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+   <span class="p">}</span>
+   <span class="nx">myChart</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></table></code></div></div><p>This function will switch the visible dataset when the following button is pressed.</p><div class="language-html highlighter-rouge"><div class="code-header"> <span data-label-text="HTML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"dataset"</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Switch Dataset<span class="nt">&lt;/button&gt;</span>
+</pre></table></code></div></div><p>The toggle nested function will need to be updated so that both datasets share the same view.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">nested</span><span class="dl">'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="dl">"</span><span class="s2">hidden</span><span class="dl">"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">hidden</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">].</span><span class="nx">hidden</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="nx">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">].</span><span class="nx">hidden</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">].</span><span class="nx">hidden</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="nx">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">].</span><span class="nx">hidden</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="nx">myChart</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></table></code></div></div><h4>Result</h4><p>The complete code for this example can be found <a href="https://jsfiddle.net/1crxpez4/" target="_blank">here</a>.</p><canvas id="chart6" width="400" height="400"></canvas><p><button id="nested6" class="button">Toggle Nested</button></p><p><button id="dataset6" class="button">Switch Dataset</button></p><script> const datasets6 = [ [{ data: [300, 50, 100], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ] }, { data: [150, 150, 50, 75, 25], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(255, 205, 86)' ] }], [{ data: [150, 100, 200], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ] }, { data: [150, 25, 75, 100, 50, 50], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(255, 205, 86)', 'rgb(255, 205, 86)' ] }] ]; const data6 = { labels: [ 'Red', 'Blue', 'Yellow' ], datasets: datasets6[0] }; const ctx6 = document.getElementById('chart6').getContext('2d'); const myChart6 = new Chart(ctx6, { type: 'doughnut', data: data6, options: { plugins: { tooltip: { enabled: true, callbacks: { label: (ttItem) => { let sum = 0; let dataArr = ttItem.dataset.data; dataArr.map(data => { sum += Number(data); }); let percentage = (ttItem.parsed * 100 / sum).toFixed(2) + '%'; return `${ttItem.parsed}: ${percentage}`; } } }, legend: { labels: { generateLabels: chart => chart.data.labels.map((l, i) => ({ text: l, index: i, fillStyle: chart.data.datasets[0].backgroundColor[i], strokeStyle: chart.data.datasets[0].backgroundColor[i], hidden: chart.getDatasetMeta(0).data[i].hidden })), }, onClick: (event, legendItem, legend) => { var start = 0; var end = 0; var sum = 0; let chart = legend.chart; let hidden = !chart.getDatasetMeta(0).data[legendItem.index].hidden; chart.getDatasetMeta(0).data[legendItem.index].hidden = hidden; chart.data.datasets[0].data.forEach((v, i) => { var value = chart.getDatasetMeta(0).data[i].$context.parsed; if (i == legendItem.index) { start = sum; end = sum + value; } sum += value; }); sum = 0; chart.data.datasets[1].data.forEach((v, i) => { var value = chart.getDatasetMeta(1).data[i].$context.parsed; sum += value; if (sum > start && sum <= end) { chart.getDatasetMeta(1).data[i].hidden = hidden; } }); chart.update(); } } } } }); document.getElementById('nested6').addEventListener('click', () => { if (data6.datasets[1].hasOwnProperty("hidden") && data6.datasets[1].hidden == true) { datasets6[0][1].hidden = false; datasets6[1][1].hidden = false; } else { datasets6[0][1].hidden = true; datasets6[1][1].hidden = true; } myChart6.update(); }); document.getElementById('dataset6').addEventListener('click', () => { if (datasets6.indexOf(data6.datasets) == -1 || datasets6.indexOf(data6.datasets) == 1) { data6.datasets = datasets6[0] } else { data6.datasets = datasets6[1] } myChart6.update(); }); </script><h3>Inner text</h3><p>To display additional text within the donut chart a Chart.js plugin must be created.</p><p>This plugin can be assigned to any graph and can be customised to display specific text with automatic resising to remain within the available space.</p><p>The specific plugin used is a slight modification to the <a href="https://stackoverflow.com/a/43026361/9389353" target="_blank">answer</a> posted by Shawn Corrigan.</p><p>The plugin script will calculate the available width and adjust the font-size and line-breaks so that the text fills the available space.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+</pre><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">countPlugin</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">doughnut-centertext</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">beforeDraw</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">chart</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">chart</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">elements</span><span class="p">.</span><span class="nx">center</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Get ctx from string</span>
+      <span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">ctx</span><span class="p">;</span>
+
+      <span class="kd">var</span> <span class="nx">innerRadius</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">_metasets</span><span class="p">[</span><span class="nx">chart</span><span class="p">.</span><span class="nx">_metasets</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">2</span><span class="p">].</span><span class="nx">controller</span><span class="p">.</span><span class="nx">innerRadius</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">chart</span><span class="p">.</span><span class="nx">_metasets</span><span class="p">[</span><span class="nx">chart</span><span class="p">.</span><span class="nx">_metasets</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">controller</span><span class="p">.</span><span class="nx">innerRadius</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">innerRadius</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">_metasets</span><span class="p">[</span><span class="nx">chart</span><span class="p">.</span><span class="nx">_metasets</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">controller</span><span class="p">.</span><span class="nx">innerRadius</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Get options from the center object in options</span>
+      <span class="kd">var</span> <span class="nx">centerConfig</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">elements</span><span class="p">.</span><span class="nx">center</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">fontStyle</span> <span class="o">=</span> <span class="nx">centerConfig</span><span class="p">.</span><span class="nx">fontStyle</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">Arial</span><span class="dl">'</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">txt</span> <span class="o">=</span> <span class="nx">centerConfig</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">centerConfig</span><span class="p">.</span><span class="nx">color</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">#000</span><span class="dl">'</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">maxFontSize</span> <span class="o">=</span> <span class="nx">centerConfig</span><span class="p">.</span><span class="nx">maxFontSize</span> <span class="o">||</span> <span class="mi">75</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">sidePadding</span> <span class="o">=</span> <span class="nx">centerConfig</span><span class="p">.</span><span class="nx">sidePadding</span> <span class="o">||</span> <span class="mi">20</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">sidePaddingCalculated</span> <span class="o">=</span> <span class="p">(</span><span class="nx">sidePadding</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">innerRadius</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+      <span class="c1">// Start with a base font of 30px</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">30px </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">fontStyle</span><span class="p">;</span>
+
+      <span class="c1">// Get the width of the string and also the width of the element minus 10 to give it 5px side padding</span>
+      <span class="kd">var</span> <span class="nx">stringWidth</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="nx">txt</span><span class="p">).</span><span class="nx">width</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">elementWidth</span> <span class="o">=</span> <span class="p">(</span><span class="nx">innerRadius</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="nx">sidePaddingCalculated</span><span class="p">;</span>
+
+
+      <span class="c1">// Find out how much the font can grow in width.</span>
+      <span class="kd">var</span> <span class="nx">widthRatio</span> <span class="o">=</span> <span class="nx">elementWidth</span> <span class="o">/</span> <span class="nx">stringWidth</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">newFontSize</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="mi">30</span> <span class="o">*</span> <span class="nx">widthRatio</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">elementHeight</span> <span class="o">=</span> <span class="p">(</span><span class="nx">innerRadius</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+
+      <span class="c1">// Pick a new font size so it will not be larger than the height of label.</span>
+      <span class="kd">var</span> <span class="nx">fontSizeToUse</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">newFontSize</span><span class="p">,</span> <span class="nx">elementHeight</span><span class="p">,</span> <span class="nx">maxFontSize</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">minFontSize</span> <span class="o">=</span> <span class="nx">centerConfig</span><span class="p">.</span><span class="nx">minFontSize</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">lineHeight</span> <span class="o">=</span> <span class="nx">centerConfig</span><span class="p">.</span><span class="nx">lineHeight</span> <span class="o">||</span> <span class="mi">25</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">wrapText</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">minFontSize</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">minFontSize</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">minFontSize</span> <span class="o">&amp;&amp;</span> <span class="nx">fontSizeToUse</span> <span class="o">&lt;</span> <span class="nx">minFontSize</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">fontSizeToUse</span> <span class="o">=</span> <span class="nx">minFontSize</span><span class="p">;</span>
+        <span class="nx">wrapText</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Set font settings to draw it correctly.</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">textAlign</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">center</span><span class="dl">'</span><span class="p">;</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">textBaseline</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">middle</span><span class="dl">'</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">centerX</span> <span class="o">=</span> <span class="p">((</span><span class="nx">chart</span><span class="p">.</span><span class="nx">chartArea</span><span class="p">.</span><span class="nx">left</span> <span class="o">+</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">chartArea</span><span class="p">.</span><span class="nx">right</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">centerY</span> <span class="o">=</span> <span class="p">((</span><span class="nx">chart</span><span class="p">.</span><span class="nx">chartArea</span><span class="p">.</span><span class="nx">top</span> <span class="o">+</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">chartArea</span><span class="p">.</span><span class="nx">bottom</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="nx">fontSizeToUse</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">px </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">fontStyle</span><span class="p">;</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">wrapText</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">txt</span><span class="p">,</span> <span class="nx">centerX</span><span class="p">,</span> <span class="nx">centerY</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="kd">var</span> <span class="nx">words</span> <span class="o">=</span> <span class="nx">txt</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">line</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="p">[];</span>
+
+      <span class="c1">// Break words up into multiple lines if necessary</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">testLine</span> <span class="o">=</span> <span class="nx">line</span> <span class="o">+</span> <span class="nx">words</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="nx">testLine</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">testWidth</span> <span class="o">=</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">testWidth</span> <span class="o">&gt;</span> <span class="nx">elementWidth</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">lines</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">line</span><span class="p">);</span>
+          <span class="nx">line</span> <span class="o">=</span> <span class="nx">words</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">line</span> <span class="o">=</span> <span class="nx">testLine</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Move the center up depending on line height and number of lines</span>
+      <span class="nx">centerY</span> <span class="o">-=</span> <span class="p">(</span><span class="nx">lines</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nx">lineHeight</span><span class="p">;</span>
+
+      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="nx">lines</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">lines</span><span class="p">[</span><span class="nx">n</span><span class="p">],</span> <span class="nx">centerX</span><span class="p">,</span> <span class="nx">centerY</span><span class="p">);</span>
+        <span class="nx">centerY</span> <span class="o">+=</span> <span class="nx">lineHeight</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">//Draw text in center</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">line</span><span class="p">,</span> <span class="nx">centerX</span><span class="p">,</span> <span class="nx">centerY</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></table></code></div></div><p>The chart options also need to be updated to include the displayed text and styling options.</p><div class="language-javascript highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="nx">plugins</span><span class="p">:</span> <span class="p">[</span><span class="nx">countPlugin</span><span class="p">],</span>
+<span class="nx">options</span><span class="p">:</span> <span class="p">{</span>
+   <span class="nl">elements</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">center</span><span class="p">:</span> <span class="p">{</span>
+         <span class="na">text</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Inner Text</span><span class="dl">"</span><span class="p">,</span>
+         <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#00a3d3</span><span class="dl">'</span><span class="p">,</span>
+         <span class="na">fontStyle</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Arial</span><span class="dl">'</span><span class="p">,</span>
+         <span class="na">sidePadding</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+         <span class="na">minFontSize</span><span class="p">:</span> <span class="kc">false</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><h4>Result</h4><p>The complete code for this example can be found <a href="https://jsfiddle.net/xdam3tj9/" target="_blank">here</a>.</p><canvas id="chart7" width="400" height="400"></canvas><p><button id="nested7" class="button">Toggle Nested</button></p><p><button id="dataset7" class="button">Switch Dataset</button></p><script> const countPlugin2 = { id: 'doughnut-centertext', beforeDraw: function(chart) { if (chart.config.options.elements.center) { var ctx = chart.ctx; var innerRadius = chart._metasets[chart._metasets.length - 2].controller.innerRadius; if (chart._metasets[chart._metasets.length - 1].controller.innerRadius > 0) { innerRadius = chart._metasets[chart._metasets.length - 1].controller.innerRadius; } var centerConfig = chart.config.options.elements.center; var fontStyle = centerConfig.fontStyle || 'Arial'; var txt = centerConfig.text; var color = centerConfig.color || '#000'; var maxFontSize = centerConfig.maxFontSize || 75; var sidePadding = centerConfig.sidePadding || 20; var sidePaddingCalculated = (sidePadding / 100) * (innerRadius * 2); ctx.font = "30px " + fontStyle; var stringWidth = ctx.measureText(txt).width; var elementWidth = (innerRadius * 2) - sidePaddingCalculated; var widthRatio = elementWidth / stringWidth; var newFontSize = Math.floor(30 * widthRatio); var elementHeight = (innerRadius * 2); var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize); var minFontSize = centerConfig.minFontSize; var lineHeight = centerConfig.lineHeight || 25; var wrapText = false; if (minFontSize === undefined) { minFontSize = 30; } if (minFontSize && fontSizeToUse < minFontSize) { fontSizeToUse = minFontSize; wrapText = true; } ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2); var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2); ctx.font = fontSizeToUse + "px " + fontStyle; ctx.fillStyle = color; if (!wrapText) { ctx.fillText(txt, centerX, centerY); return; } var words = txt.split(' '); var line = ''; var lines = []; for (var n = 0; n < words.length; n++) { var testLine = line + words[n] + ' '; var metrics = ctx.measureText(testLine); var testWidth = metrics.width; if (testWidth > elementWidth && n > 0) { lines.push(line); line = words[n] + ' '; } else { line = testLine; } } centerY -= (lines.length / 2) * lineHeight; for (var n = 0; n < lines.length; n++) { ctx.fillText(lines[n], centerX, centerY); centerY += lineHeight; } ctx.fillText(line, centerX, centerY); } } }; const datasets7 = [ [{ data: [300, 50, 100], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ] }, { data: [150, 150, 50, 75, 25], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(255, 205, 86)' ] }], [{ data: [50, 100, 200], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ] }, { data: [50, 25, 75, 100, 50, 50], backgroundColor: [ 'rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(255, 205, 86)', 'rgb(255, 205, 86)' ] }] ]; const data7 = { labels: [ 'Red', 'Blue', 'Yellow' ], datasets: datasets7[0] }; const ctx7 = document.getElementById('chart7').getContext('2d'); const myChart7 = new Chart(ctx7, { type: 'doughnut', data: data7, plugins: [countPlugin2], options: { elements: { center: { text: "Inner Text", color: '#00a3d3', fontStyle: 'Arial', sidePadding: 30, minFontSize: false } }, plugins: { tooltip: { enabled: true, callbacks: { label: (ttItem) => { let sum = 0; let dataArr = ttItem.dataset.data; dataArr.map(data => { sum += Number(data); }); let percentage = (ttItem.parsed * 100 / sum).toFixed(2) + '%'; return `${ttItem.parsed}: ${percentage}`; } } }, legend: { labels: { generateLabels: chart => chart.data.labels.map((l, i) => ({ text: l, index: i, fillStyle: chart.data.datasets[0].backgroundColor[i], strokeStyle: chart.data.datasets[0].backgroundColor[i], hidden: chart.getDatasetMeta(0).data[i].hidden })), }, onClick: (event, legendItem, legend) => { var start = 0; var end = 0; var sum = 0; let chart = legend.chart; let hidden = !chart.getDatasetMeta(0).data[legendItem.index].hidden; chart.getDatasetMeta(0).data[legendItem.index].hidden = hidden; chart.data.datasets[0].data.forEach((v, i) => { var value = chart.getDatasetMeta(0).data[i].$context.parsed; if (i == legendItem.index) { start = sum; end = sum + value; } sum += value; }); sum = 0; chart.data.datasets[1].data.forEach((v, i) => { var value = chart.getDatasetMeta(1).data[i].$context.parsed; sum += value; if (sum > start && sum <= end) { chart.getDatasetMeta(1).data[i].hidden = hidden; } }); chart.update(); } } } } }); document.getElementById('nested7').addEventListener('click', () => { if (data7.datasets[1].hasOwnProperty("hidden") && data7.datasets[1].hidden == true) { datasets7[0][1].hidden = false; datasets7[1][1].hidden = false; } else { datasets7[0][1].hidden = true; datasets7[1][1].hidden = true; } myChart7.update(); }); document.getElementById('dataset7').addEventListener('click', () => { if (datasets7.indexOf(data7.datasets) == -1 || datasets7.indexOf(data7.datasets) == 1) { data7.datasets = datasets7[0] } else { data7.datasets = datasets7[1] } myChart7.update(); }); </script><h2>SondeHub Listener Stats API</h2><p>The SondeHub Listener Stats API returns information about the number of receiver stations that have uploaded telemetry to the SondeHub radiosonde tracking database.</p><p>The API can be integrated with the chart to ensure that the latest information is always shown.</p><p>The specific Python code and Elasticsearch Query for generating the API response can be found <a href="https://github.com/projecthorus/sondehub-infra/blob/a70f7aac4c3b4745a1894d9c7a261830ea982fa3/lambda/query/__init__.py#L394" target="_blank">here</a>.</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>https://api.v2.sondehub.org/listeners/stats
+</pre></table></code></div></div><div class="language-json highlighter-rouge"><div class="code-header"> <span data-label-text="JSON"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+</pre><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+   </span><span class="nl">"radiosonde_auto_rx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">46867907</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">620</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"1.5.10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">31942436</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">390</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"1.5.9"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5278005</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">73</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"1.5.8"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2554674</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"rdzTTGOsonde"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">11768771</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">221</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"devel20220426"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3854971</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">71</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"master_v0.9.1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3628923</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"devel20220123"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1931191</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"SondeMonitor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">100335</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"6.2.6.1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">26773</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"6.2.5.8"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">184</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"6.2.4.7"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">73262</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"unique_callsigns"</span><span class="p">:</span><span class="w"> </span><span class="mi">847</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"telemetry_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">58737217</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><h3>Swagger UI API</h3><p>The following Swagger UI component can be used to access the SondeHub Listener Stats API and get real results.</p><div id="OpenAPI"></div><style> .swagger-ui .wrapper { padding: 0px!important; } .swagger-ui .wrapper .col-12 { padding: 0px!important; } .swagger-ui .opblock .opblock-summary-path { max-width: 100%!important; } @media (max-width: 768px) { .swagger-ui .opblock-body select { min-width: 40%!important; } } .swagger-ui a.nostyle, .swagger-ui a.nostyle:visited, .swagger-ui .responses-inner h4, .swagger-ui .responses-inner h5, .swagger-ui .opblock .opblock-section-header h4, .swagger-ui .opblock .opblock-section-header>label { color: var(--heading-color)!important; } .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p, .swagger-ui table thead tr td, .swagger-ui table thead tr th, .swagger-ui .opblock .opblock-summary-description, .swagger-ui .response-col_status, .swagger-ui .markdown p, .swagger-ui .btn, .swagger-ui .parameter__name, .swagger-ui .parameter__type, .swagger-ui .parameter__extension, .swagger-ui .parameter__in { color: var(--text-color)!important; } .swagger-ui .opblock .opblock-section-header { background-color: var(--btn-box-shadow)!important; } .swagger-ui input { background-color: var(--btn-box-shadow)!important; }</style><script> const paths = { "/listeners/stats": { "get": { "tags": [ "SondeHub Listener Stats" ], "summary": "Basic version stats", "description": "Use this to get stats on how many users are using specific software", "responses": { "200": { "description": "Returns a dictionary of softwares and versions" }, }, } } }; const spec = { 'swagger': '2.0', 'paths': paths, 'host': 'api.v2.sondehub.org' }; SwaggerUIBundle({ spec: spec, domNode: document.querySelector('#OpenAPI') }) </script><h2>Working Example</h2><p>The following <a href="https://jsfiddle.net/vu9nxy2d" target="_blank">JSFiddle</a> contains a fully working demo incorportating everything discussed in this post.</p><p>You can also find the complete source code on the <a href="https://github.com/projecthorus/sondehub-listener-stats" target="_blank">sondehub-listener-stats</a> GitHub page.</p><div id="container"> <canvas id="chartJSContainer" style="display: none;" width="400" height="400"></canvas><div id="loadingGif" style="display: block;" width="400" height="400"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255, 0); display: block; shape-rendering: auto;" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"> <circle cx="50" cy="50" r="32" stroke-width="8" stroke="#00a3d3" stroke-dasharray="50.26548245743669 50.26548245743669" fill="none" stroke-linecap="round"> <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform> </circle> </svg></div><div> <button id="update" class="button">MODE</button> <button id="hide" class="button">VERSIONS</button></div></div><script> var count = []; var countNested = []; var countUnique = []; var countNestedUnique = []; var empty = []; var countSelected = true; var nestedSelected = false; var stationCount = ''; var programs = []; var versions = []; var versionPrograms = []; var colours = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999']; var visibility = {}; var getJSON = function(url, callback) { var xhr = new XMLHttpRequest(); xhr.open('GET', url, true); xhr.responseType = 'json'; xhr.onload = function() { var status = xhr.status; if (status === 200) { callback(null, xhr.response); } else { callback(status, xhr.response); } }; xhr.send(); }; function resizeArray(array, size) { var dataNew = []; var sum = array.reduce((a, b) => a + b); array.forEach(function(item, index) { var rounded = Math.round(item / sum * size); dataNew.push(rounded); }); var difference = dataNew.reduce((a, b) => a + b) - size; dataNew[0] = dataNew[0] - difference; return dataNew; }; const countPlugin = { id: 'doughnut-centertext', beforeDraw: function(chart) { if (chart.config.options.elements.center) { var ctx = chart.ctx; var innerRadius = chart._metasets[chart._metasets.length - 2].controller.innerRadius; if (chart._metasets[chart._metasets.length - 1].controller.innerRadius > 0) { innerRadius = chart._metasets[chart._metasets.length - 1].controller.innerRadius; } var centerConfig = chart.config.options.elements.center; var fontStyle = centerConfig.fontStyle || 'Arial'; var txt = centerConfig.text; var color = centerConfig.color || '#000'; var maxFontSize = centerConfig.maxFontSize || 75; var sidePadding = centerConfig.sidePadding || 20; var sidePaddingCalculated = (sidePadding / 100) * (innerRadius * 2); ctx.font = "30px " + fontStyle; var stringWidth = ctx.measureText(txt).width; var elementWidth = (innerRadius * 2) - sidePaddingCalculated; var widthRatio = elementWidth / stringWidth; var newFontSize = Math.floor(30 * widthRatio); var elementHeight = (innerRadius * 2); var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize); var minFontSize = centerConfig.minFontSize; var lineHeight = centerConfig.lineHeight || 25; var wrapText = false; if (minFontSize === undefined) { minFontSize = 30; } if (minFontSize && fontSizeToUse < minFontSize) { fontSizeToUse = minFontSize; wrapText = true; } ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2); var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2); ctx.font = fontSizeToUse + "px " + fontStyle; ctx.fillStyle = color; if (!wrapText) { ctx.fillText(txt, centerX, centerY); return; } var words = txt.split(' '); var line = ''; var lines = []; for (var n = 0; n < words.length; n++) { var testLine = line + words[n] + ' '; var metrics = ctx.measureText(testLine); var testWidth = metrics.width; if (testWidth > elementWidth && n > 0) { lines.push(line); line = words[n] + ' '; } else { line = testLine; } } centerY -= (lines.length / 2) * lineHeight; for (var n = 0; n < lines.length; n++) { ctx.fillText(lines[n], centerX, centerY); centerY += lineHeight; } ctx.fillText(line, centerX, centerY); } } }; getJSON('https://api.v2.sondehub.org/listener/stats', function(err, localData){ stationCount = localData.totals.unique_callsigns + " Stations"; for (const [key, value] of Object.entries(localData)) { if (key != "totals") { programs.push(key); count.push(value['unique_callsigns']); countUnique.push(value['telemetry_count']); var tempCount = []; var tempCountUnique = []; visibility[key] = false; for (const [key1, value1] of Object.entries(localData[key]['versions'])) { tempCount.push(value1['unique_callsigns']); tempCountUnique.push(value1['telemetry_count']); versions.push(key + " " + key1); versionPrograms.push(key); } countNested = countNested.concat(resizeArray(tempCount, value['unique_callsigns'])); countNestedUnique = countNestedUnique.concat(resizeArray(tempCountUnique, value['telemetry_count'])); } } data.datasets[1].data = countNested; options.options.elements.center.text = stationCount; loadChart(); }); var data = { labels: programs, datasets: [{ name: "Program", data: count, backgroundColor: colours, label: programs }, { name: "Version", data: countNested, backgroundColor: colours, label: versions, program: versionPrograms, hidden: true } ] }; var options = { type: 'doughnut', data: data, plugins: [countPlugin], options: { elements: { center: { text: stationCount, color: '#00a3d3', fontStyle: 'Arial', sidePadding: 30, minFontSize: false } }, responsive: true, plugins: { legend: { labels: { generateLabels: chart => chart.data.labels.map((l, i) => ({ text: l, index: i, fillStyle: chart.data.datasets[0].backgroundColor[i], strokeStyle: chart.data.datasets[0].backgroundColor[i], hidden: chart.getDatasetMeta(0).data[i].hidden })), }, onClick: (event, legendItem, legend) => { let version = legendItem.text; if (version == null) version = false; visibility[version] = !legendItem.hidden; let chart = legend.chart; let hidden = !chart.getDatasetMeta(0).data[legendItem.index].hidden; chart.getDatasetMeta(0).data[legendItem.index].hidden = hidden; let pointer = 0; chart.data.datasets[1].data.forEach((v, i) => { var show = (visibility[versionPrograms[i]]); chart.getDatasetMeta(1).data[i].hidden = show; }); chart.update(); } }, tooltip: { enabled: true, callbacks: { footer: (ttItem) => { let sum = 0; let dataArr = ttItem[0].dataset.data; dataArr.map(data => { sum += Number(data); }); let percentage = (ttItem[0].parsed * 100 / sum).toFixed(2) + '%'; if (countSelected) { return `Percentage of stations: ${percentage}`; } else { return `Percentage of data: ${percentage}`; } }, title: (ttItem) => { return ttItem[0].dataset.label[ttItem[0].dataIndex]; }, label: (ttItem) => { var suffix = ""; if (countSelected) { suffix = " stations"; } else { suffix = " packets"; } return ttItem.formattedValue + suffix; } } } } } }; const ctx = document.getElementById('chartJSContainer').getContext('2d'); const chart = new Chart(ctx, options); function loadChart() { document.getElementById('loadingGif').style.display = "none"; document.getElementById('chartJSContainer').style.display = "block"; chart.update(); }; document.getElementById('update').addEventListener('click', () => { if (countSelected) { data.datasets[0].data = countUnique; data.datasets[1].data = countNestedUnique; countSelected = false; } else { data.datasets[0].data = count; data.datasets[1].data = countNested; countSelected = true; } chart.update(); }); document.getElementById('hide').addEventListener('click', () => { if (nestedSelected) { data.datasets[1].hidden = true; nestedSelected = false; } else { data.datasets[1].hidden = false; nestedSelected = true; } chart.update(); }); </script></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/blog/categories/sondehub/'>SondeHub</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=SondeHub+Stations+Chart+-+Luke+Prior+Blog&url=https%3A%2F%2Flukeprior.github.io%2Fblog%2Fposts%2Fsondehub-chart%2F" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=SondeHub+Stations+Chart+-+Luke+Prior+Blog&u=https%3A%2F%2Flukeprior.github.io%2Fblog%2Fposts%2Fsondehub-chart%2F" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copy link" data-title-succeed="Link copied successfully!"> </i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted"><div class="access"><div id="access-lastmod" class="post"><div class="panel-heading">Recently Updated</div><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/blog/posts/sondehub-radiosondy/">SondeHub Radiosondy Ingest</a><li><a href="/blog/posts/sondehub-chart/">SondeHub Stations Chart</a><li><a href="/blog/posts/sondehub-badges/">SondeHub Stats Badges</a><li><a href="/blog/posts/sondehub-suggestions/">SondeHub Site Suggestions</a></ul></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"><div class="panel-heading pl-3 pt-2 mb-2">Contents</div><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 pl-3 pr-3 pr-xl-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/blog/posts/sondehub-badges/"><div class="card-body"> <em class="small" data-ts="1652932800" data-df="ll" > May 19, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>SondeHub Stats Badges</h3><div class="text-muted small"><p> This blog post contains instructions on how to use Shields.io with a custom API to create custom status badges. Shields.io Shields.io is a free tool that can be used to create metadata badg...</p></div></div></a></div><div class="card"> <a href="/blog/posts/sondehub-suggestions/"><div class="card-body"> <em class="small" data-ts="1653364800" data-df="ll" > May 24, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>SondeHub Site Suggestions</h3><div class="text-muted small"><p> This blog post details how I created an automated system to collect user suggestions. SondeHub Tracker The SondeHub Tracker is an online website where you can view live weather balloon launch...</p></div></div></a></div><div class="card"> <a href="/blog/posts/sondehub-optimisations/"><div class="card-body"> <em class="small" data-ts="1655265600" data-df="ll" > Jun 15, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>SondeHub Tracker Optimisations</h3><div class="text-muted small"><p> The SondeHub Tracker is an updated fork of the Habhub Tracker to utilise the new SondeHub OpenSearch Radiosonde database. The original Habhub Tracker was created over 10 years ago and contains num...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"><div class="btn btn-outline-primary disabled" prompt="Older"><p>-</p></div><a href="/blog/posts/sondehub-badges/" class="btn btn-outline-primary" prompt="Newer"><p>SondeHub Stats Badges</p></a></div><script type="text/javascript"> $(function () { const origin = "https://giscus.app"; const iframe = "iframe.giscus-frame"; const lightTheme = "light"; const darkTheme = "dark_dimmed"; let initTheme = lightTheme; if ($("html[data-mode=dark]").length > 0 || ($("html[data-mode]").length == 0 && window.matchMedia("(prefers-color-scheme: dark)").matches)) { initTheme = darkTheme; } let giscusAttributes = { "src": "https://giscus.app/client.js", "data-repo": "LukePrior/blog", "data-repo-id": "R_kgDOHgAx8w", "data-category": "Announcements", "data-category-id": "DIC_kwDOHgAx884CPqW8", "data-mapping": "pathname", "data-reactions-enabled": "1", "data-emit-metadata": "0", "data-theme": initTheme, "data-input-position": "bottom", "data-lang": "en", "crossorigin": "anonymous", "async": "" }; let giscusScript = document.createElement("script"); Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value)); document.getElementById("tail-wrapper").appendChild(giscusScript); addEventListener("message", (event) => { if (event.source === window && event.data && event.data.direction === ModeToggle.ID) { /* global theme mode changed */ const mode = event.data.message; const theme = (mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme); const message = { setConfig: { theme: theme } }; const giscus = document.querySelector(iframe).contentWindow; giscus.postMessage({ giscus: message }, origin); } }); }); </script></div></div><footer class="row pl-3 pr-3"><div class="col-12 d-flex justify-content-between align-items-center text-muted pl-0 pr-0"><div class="footer-left"><p class="mb-0"> © 2022 <a href="https://github.com/LukePrior">Luke Prior</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a><div id="notification" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-animation="true" data-autohide="false"><div class="toast-header"> <button type="button" class="ml-2 ml-auto close" data-dismiss="toast" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div><div class="toast-body text-center pt-0"><p class="pl-2 pr-2 mb-3">A new version of content is available.</p><button type="button" class="btn btn-primary" aria-label="Update"> Update </button></div></div><script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/blog/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No results found.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en-au.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script> <script defer src="/blog/assets/js/dist/post.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script> <script defer src="/blog/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id=G-EXQK3S23XP"></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-EXQK3S23XP'); }); </script>
