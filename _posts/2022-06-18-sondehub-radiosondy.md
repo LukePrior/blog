@@ -114,7 +114,7 @@ The API requires an API token and a time period in hours to return recovery repo
 
    SwaggerUIBundle({
       spec: spec0,
-      domNode: document.querySelector('#OpenAPI1')
+      domNode: document.querySelector('#OpenAPI0')
    })
 </script>
 
@@ -230,7 +230,7 @@ The status of the latest report is checked and if a valid recovery already exist
                 {
                   "in": "query",
                   "name": "serial",
-                  "type": "number",
+                  "type": "string",
                   "description": "radiosonde serial number (or multiple serial numbers separated by a comma) to filter on. If none provided all serials will be presented."
                },
                {
