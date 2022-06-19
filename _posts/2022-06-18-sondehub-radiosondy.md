@@ -81,7 +81,7 @@ The API requires an API token and a time period in hours to return recovery repo
                "Radiosondy.info Recovered"
             ],
             "summary": "Radiosondy.info Recovered",
-            "description": "Request latest sonde data indexed by serial number, with options for position/distance based-filtering.",
+            "description": "Request recovery reports from Radiosondy.info..",
             "parameters": [
                {
                   "in": "query",
