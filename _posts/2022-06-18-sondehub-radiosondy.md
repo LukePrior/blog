@@ -9,6 +9,32 @@ categories: [SondeHub]
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui.css">
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui-bundle.js"></script>
 
+<style>
+   .swagger-ui .wrapper {
+      padding: 0px!important;
+   }
+   .swagger-ui .wrapper .col-12 {
+      padding: 0px!important;
+   }
+   .swagger-ui .opblock .opblock-summary-path {
+      max-width: 100%!important;
+   }
+   @media (max-width: 768px) {
+      .swagger-ui .opblock-body select {
+         min-width: 40%!important;
+      }
+   }
+   .swagger-ui a.nostyle, .swagger-ui a.nostyle:visited, .swagger-ui .responses-inner h4, .swagger-ui .responses-inner h5, .swagger-ui .opblock .opblock-section-header h4, .swagger-ui .opblock .opblock-section-header>label {
+      color: var(--heading-color)!important;
+   }
+   .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p, .swagger-ui table thead tr td, .swagger-ui table thead tr th, .swagger-ui .opblock .opblock-summary-description, .swagger-ui .response-col_status, .swagger-ui .markdown p, .swagger-ui .btn, .swagger-ui .parameter__name, .swagger-ui .parameter__type, .swagger-ui .parameter__extension, .swagger-ui .parameter__in {
+      color: var(--text-color)!important;
+   }
+   .swagger-ui .opblock .opblock-section-header {
+      background-color: var(--btn-box-shadow)!important;
+   }
+</style>
+
 The <a href="https://sondehub.org/" target="_blank">SondeHub Tracker</a> and <a href="https://radiosondy.info/" target="_blank">Radiosondy.info</a> site are the two major tracking tools for global radiosonde flights with both featuring hundreds of stations and users.
 
 The sites both include functionality for users to report recovery information to a central database which can be used to generate leaderboards and reduce waste.
@@ -39,6 +65,58 @@ The other supported radiosondes often include less similar decoding algorithms b
 
 To succesfully import radiosonde recovery data the serial numbers have to be matched between the two sites.
 
+<h2>Getting Recoveries</h2>
+
+The private Radiosondy.info recovery API is used to programatically get the recovery reports.
+
+The API requires an API token and a time period in hours to return recovery reports for.
+
+<div id="OpenAPI0"></div>
+
+<script>
+   const paths0 = {
+      "/sonde-logs": {
+         "get": {
+            "tags": [
+               "Radiosondy.info Recovered"
+            ],
+            "summary": "Radiosondy.info Recovered",
+            "description": "Request latest sonde data indexed by serial number, with options for position/distance based-filtering.",
+            "parameters": [
+               {
+                  "in": "query",
+                  "name": "token",
+                  "type": "string",
+                  "description": "API token used to grant access to API"
+               },
+               {
+                  "in": "query",
+                  "name": "period",
+                  "type": "number",
+                  "description": "Time in hours to retrieve recovery reports"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Returns a dictionary with a list of recovery reports"
+               }
+            },
+         }
+      }
+   };
+
+   const spec1 = {
+      'swagger': '2.0',
+      'paths': paths0,
+      'host': 'radiosondy.info/api/v1'
+   };
+
+   SwaggerUIBundle({
+      spec: spec0,
+      domNode: document.querySelector('#OpenAPI1')
+   })
+</script>
+
 <h2>Mapping Serials</h2>
 
 The recovery data from Radiosondy.info includes information about the specific radiosonde and the finder.
@@ -63,32 +141,6 @@ if value["type"] in sondeType:
 These parameters allow the radiosonde serial to be matched with a high degree of certainty.
 
 <div id="OpenAPI1"></div>
-
-<style>
-   .swagger-ui .wrapper {
-      padding: 0px!important;
-   }
-   .swagger-ui .wrapper .col-12 {
-      padding: 0px!important;
-   }
-   .swagger-ui .opblock .opblock-summary-path {
-      max-width: 100%!important;
-   }
-   @media (max-width: 768px) {
-      .swagger-ui .opblock-body select {
-         min-width: 40%!important;
-      }
-   }
-   .swagger-ui a.nostyle, .swagger-ui a.nostyle:visited, .swagger-ui .responses-inner h4, .swagger-ui .responses-inner h5, .swagger-ui .opblock .opblock-section-header h4, .swagger-ui .opblock .opblock-section-header>label {
-      color: var(--heading-color)!important;
-   }
-   .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p, .swagger-ui table thead tr td, .swagger-ui table thead tr th, .swagger-ui .opblock .opblock-summary-description, .swagger-ui .response-col_status, .swagger-ui .markdown p, .swagger-ui .btn, .swagger-ui .parameter__name, .swagger-ui .parameter__type, .swagger-ui .parameter__extension, .swagger-ui .parameter__in {
-      color: var(--text-color)!important;
-   }
-   .swagger-ui .opblock .opblock-section-header {
-      background-color: var(--btn-box-shadow)!important;
-   }
-</style>
 
 <script>
    const paths1 = {
@@ -165,7 +217,7 @@ The status of the latest report is checked and if a valid recovery already exist
 <div id="OpenAPI2"></div>
 
 <script>
-   const paths1 = {
+   const paths2 = {
       "/recovered": {
          "get": {
             "tags": [
@@ -216,7 +268,7 @@ The status of the latest report is checked and if a valid recovery already exist
 
    const spec1 = {
       'swagger': '2.0',
-      'paths': paths1,
+      'paths': paths2,
       'host': 'api.v2.sondehub.org'
    };
 
