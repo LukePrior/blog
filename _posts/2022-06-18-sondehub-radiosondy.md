@@ -181,6 +181,8 @@ if value["type"] in sondeType:
 
 These parameters allow the radiosonde serial to be matched with a high degree of certainty.
 
+The specific Python code and Elasticsearch Query for generating the API response can be found <a href="https://github.com/projecthorus/sondehub-infra/blob/2ee38c5a89513fcffd71d4fd71fb9332bba04081/lambda/query/__init__.py#L8" target="_blank">here</a>.
+
 ```
 https://api.v2.sondehub.org/sondes?lat=-34.94449&lon=138.91148&distance=2000
 ```
@@ -305,6 +307,8 @@ recoveryCheckParams = "?serial={}".format(serial)
 ```
 
 The status of the latest report is checked and if a valid recovery already exists the import process for that specific radiosonde is skipped.
+
+The specific Python code and Elasticsearch Query for generating the API response can be found <a href="https://github.com/projecthorus/sondehub-infra/blob/28646db615afc457add367f1139ff8ff24b1f060/lambda/recovered/__init__.py#L146" target="_blank">here</a>.
 
 ```
 https://api.v2.sondehub.org/recovered?serial=106-2-13771
