@@ -33,6 +33,9 @@ categories: [SondeHub]
    .swagger-ui .opblock .opblock-section-header {
       background-color: var(--btn-box-shadow)!important;
    }
+   .swagger-ui input {
+      background-color: var(--btn-box-shadow)!important;
+   }
 </style>
 
 The <a href="https://sondehub.org/" target="_blank">SondeHub Tracker</a> and <a href="https://radiosondy.info/" target="_blank">Radiosondy.info</a> site are the two major tracking tools for global radiosonde flights with both featuring hundreds of stations and users.
