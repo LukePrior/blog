@@ -62,6 +62,90 @@ if value["type"] in sondeType:
 
 These parameters allow the radiosonde serial to be matched with a high degree of certainty.
 
+<div id="OpenAPI1"></div>
+
+<style>
+   .swagger-ui .wrapper {
+      padding: 0px!important;
+   }
+   .swagger-ui .wrapper .col-12 {
+      padding: 0px!important;
+   }
+   .swagger-ui .opblock .opblock-summary-path {
+      max-width: 100%!important;
+   }
+   @media (max-width: 768px) {
+      .swagger-ui .opblock-body select {
+         min-width: 40%!important;
+      }
+   }
+   .swagger-ui a.nostyle, .swagger-ui a.nostyle:visited, .swagger-ui .responses-inner h4, .swagger-ui .responses-inner h5, .swagger-ui .opblock .opblock-section-header h4, .swagger-ui .opblock .opblock-section-header>label {
+      color: var(--heading-color)!important;
+   }
+   .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p, .swagger-ui table thead tr td, .swagger-ui table thead tr th, .swagger-ui .opblock .opblock-summary-description, .swagger-ui .response-col_status, .swagger-ui .markdown p, .swagger-ui .btn, .swagger-ui .parameter__name, .swagger-ui .parameter__type, .swagger-ui .parameter__extension, .swagger-ui .parameter__in {
+      color: var(--text-color)!important;
+   }
+   .swagger-ui .opblock .opblock-section-header {
+      background-color: var(--btn-box-shadow)!important;
+   }
+</style>
+
+<script>
+   const paths1 = {
+      "/sondes": {
+         "get": {
+            "tags": [
+               "SondeHub Sondes"
+            ],
+            "summary": "SondeHub Sondes",
+            "description": "Request latest sonde data indexed by serial number, with options for position/distance based-filtering.",
+            "parameters": [
+               {
+                  "in": "query",
+                  "name": "lat",
+                  "type": "number",
+                  "description": "Latitude - if specified, lon and distance are required. Eg: -34.9285"
+               },
+               {
+                  "in": "query",
+                  "name": "lon",
+                  "type": "number",
+                  "description": "Longitude - if specified, lat and distance are required Eg: 138.6007"
+               },
+               {
+                  "in": "query",
+                  "name": "distance",
+                  "type": "number",
+                  "description": "Distance in meters - if specified, lat and lon are required"
+               },
+               {
+                  "in": "query",
+                  "name": "last",
+                  "type": "number",
+                  "description": "How far back to search in seconds. Defaults to 24hrs"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Returns a dictionary keyed by serial number of a dictionary of times with SondeHub Telemetry values"
+               }
+            },
+         }
+      }
+   };
+
+   const spec1 = {
+      'swagger': '2.0',
+      'paths': paths1,
+      'host': 'api.v2.sondehub.org'
+   };
+
+   SwaggerUIBundle({
+      spec: spec1,
+      domNode: document.querySelector('#OpenAPI1')
+   })
+</script>
+
 <h2>Existing Reports</h2>
 
 Some users may report their radiosonde recovery to both sites in which case the Radiosondy.info recovery should not be imported unless it contains new information.
