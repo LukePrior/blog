@@ -13,7 +13,7 @@ This blog post details how I created an automated system to collect user suggest
 
 <h2>SondeHub Tracker</h2>
 
-The SondeHub Tracker is an online website where you can view live weather baloon launches across the world.
+The SondeHub Tracker is an online website where you can view live weather balloon launches across the world.
 
 The Tracker relies on the SondeHub database which consists of over 800 ground stations contributing live flight information to the database.
 
@@ -21,7 +21,7 @@ This data is processed and shown to users on the SondeHub tracker enabling recov
 
 <h3>SondeHub Sites API</h3>
 
-The majority of radiosondes tracked are launched on a regular schedule from a fixed location by national meterological services.
+The majority of radiosondes tracked are launched on a regular schedule from a fixed location by national meteorological services.
 
 The SondeHub database includes a crowd-sourced database of known radiosonde launch sites along with information such as launch times, radiosonde types, and flight parameters.
 
@@ -128,9 +128,9 @@ The SondeHub Sites API uses a simple data structure for each station with mandat
 
 These extra fields can include data such as the launch schedule, frequency that the radiosondes transmit on, specific notes, and flight parameters for ascent, burst, descent.
 
-The API can either return a single station given it's ID or the list of all known stations which is used in the Tracker to display all launch sites on the map.
+The API can either return a single station given its ID or the list of all known stations which is used in the Tracker to display all launch sites on the map.
 
-The API is also used internally to lookup flights parameters for any sonde that originates from that launch site and to archive flights after their completion.
+The API is also used internally to lookup flight parameters for any sonde that originates from that launch site and to archive flights after their completion.
 
 <h2>Site Suggestions</h2>
 
@@ -140,7 +140,7 @@ This modal contains a customised hyperlink containing all the existing informati
 
 <h2>Google Forms</h2>
 
-The original plan was to only use GitHub issues for all site suggestions however after trialing this approach it seemed that respondents were often confused.
+The original plan was to only use GitHub issues for all site suggestions however after trialling this approach it seemed that respondents were often confused.
 
 The GitHub API allows for customised APIs that will automatically pre-fill the text and title fields for a new issue however this functionality is not supported for individual comments on an existing issue.
 
@@ -148,7 +148,7 @@ This limitation forced the use of Google Forms as it supported all form fields b
 
 <h3>Form Fields</h3>
 
-The main consideration is designed the Google Form was ensuring that the correct data was collected in a suitable format.
+The main consideration in designing the Google Form was to ensure that the correct data was collected in a suitable format.
 
 This was achieved by splitting the form into three sections where the first contained the common fields mandatory for all stations.
 
@@ -160,7 +160,7 @@ Google Forms supports adding a custom regex check to each field that allows for 
 
 The checks for certain fields such as ID, altitude, and flight parameters were all created with simple number checks.
 
-The station name field required a custom regex to ensure that the correct naming structure was adhered with the country placed in brackets at the end.
+The station name field required a custom regex to ensure that the correct naming structure was followed with the country placed in brackets at the end.
 
 ![Name Regex](name_regex.svg)
 
@@ -172,17 +172,17 @@ The station coordinates field required a significantly more complex regex sequen
 
 The Google Form assigns a unique ID to every field in the form that can be used to generate the URL used in the Tracker that automatically fills existing fields.
 
-The ID for each field could only be determinned once the Form had been published but does appear to stay constant even after minor modifications to the form.
+The ID for each field could only be determined once the Form had been published but does appear to stay constant even after minor modifications to the form.
 
-The ID can be determined by visting the form and using developer tools to select each field and find the second 9 digit numerical value of `[data-params]`.
+The ID can be determined by visiting the form and using developer tools to select each field and find the second 9-digit numerical value of `[data-params]`.
 
 ```
 data-params="%.@.[564009759,"Station ID",null,0,[[749833526,[],true,[],[[1,10,[],"5 digit WMO code e.g. 94672"]],null,null,null,null,null,[null,[]]]],null,null,null,[],null,null,[null,"Station ID"]],"i17","i18","i19",false]"
 ```
 
-The fields can also be determinned using the Get pre-filled link integrated in the Google Forms creation page
+The fields can also be determined using the Get pre-filled link integrated into the Google Forms creation page
 
-Once the ID for each field was recordered a custom URL could be constructed.
+Once the ID for each field was recorded a custom URL could be constructed.
 
 The value for each field that will be pre-filled needs to be appended to the end of the URL with the following format
 
@@ -212,7 +212,7 @@ When a new launch site suggestion is received a custom Apps Script is executed t
 
 <h3>Processing Fields</h3>
 
-The script begins by getting the value for each provided field and formatting into the correct data type.
+The script begins by getting the value for each provided field and formatting it into the correct data type.
 
 This involves generating lists for coordinates, launch times, and sonde types in addition to reading flight parameters as floats.
 
@@ -258,7 +258,7 @@ if (e.values[7].length > 0) {
 }
 ```
 
-<h3>Check existing</h3>
+<h3>Check Existing</h3>
 
 The script attempts to download the existing records for the site if they exist to determine the differences between the current and proposed fields.
 
@@ -276,7 +276,7 @@ existing = JSON.parse(response.getContentText());
 
 To compare the new entry it must be stored in the same format as served by the API.
 
-This process will also import the launch times and sonde types if they exist for the station and the user hasen't proposed any changes to them.
+This process will also import the launch times and sonde types if they exist for the station and the user hasn't proposed any changes to them.
 
 The two objects can then be compared relatively easy using a generic difference function.
 
@@ -311,11 +311,11 @@ To post the suggested changes as a GitHub comment the data must be formatted as 
 
 <h3>Generate Markdown</h3>
 
-The comment uses various GitHub Markdown features such as expanding modals and embeded maps.
+The comment uses various GitHub Markdown features such as expanding modals and embedded maps.
 
 The first section of the comment contains the raw unprocessed suggestions which allows for manual inspection and review.
 
-The field names are bolded using `**` while new lines are created with `\n`.</p>
+The field names are bolded using `**` while new lines are created with `\n`.
 
 ```javascript
 "**Time Submitted:** " + e.values[0] + "\n"
@@ -352,9 +352,9 @@ To show the launch site on the map a geoJSON file must be constructed using the 
 ````
 
 
-The properties define the size and type of icon displayed on the map to indicates it's position along with some additional information such as station name and ID that is visible in a modal on icon selection.
+The properties define the size, type, and location of the icon displayed on the map along with some additional information such as station name and ID that is visible in a modal on icon selection.
 
-The code used to generate this simply inserts the position along with station name and ID into the string.
+The code used to generate this simply inserts the position along with the station name and ID into the string.
 
 ![Sites Map](sites-map.png)
 
@@ -370,7 +370,7 @@ To reduce the overall size of the comment most of the data is hidden behind expa
 
 <h3>Raw JSON</h3>
 
-The existing, suggested, and difference JSON files are also included in the comment under seperate modals for reference.
+The existing, suggested, and difference JSON files are also included in the comment under separate modals for reference.
 
 These are generated using `JSON.stringify()` and the same modals as above.
 
@@ -378,10 +378,10 @@ These are generated using `JSON.stringify()` and the same modals as above.
 
 The GitHub API is used to create a new comment on the issue on the SondeHub Tracker with all the information.
 
-The comments are published via my own personal account using an authorisation token.
+The comments are published via my personal account using an authorisation token.
 
 <h2>Updating the Database</h2>
 
-The Elasticsearch database containg the launch sites list is still manually updated to ensure no erros are introduced.
+The Elasticsearch database containing the launch sites list is still manually updated to ensure no errors are introduced.
 
 The automatic formatting of submissions into the correct JSON format simplifies this process considerably allowing for faster updates.

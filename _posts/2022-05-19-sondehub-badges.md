@@ -45,7 +45,25 @@ https://img.shields.io/github/last-commit/LukePrior/blog
 
 The badges all share the same styling options allowing for a consistent design across a site or project.
 
-Their are five available styles for each badge along with extra options to control specific colours and text.
+The five available styles for each badge include plastic, flat, flat-square, for-the-badge, and social.
+
+```
+https://img.shields.io/github/last-commit/LukePrior/blog?style=plastic
+```
+
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=plastic&blank=blank">
+
+```
+https://img.shields.io/github/last-commit/LukePrior/blog?style=flat
+```
+
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=flat&blank=blank">
+
+```
+https://img.shields.io/github/last-commit/LukePrior/blog?style=flat-square
+```
+
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=flat-square&blank=blank">
 
 ```
 https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge
@@ -53,15 +71,87 @@ https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge
 
 <img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&blank=blank">
 
+```
+https://img.shields.io/github/last-commit/LukePrior/blog?style=social
+```
+
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=social&blank=blank">
+
+<h3>Logo Badges</h3>
+
+Icons can be included alongside text in badges by selecting an existing design from simple-icons or provided a custom base64-encoded image.
+
+The simple-icons repository contains >2000 available icons which can be added to any badge by including their name in the logo field.
+
+The complete list of available icons and their corresponding names can be found on the simple-icons repository <a href="https://github.com/simple-icons/simple-icons/blob/develop/slugs.md" target="_blank">here</a>.
+
+```
+https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github
+```
+
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&blank=blank">
+
+To display a custom icon the image must be encoded in base64 with the total file size less then 8192 bytes so that it can fit within the request header.
+
+```
+https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=image/png;base64,...
+```
+
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=image/png;base64,&blank=blank">
+
+The horizontal padding around icons can be configured using the `logoWidth` field to allow for larger or smaller badges.
+
+```
+https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoWidth=40
+```
+
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoWidth=40&blank=blank">
+
+<h3>Colouring Badges</h3>
+
+The individual sections of badges can be coloured including the logo and left/right sections of the badge.
+
+These fields can all be styled using a variety of schemes including (hex, rgb, rgba, hsl, hsla, css named colours).
+
+The logo colour can only be configured when using named icons from simple-icons by using the `logoColor` field.
+
+```
+https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoColor=red
+```
+
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoColor=red&blank=blank">
+
+The left side background colour can be set using the `labelColor` field.
+
+```
+https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&labelColor=red
+```
+
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&labelColor=red&blank=blank">
+
+The right side background colour can be set using the `color` field.
+
+```
+https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&color=red
+```
+
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&color=red&blank=blank">
+
 <h3>Custom badges</h3>
 
-Shields.io can also generate a custom badge from any publically accessible json, xml, or yaml file.
+Shields.io can also generate a custom badge from any publically accessible JSON, XML, or YAML file.
 
 The dynamic badge type accepts a data source and query along with options for text formatting.
 
 ```
 https://img.shields.io/badge/dynamic/json?url=<URL>&label=<LABEL>&query=<$.DATA.SUBDATA>&color=<COLOR>&prefix=<PREFIX>&suffix=<SUFFIX>
 ```
+
+The `url` field is used to specify the location of the data file that will be used to generate the badge.
+
+The `query` field is used to select the correct subdata from the loaded file.
+
+The `prefix` and `suffix` fields allow text to be added to the start and end of the loaded data.
 
 This functionality was used to generate the badges in the SondeHub Wiki.
 
