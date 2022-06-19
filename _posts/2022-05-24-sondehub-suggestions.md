@@ -84,6 +84,9 @@ The following Swagger UI component can be used to access the SondeHub Sites API 
    .swagger-ui .opblock .opblock-section-header {
       background-color: var(--btn-box-shadow)!important;
    }
+   .swagger-ui input {
+      background-color: var(--btn-box-shadow)!important;
+   }
 </style>
 
 <script>
