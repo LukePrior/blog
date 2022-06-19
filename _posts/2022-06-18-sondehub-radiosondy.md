@@ -108,7 +108,8 @@ The API requires an API token and a time period in hours to return recovery repo
    const spec0 = {
       'swagger': '2.0',
       'paths': paths0,
-      'host': 'radiosondy.info/api/v1'
+      'host': 'radiosondy.info',
+      'basePath': '/api/v1'
    };
 
    SwaggerUIBundle({
