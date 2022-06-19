@@ -105,7 +105,7 @@ The API requires an API token and a time period in hours to return recovery repo
       }
    };
 
-   const spec1 = {
+   const spec0 = {
       'swagger': '2.0',
       'paths': paths0,
       'host': 'radiosondy.info/api/v1'
@@ -266,14 +266,14 @@ The status of the latest report is checked and if a valid recovery already exist
       }
    };
 
-   const spec1 = {
+   const spec2 = {
       'swagger': '2.0',
       'paths': paths2,
       'host': 'api.v2.sondehub.org'
    };
 
    SwaggerUIBundle({
-      spec: spec1,
+      spec: spec2,
       domNode: document.querySelector('#OpenAPI2')
    })
 </script>
