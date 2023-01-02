@@ -1281,7 +1281,7 @@ The following Swagger UI component can be used to access the SondeHub Listener S
 
 <h2>Working Example</h2>
 
-The following <a href="https://jsfiddle.net/vu9nxy2d" target="_blank">JSFiddle</a> contains a fully working demo incorportating everything discussed in this post.
+The following <a href="https://jsfiddle.net/634fonqk/" target="_blank">JSFiddle</a> contains a fully working demo incorportating everything discussed in this post.
 
 You can also find the complete source code on the <a href="https://github.com/projecthorus/sondehub-listener-stats" target="_blank">sondehub-listener-stats</a> GitHub page.
 
@@ -1316,6 +1316,7 @@ You can also find the complete source code on the <a href="https://github.com/pr
    var versions = [];
    var versionPrograms = [];
    var colours = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999'];
+   var excluded = ['Sonde Tracker', 'TTGO EMA DTCEA', 'TTGO WX'];
 
    var visibility = {};
 
@@ -1433,7 +1434,7 @@ You can also find the complete source code on the <a href="https://github.com/pr
    getJSON('https://api.v2.sondehub.org/listener/stats', function(err, localData){
       stationCount = localData.totals.unique_callsigns + " Stations";
       for (const [key, value] of Object.entries(localData)) {
-         if (key != "totals") {
+         if (key != "totals" && !excluded.includes(key)) {
             programs.push(key);
             count.push(value['unique_callsigns']);
             countUnique.push(value['telemetry_count']);
