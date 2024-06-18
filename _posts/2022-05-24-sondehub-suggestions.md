@@ -165,11 +165,11 @@ The checks for certain fields such as ID, altitude, and flight parameters were a
 
 The station name field required a custom regex to ensure that the correct naming structure was followed with the country placed in brackets at the end.
 
-![Name Regex](name_regex.svg)
+![Name Regex](/assets/img/name_regex.svg)
 
 The station coordinates field required a significantly more complex regex sequence that I borrowed from Stack Overflow which ensures the value is generally valid.
 
-![Coordinates Regex](coordinates_regex.svg)
+![Coordinates Regex](/assets/img/coordinates_regex.svg)
 
 <h3>Field Autofill</h3>
 
