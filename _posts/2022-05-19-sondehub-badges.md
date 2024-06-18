@@ -51,31 +51,31 @@ The five available styles for each badge include plastic, flat, flat-square, for
 https://img.shields.io/github/last-commit/LukePrior/blog?style=plastic
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=plastic&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=plastic&blank=blank" alt="Plastic Badge">
 
 ```
 https://img.shields.io/github/last-commit/LukePrior/blog?style=flat
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=flat&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=flat&blank=blank" alt="Flat Badge">
 
 ```
 https://img.shields.io/github/last-commit/LukePrior/blog?style=flat-square
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=flat-square&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=flat-square&blank=blank" alt="Flat Square Badge">
 
 ```
 https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&blank=blank" alt="For The Badge">
 
 ```
 https://img.shields.io/github/last-commit/LukePrior/blog?style=social
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=social&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=social&blank=blank" alt="Social Badge">
 
 <h3>Logo Badges</h3>
 
@@ -89,7 +89,7 @@ The complete list of available icons and their corresponding names can be found 
 https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&blank=blank" alt="GitHub Badge">
 
 To display a custom icon the image must be encoded in base64 with the total file size less then 8192 bytes so that it can fit within the request header.
 
@@ -97,7 +97,7 @@ To display a custom icon the image must be encoded in base64 with the total file
 https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=image/png;base64,...
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=image/png;base64,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&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=image/png;base64,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&blank=blank" alt="Custom icon Badge">
 
 The horizontal padding around icons can be configured using the `logoWidth` field to allow for larger or smaller badges.
 
@@ -105,7 +105,7 @@ The horizontal padding around icons can be configured using the `logoWidth` fiel
 https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoWidth=40
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoWidth=40&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoWidth=40&blank=blank" alt="Custom Width Badge">
 
 <h3>Colouring Badges</h3>
 
@@ -119,7 +119,7 @@ The logo colour can only be configured when using named icons from simple-icons 
 https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoColor=red
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoColor=red&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoColor=red&blank=blank" alt="Custom Colour Badge">
 
 The left side background colour can be set using the `labelColor` field.
 
@@ -127,7 +127,7 @@ The left side background colour can be set using the `labelColor` field.
 https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&labelColor=red
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&labelColor=red&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&labelColor=red&blank=blank" alt="Custom Colour Badge">
 
 The right side background colour can be set using the `color` field.
 
@@ -135,7 +135,7 @@ The right side background colour can be set using the `color` field.
 https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&color=red
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&color=red&blank=blank">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&color=red&blank=blank" alt="Custom Colour Badge">
 
 <h3>Custom badges</h3>
 
