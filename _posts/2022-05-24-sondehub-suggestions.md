@@ -359,7 +359,7 @@ The properties define the size, type, and location of the icon displayed on the 
 
 The code used to generate this simply inserts the position along with the station name and ID into the string.
 
-![Sites Map](sites-map.png)
+![Sites Map](/assets/img/sites-map.png)
 
 <h3>Hidden Modals</h3>
 
