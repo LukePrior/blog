@@ -259,25 +259,27 @@ The SondeHub Listener Stats API URL is provided along with a query to get the fi
 https://img.shields.io/badge/dynamic/json?label=Total&query=totals.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Total&query=totals.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge&blank=blank">
+<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Total&query=totals.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge&blank=blank" alt="Total Stations Badge">
 
 ```
 https://img.shields.io/badge/dynamic/json?label=radiosonde_auto_rx&query=radiosonde_auto_rx.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=radiosonde_auto_rx&query=radiosonde_auto_rx.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge&blank=blank">
+<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=radiosonde_auto_rx&query=radiosonde_auto_rx.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge&blank=blank" alt="radiosonde_auto_rx Badge">
 
 ```
 https://img.shields.io/badge/dynamic/json?label=rdzTTGOsonde&query=rdzTTGOsonde.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=rdzTTGOsonde&query=rdzTTGOsonde.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge&blank=blank">
+<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=rdzTTGOsonde&query=rdzTTGOsonde.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge&blank=blank" alt="rdzTTGOsonde Badge">
 
 ```
 https://img.shields.io/badge/dynamic/json?label=SondeMonitor&query=SondeMonitor.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=SondeMonitor&query=SondeMonitor.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge&blank=blank">
+<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=SondeMonitor&query=SondeMonitor.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge&blank=blank" alt="SondeMonitor Badge">
+
+```
 
 <h2>SondeHub Recovery Stats API</h2>
 
@@ -379,25 +381,25 @@ The SondeHub Recovery Stats API URL is provided along with a query to get the fi
 https://img.shields.io/badge/dynamic/json?label=Reported&query=total&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Reported&query=total&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge&blank=blank">
+<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Reported&query=total&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge&blank=blank" alt="Reported Sondes Badge">
 
 ```
 https://img.shields.io/badge/dynamic/json?label=Recovered&query=recovered&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Recovered&query=recovered&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge&blank=blank">
+<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Recovered&query=recovered&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge&blank=blank" alt="Recovered Sondes Badge">
 
 ```
 https://img.shields.io/badge/dynamic/json?label=Lost&query=failed&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Lost&query=failed&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge&blank=blank">
+<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Lost&query=failed&suffix=%20Sondes&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge&blank=blank" alt="Lost Sondes Badge">
 
 ```
 https://img.shields.io/badge/dynamic/json?label=Chasers&query=chaser_count&suffix=%20Chasers&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge
 ```
 
-<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Chasers&query=chaser_count&suffix=%20Chasers&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge&blank=blank">
+<img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Chasers&query=chaser_count&suffix=%20Chasers&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge&blank=blank" alt="Chasers Badge">
 
 <h2>Usage with GitHub Markdown</h2>
 
