@@ -39,7 +39,7 @@ The following badge shows the last time this blog was updated.
 https://img.shields.io/github/last-commit/LukePrior/blog
 ```
 
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog">
+<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog" alt="Last Commit Badge">
 
 <h3>Styling Badges</h3>
 
