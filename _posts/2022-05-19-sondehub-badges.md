@@ -11,7 +11,7 @@ categories: [SondeHub]
 <style>
    .badge_img {
       max-width: calc(66.6vw - 30px)!important;
-      transform: scale(1.5)!important;
+      transform: scale(1.5) translateX(-50%)!important;
    }
 </style>
 
