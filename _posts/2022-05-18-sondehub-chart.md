@@ -11,8 +11,6 @@ categories: [SondeHub]
 
 This blog post contains instructions on how to use Chart.js to create a custom donut chart specifically designed for showing receiver data from SondeHub.
 
-<blockquote class="prompt-warning"><p>The SondeHub Listener Stats API has been decomissioned.</p></blockquote>
-
 <h2>Chart.js</h2>
 
 Chart.js is a simple JavaScript charting library for creating responsive visualisations of various types and styles.

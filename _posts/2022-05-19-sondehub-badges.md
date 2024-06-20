@@ -21,13 +21,13 @@ categories: [SondeHub]
 
 This blog post contains instructions on how to use Shields.io with a custom API to create custom status badges.
 
-<h2>Shields.io</h2>
+## Shields.io
 
 Shields.io is a free tool that can be used to create metadata badges which can easily be added to open source projects.
 
 The most common usecase is showing key project information such as usage and code coverage on sites like GitHub.
 
-<h3>Creating Badges</h3>
+### Creating Badges
 
 Shields.io creates these metadata badges from the arguments provided in the URL and returns an image which can be embedded.
 
@@ -41,7 +41,7 @@ https://img.shields.io/github/last-commit/LukePrior/blog
 
 <img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog" alt="Last Commit Badge">
 
-<h3>Styling Badges</h3>
+### Styling Badges
 
 The badges all share the same styling options allowing for a consistent design across a site or project.
 
@@ -155,7 +155,7 @@ The `prefix` and `suffix` fields allow text to be added to the start and end of 
 
 This functionality was used to generate the badges in the SondeHub Wiki.
 
-<h2>SondeHub Listener Stats API</h2>
+## SondeHub Listener Stats API
 
 <blockquote class="prompt-danger"><p>The SondeHub Listener Stats API has been decomissioned rendering this example broken.</p></blockquote>
 
@@ -281,9 +281,7 @@ https://img.shields.io/badge/dynamic/json?label=SondeMonitor&query=SondeMonitor.
 
 <img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=SondeMonitor&query=SondeMonitor.unique_callsigns&suffix=%20Stations&url=https%3A%2F%2Fapi.v2.sondehub.org%2Flisteners%2Fstats&style=for-the-badge&blank=blank" alt="SondeMonitor Badge">
 
-```
-
-<h2>SondeHub Recovery Stats API</h2>
+## SondeHub Recovery Stats API
 
 The SondeHub Recovery Stats API returns information about the number of radiosondes that have been marked as retrieved in the SondeHub database.
 
@@ -403,7 +401,7 @@ https://img.shields.io/badge/dynamic/json?label=Chasers&query=chaser_count&suffi
 
 <img class="badge_img" src="https://img.shields.io/badge/dynamic/json?label=Chasers&query=chaser_count&suffix=%20Chasers&url=https%3A%2F%2Fapi.v2.sondehub.org%2Frecovered%2Fstats&style=for-the-badge&blank=blank" alt="Chasers Badge">
 
-<h2>Usage with GitHub Markdown</h2>
+## Usage with GitHub Markdown
 
 These badges can easily be added to any GitHub README, Wiki page, or comment using markdwon.
 
