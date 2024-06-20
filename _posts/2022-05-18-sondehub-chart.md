@@ -11,7 +11,7 @@ categories: [SondeHub]
 
 This blog post contains instructions on how to use Chart.js to create a custom donut chart specifically designed for showing receiver data from SondeHub.
 
-<h2>Chart.js</h2>
+## Chart.js
 
 Chart.js is a simple JavaScript charting library for creating responsive visualisations of various types and styles.
 
@@ -21,7 +21,7 @@ Chart.js can easily be added on an existing website by including the latest vers
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
 ```
 
-<h3>Donut Chart</h3>
+### Donut Chart
 
 To render a chart a canvas element needs to be added to the website
 
@@ -60,7 +60,7 @@ const myChart = new Chart(ctx, {
 });
 ```
 
-<h4>Result</h4>
+#### Result
 
 The complete code for this example can be found <a href="https://jsfiddle.net/vzg1eh8o/" target="_blank">here</a>.
 
@@ -91,7 +91,7 @@ The complete code for this example can be found <a href="https://jsfiddle.net/vz
    });
 </script>
 
-<h3>Custom Item Tooltips</h3>
+### Custom Item Tooltips
 
 The default tooltip only shows the label and value for each entry.
 
@@ -124,7 +124,7 @@ const myChart = new Chart(ctx, {
 });
 ```
 
-<h4>Result</h4>
+#### Result
 
 The complete code for this example can be found <a href="https://jsfiddle.net/awfkm86x/" target="_blank">here</a>.
 
@@ -175,7 +175,7 @@ The complete code for this example can be found <a href="https://jsfiddle.net/aw
    });
 </script>
 
-<h3>Nested Donut Chart</h3>
+### Nested Donut Chart
 
 Chart.js includes limited nested data support with donut charts by passing through multiple datasets.
 
@@ -204,7 +204,7 @@ const data = {
 };
 ```
 
-<h4>Result</h4>
+#### Result
 
 The complete code for this example can be found <a href="https://jsfiddle.net/wLe7ngk3/" target="_blank">here</a>.
 
@@ -327,7 +327,7 @@ plugins: {
 }
 ```
 
-<h4>Result</h4>
+#### Result
 
 The complete code for this example can be found <a href="https://jsfiddle.net/qkxyjfuL/" target="_blank">here</a>.
 
@@ -423,7 +423,7 @@ The complete code for this example can be found <a href="https://jsfiddle.net/qk
    });
 </script>
 
-<h3>Toggle Nested Data</h3>
+### Toggle Nested Data
 
 The nested data can also be toggled on and off by creating a simple function.
 
@@ -444,7 +444,7 @@ This function will toggle the nested data visiblity when the following button is
 <button id="nested" class="button">Toggle Nested</button>
 ```
 
-<h4>Result</h4>
+#### Result
 
 The complete code for this example can be found <a href="https://jsfiddle.net/23k567q1/" target="_blank">here</a>.
 
@@ -551,7 +551,7 @@ The complete code for this example can be found <a href="https://jsfiddle.net/23
    });
 </script>
 
-<h3>Switch datasets</h3>
+### Switch datasets
 
 To show multiple datasets on the graph switching functionality has to be implemented.
 
@@ -644,7 +644,7 @@ document.getElementById('nested').addEventListener('click', () => {
 });
 ```
 
-<h4>Result</h4>
+#### Result
 
 The complete code for this example can be found <a href="https://jsfiddle.net/1crxpez4/" target="_blank">here</a>.
 
@@ -786,7 +786,7 @@ The complete code for this example can be found <a href="https://jsfiddle.net/1c
    });
 </script>
 
-<h3>Inner text</h3>
+### Inner text
 
 To display additional text within the donut chart a Chart.js plugin must be created.
 
@@ -906,7 +906,7 @@ options: {
 }
 ```
 
-<h4>Result</h4>
+#### Result
 
 The complete code for this example can be found <a href="https://jsfiddle.net/xdam3tj9/" target="_blank">here</a>.
 
@@ -1139,7 +1139,7 @@ The complete code for this example can be found <a href="https://jsfiddle.net/xd
    });
 </script>
 
-<h2>SondeHub Listener Stats API</h2>
+## SondeHub Listener Stats API
 
 The SondeHub Listener Stats API returns information about the number of receiver stations that have uploaded telemetry to the SondeHub radiosonde tracking database.
 
@@ -1214,7 +1214,7 @@ https://api.v2.sondehub.org/listeners/stats
 }
 ```
 
-<h3>Swagger UI API</h3>
+### Swagger UI API
 
 The following Swagger UI component can be used to access the SondeHub Listener Stats API and get real results.
 
@@ -1279,7 +1279,7 @@ The following Swagger UI component can be used to access the SondeHub Listener S
    })   
 </script>
 
-<h2>Working Example</h2>
+## Working Example
 
 <blockquote class="prompt-danger"><p>The SondeHub Listener Stats API has been decomissioned rendering this example broken.</p></blockquote>
 
