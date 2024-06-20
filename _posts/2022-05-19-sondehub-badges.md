@@ -157,6 +157,8 @@ This functionality was used to generate the badges in the SondeHub Wiki.
 
 <h2>SondeHub Listener Stats API</h2>
 
+<blockquote class="prompt-danger"><p>The SondeHub Listener Stats API has been decomissioned rendering this example broken.</p></blockquote>
+
 The SondeHub Listener Stats API returns information about the number of receiver stations that have uploaded telemetry to the SondeHub radiosonde tracking database.
 
 ```

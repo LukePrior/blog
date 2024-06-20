@@ -109,6 +109,8 @@ https://radiosondy.info/api/v1/sonde-logs?token={token}&period=48
 
 <h3>Swagger UI API</h3>
 
+<blockquote class="prompt-warning"><p>The Radiosondy.info Recovery API requires a private token for usage.</p></blockquote>
+
 The following Swagger UI component can be used to access the Radiosondy.info Recovery API and get real results.
 
 <div id="OpenAPI0"></div>

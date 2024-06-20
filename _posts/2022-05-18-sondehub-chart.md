@@ -11,6 +11,8 @@ categories: [SondeHub]
 
 This blog post contains instructions on how to use Chart.js to create a custom donut chart specifically designed for showing receiver data from SondeHub.
 
+<blockquote class="prompt-warning"><p>The SondeHub Listener Stats API has been decomissioned.</p></blockquote>
+
 <h2>Chart.js</h2>
 
 Chart.js is a simple JavaScript charting library for creating responsive visualisations of various types and styles.
@@ -1280,6 +1282,8 @@ The following Swagger UI component can be used to access the SondeHub Listener S
 </script>
 
 <h2>Working Example</h2>
+
+<blockquote class="prompt-danger"><p>The SondeHub Listener Stats API has been decomissioned rendering this example broken.</p></blockquote>
 
 The following <a href="https://jsfiddle.net/634fonqk/" target="_blank">JSFiddle</a> contains a fully working demo incorportating everything discussed in this post.
 
