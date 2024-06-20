@@ -35,11 +35,10 @@ Several preconfigured badges exist for common services and statistics such as co
 
 The following badge shows the last time this blog was updated.
 
+![Last Commit Badge]("https://img.shields.io/github/last-commit/LukePrior/blog"){: .left}
 ```
 https://img.shields.io/github/last-commit/LukePrior/blog
 ```
-
-<img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog" alt="Last Commit Badge">
 
 ### Styling Badges
 
@@ -77,7 +76,7 @@ https://img.shields.io/github/last-commit/LukePrior/blog?style=social
 
 <img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=social&blank=blank" alt="Social Badge">
 
-<h3>Logo Badges</h3>
+### Logo Badges
 
 Icons can be included alongside text in badges by selecting an existing design from simple-icons or providing a custom base64-encoded image.
 
@@ -107,7 +106,7 @@ https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&log
 
 <img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&logo=github&logoWidth=40&blank=blank" alt="Custom Width Badge">
 
-<h3>Colouring Badges</h3>
+### Colouring Badges
 
 The individual sections of badges can be coloured including the logo and left/right sections of the badge.
 
@@ -137,7 +136,7 @@ https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&col
 
 <img class="badge_img" src="https://img.shields.io/github/last-commit/LukePrior/blog?style=for-the-badge&color=red&blank=blank" alt="Custom Colour Badge">
 
-<h3>Custom badges</h3>
+### Custom badges
 
 Shields.io can also generate a custom badge from any publically accessible JSON, XML, or YAML file.
 
