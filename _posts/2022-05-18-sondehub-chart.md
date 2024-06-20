@@ -1279,7 +1279,7 @@ The following Swagger UI component can be used to access the SondeHub Listener S
    })   
 </script>
 
-## Working Example
+## Example
 
 <blockquote class="prompt-danger"><p>The SondeHub Listener Stats API has been decomissioned rendering this example broken.</p></blockquote>
 

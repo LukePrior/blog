@@ -11,7 +11,7 @@ categories: [SondeHub]
 
 This blog post details how I created an automated system to collect user suggestions.
 
-<h2>SondeHub Tracker</h2>
+## SondeHub Tracker
 
 The SondeHub Tracker is an online website where you can view live weather balloon launches across the world.
 
@@ -19,7 +19,7 @@ The Tracker relies on the SondeHub database which consists of over 800 ground st
 
 This data is processed and shown to users on the SondeHub tracker enabling recovery of radiosondes and basic weather predictions.
 
-<h3>SondeHub Sites API</h3>
+### SondeHub Sites API
 
 The majority of radiosondes tracked are launched on a regular schedule from a fixed location by national meteorological services.
 
@@ -135,13 +135,13 @@ The API can either return a single station given its ID or the list of all known
 
 The API is also used internally to lookup flight parameters for any sonde that originates from that launch site and to archive flights after their completion.
 
-<h2>Site Suggestions</h2>
+## Site Suggestions
 
 The SondeHub Tracker includes an integrated modal that allows users to suggest changes to any launch site on the map.
 
 This modal contains a customised hyperlink containing all the existing information for the launch site so that only the changes need to be supplied.
 
-<h2>Google Forms</h2>
+## Google Forms
 
 The original plan was to only use GitHub issues for all site suggestions however after trialling this approach it seemed that respondents were often confused.
 
@@ -149,7 +149,7 @@ The GitHub API allows for customised APIs that will automatically pre-fill the t
 
 This limitation forced the use of Google Forms as it supported all form fields being prefilled from the URL.
 
-<h3>Form Fields</h3>
+### Form Fields
 
 The main consideration in designing the Google Form was to ensure that the correct data was collected in a suitable format.
 
@@ -157,7 +157,7 @@ This was achieved by splitting the form into three sections where the first cont
 
 The second section contained all the optional fields that might not yet exist for any particular station while the last section allowed users to submit any extra notes.
 
-<h3>Field Validity Checks</h3>
+### Field Validity Checks
 
 Google Forms supports adding a custom regex check to each field that allows for extreme control over what inputs can be submitted.
 
@@ -171,7 +171,7 @@ The station coordinates field required a significantly more complex regex sequen
 
 ![Coordinates Regex](/assets/img/coordinates_regex.svg)
 
-<h3>Field Autofill</h3>
+### Field Autofill
 
 The Google Form assigns a unique ID to every field in the form that can be used to generate the URL used in the Tracker that automatically fills existing fields.
 
@@ -205,7 +205,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSfIbBSQMZOXpNE4VpK4BqUbKDPCWCDgU9QxYgmh
 
 This pre-fill functionality isn't easily implemented for the sondes type and launch times fields so currently these must be manually entered each time.
 
-<h2>Google Apps Script</h2>
+## Google Apps Script
 
 The Google Form will automatically add the responses to the form to a Google Sheets where Google Apps Script can be setup to automatically run.
 
@@ -213,7 +213,7 @@ Google Apps Script is a JavaScript based scripting platform that enables easy in
 
 When a new launch site suggestion is received a custom Apps Script is executed to process the suggestion and publish it to GitHub as a new comment on the main issue.
 
-<h3>Processing Fields</h3>
+### Processing Fields
 
 The script begins by getting the value for each provided field and formatting it into the correct data type.
 
@@ -261,7 +261,7 @@ if (e.values[7].length > 0) {
 }
 ```
 
-<h3>Check Existing</h3>
+### Check Existing
 
 The script attempts to download the existing records for the site if they exist to determine the differences between the current and proposed fields.
 
@@ -308,11 +308,11 @@ The function returns a new object which lists all the additions, modifications, 
 }
 ```
 
-<h2>GitHub Issues</h2>
+## GitHub Issues
 
 To post the suggested changes as a GitHub comment the data must be formatted as a single Markdown string.
 
-<h3>Generate Markdown</h3>
+### Generate Markdown
 
 The comment uses various GitHub Markdown features such as expanding modals and embedded maps.
 
@@ -324,7 +324,7 @@ The field names are bolded using `**` while new lines are created with `\n`.
 "**Time Submitted:** " + e.values[0] + "\n"
 ```
 
-<h3>Generate Map</h3>
+### Generate Map
 
 The next section is an expandable map showing the proposed or existing solution of the launch site on an interactive map.
 
@@ -361,7 +361,7 @@ The code used to generate this simply inserts the position along with the statio
 
 ![Sites Map](/assets/img/sites-map.png)
 
-<h3>Hidden Modals</h3>
+### Hidden Modals
 
 To reduce the overall size of the comment most of the data is hidden behind expandable modals which are created using the HTML details and summary tags.
 
@@ -371,19 +371,19 @@ To reduce the overall size of the comment most of the data is hidden behind expa
 </details>
 ```
 
-<h3>Raw JSON</h3>
+### Raw JSON
 
 The existing, suggested, and difference JSON files are also included in the comment under separate modals for reference.
 
 These are generated using `JSON.stringify()` and the same modals as above.
 
-<h3>Publishing to GitHub</h3>
+### Publishing to GitHub
 
 The GitHub API is used to create a new comment on the issue on the SondeHub Tracker with all the information.
 
 The comments are published via my personal account using an authorisation token.
 
-<h2>Updating the Database</h2>
+## Updating the Database
 
 The Elasticsearch database containing the launch sites list is still manually updated to ensure no errors are introduced.
 
