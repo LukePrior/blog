@@ -8,17 +8,6 @@ categories: [SondeHub]
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui.css">
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.11.1/swagger-ui-bundle.js"></script>
 
-<style>
-   .badge_img {
-      position: static!important;
-      display: block!important;
-      margin-right: auto!important;
-      margin-left: auto!important;
-      max-width: calc(66.6vw - 30px)!important;
-      transform: scale(1.5)!important;
-   }
-</style>
-
 This blog post contains instructions on how to use Shields.io with a custom API to create custom status badges.
 
 ## Shields.io
@@ -35,11 +24,13 @@ Several preconfigured badges exist for common services and statistics such as co
 
 The following badge shows the last time this blog was updated.
 
-![Last Commit Badge](https://img.shields.io/github/last-commit/LukePrior/blog){: .left}
 
+<div class="badge_code">
+![Last Commit Badge](https://img.shields.io/github/last-commit/LukePrior/blog)
 ```
 https://img.shields.io/github/last-commit/LukePrior/blog
 ```
+</div>
 
 ### Styling Badges
 
