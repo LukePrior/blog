@@ -42,7 +42,7 @@ The <a href="https://sondehub.org/" target="_blank">SondeHub Tracker</a> and <a 
 
 The sites both include functionality for users to report recovery information to a central database which can be used to generate leaderboards and reduce waste.
 
-<h2>Reporting Recoveries</h2>
+## Reporting Recoveries
 
 The primary concept around reporting recoveries is assigning the recovery to a specific radiosonde and user.
 
@@ -52,7 +52,7 @@ The recovery can then be lodged against the specific serial along with informati
 
 This information can be used to keep track of which radiosondes may still be available to recover and allow users to compare recoveries.
 
-<h2>Radiosonde Serials</h2>
+## Radiosonde Serials
 
 The sites both support a variety of radiosondes created by various manufacturers and launched globally.
 
@@ -68,7 +68,7 @@ The other supported radiosondes often include less similar decoding algorithms b
 
 To succesfully import radiosonde recovery data the serial numbers have to be matched between the two sites.
 
-<h2>Getting Recoveries</h2>
+## Getting Recoveries
 
 The private Radiosondy.info recovery API is used to programatically get the recovery reports.
 
@@ -107,7 +107,7 @@ https://radiosondy.info/api/v1/sonde-logs?token={token}&period=48
 }
 ```
 
-<h3>Swagger UI API</h3>
+### Swagger UI API
 
 <blockquote class="prompt-warning"><p>The Radiosondy.info Recovery API requires a private token for usage.</p></blockquote>
 
@@ -160,7 +160,7 @@ The following Swagger UI component can be used to access the Radiosondy.info Rec
    })
 </script>
 
-<h2>Mapping Serials</h2>
+## Mapping Serials
 
 The recovery data from Radiosondy.info includes information about the specific radiosonde and the finder.
 
@@ -232,7 +232,7 @@ https://api.v2.sondehub.org/sondes?lat=-34.94449&lon=138.91148&distance=2000
 }
 ```
 
-<h3>Swagger UI API</h3>
+### Swagger UI API
 
 The following Swagger UI component can be used to access the SondeHub Sondes API and get real results.
 
@@ -294,7 +294,7 @@ The following Swagger UI component can be used to access the SondeHub Sondes API
    })
 </script>
 
-<h2>Existing Reports</h2>
+## Existing Reports
 
 Some users may report their radiosonde recovery to both sites in which case the Radiosondy.info recovery should not be imported unless it contains new information.
 
@@ -334,7 +334,7 @@ https://api.v2.sondehub.org/recovered?serial=106-2-13771
 ]
 ```
 
-<h3>Swagger UI API</h3>
+### Swagger UI API
 
 The following Swagger UI component can be used to access the SondeHub Recovery API and get real results.
 
@@ -402,7 +402,7 @@ The following Swagger UI component can be used to access the SondeHub Recovery A
    })
 </script>
 
-<h2>Creating Report</h2>
+## Creating Report
 
 The recovery report can be created once a valid serial has been found and the SondeHub database has been checked for existing valid reports.
 
@@ -410,7 +410,7 @@ This requires that the provided fields from Radiosondy.info are parsed and trans
 
 The finder, time, description, position, and serial are all extracted and submitted as a new recovery to SondeHub using the API.
 
-<h2>Automation</h2>
+## Automation
 
 The complete Python script used to complete this process can be found <a href="https://github.com/projecthorus/sondehub-infra/blob/main/lambda/recovery_ingest/__init__.py#L9" target="_blank">here</a>.
 
