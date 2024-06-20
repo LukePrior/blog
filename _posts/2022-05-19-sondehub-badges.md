@@ -35,7 +35,8 @@ Several preconfigured badges exist for common services and statistics such as co
 
 The following badge shows the last time this blog was updated.
 
-![Last Commit Badge]("https://img.shields.io/github/last-commit/LukePrior/blog"){: .left}
+![Last Commit Badge](https://img.shields.io/github/last-commit/LukePrior/blog){: .left}
+
 ```
 https://img.shields.io/github/last-commit/LukePrior/blog
 ```
