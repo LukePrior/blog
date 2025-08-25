@@ -1,4 +1,4 @@
-# The Site Configuration
+'''# The Site Configuration
 
 # Import the theme
 theme: jekyll-theme-chirpy
@@ -42,6 +42,7 @@ social:
     - https://www.linkedin.com/in/luke-prior-03
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
+    - https://twitter.com/username # change to your Twitter homepage
 
 # Site Verification Settings
 webmaster_verifications:
@@ -69,8 +70,10 @@ analytics:
     domain: # fill in your Matomo domain
   cloudflare:
     id: # fill in your Cloudflare Web Analytics token
+  fathom:
+    id: # fill in your Fathom Site ID
 
-# Pageviews settings
+# Page views settings
 pageviews:
   provider: # now only supports 'goatcounter'
 
@@ -82,8 +85,8 @@ pageviews:
 #
 # Available options:
 #
-#     light  - Use the light color scheme
-#     dark   - Use the dark color scheme
+#     light — Use the light color scheme
+#     dark — Use the dark color scheme
 #
 theme_mode: # [light | dark]
 
@@ -105,8 +108,8 @@ social_preview_image: # string, local or CORS resources
 toc: true
 
 comments:
-  # Global switch for the post comment system. Keeping it empty means disabled.
-  provider: giscus
+  # Global switch for the post-comment system. Keeping it empty means disabled.
+  provider: giscus # [disqus | utterances | giscus]
   # The provider options are as follows:
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
@@ -135,9 +138,9 @@ assets:
     env: # [development | production]
 
 pwa:
-  enabled: false # the option for PWA feature (installable)
+  enabled: true # The option for PWA feature (installable)
   cache:
-    enabled: true # the option for PWA offline cache
+    enabled: true # The option for PWA offline cache
     # Paths defined here will be excluded from the PWA cache.
     # Usually its value is the `baseurl` of another website that
     # shares the same domain name as the current website.
@@ -215,6 +218,7 @@ exclude:
   - LICENSE
   - "*.config.js"
   - package*.json
+  - purgecss.js
 
 jekyll-archives:
   enabled: [categories, tags]
@@ -224,3 +228,4 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+''
