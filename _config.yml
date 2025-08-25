@@ -1,4 +1,4 @@
-'''# The Site Configuration
+# The Site Configuration
 
 # Import the theme
 theme: jekyll-theme-chirpy
@@ -119,10 +119,10 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: 'LukePrior/blog'
-    repo_id: 'R_kgDOHgAx8w'
-    category: 'Announcements'
-    category_id: 'DIC_kwDOHgAx884CPqW8'
+    repo: "LukePrior/blog"
+    repo_id: "R_kgDOHgAx8w"
+    category: "Announcements"
+    category_id: "DIC_kwDOHgAx884CPqW8"
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
     input_position: # optional, default to 'bottom'
@@ -228,4 +228,3 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-''
